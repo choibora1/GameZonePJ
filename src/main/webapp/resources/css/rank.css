@@ -1,0 +1,11 @@
+.rank_table {
+	border: 1px solid goldenrod;
+    position: fixed;
+    left: 5%;
+    top: 14.5%;
+    width: 215px;
+}
+
+.rank_list {
+	color: lavender;
+}

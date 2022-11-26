@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+#Game_main{
+   position: relative;
+   text-align: center;
+   width: 65%;
+   margin: auto;
+}
+
+/*  Check  List searchBar */
+#left_title{
+    width: 10%;
+    font-size: 20px;
+}
+
+#right_contents {
+   display: flex;
+   justify-content: space-evenly;
+   width: 100%;
+   border-left: 2px solid;
+}
+
+#GameForm > div{
+   display: flex;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#GameForm > div:first-child {
+   border: 3px solid;
+}
+
+.game_category {
+   flex-direction: column;
+   text-align: left;
+   line-height: 40px;
+}
+
+#searchBar {
+   color:DimGray ; font-family:돋움; font-size:16px;
+   float: left;
+}
+#gameSearchBar {
+   color:goldenrod ; font-size:16px;
+   margin: 50px 0px 30px 0px;
+}
+
+#resultArea{
+   width: 93%;
+   margin: auto;
+}
+
+#GameForm>#search {
+   margin: unset;
+    display: inline;
+    float: right;
+}
+
+#GameForm > a{
+   float: left;
+    border: 1px solid;
+    color: white;
+    background-color: black;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.search_box {
+   width: 250px;
+   text-align: center;
+   border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-bottom: 2px solid #D4D0C8;
+    border-right: 2px solid #D4D0C8;
+}
+
+td > a:first-child {
+   display: block;
+}
+
+/* #resultArea td {
+   display: inline-block;
+   line-height: 3;
+   font-size: 20px;
+} */
+#resultArea td > p {
+   font-size : 16px;
+   font-weight: bold;
+   line-height: 1;
+}
+
+
+#resultArea tr {
+   display: inline-block;
+   padding: 18px;
+}
+
+table > tr:first-child {
+   display: block;
+}
+
+.searchresult {
+   text-align: right;
+   padding-right: 62px;
+}
+
+#Game_main > div:first-child,
+#GameForm > div:first-child,
+.game_img {
+   border-radius: 10px;
+}
+
+.game_img {
+   width: 225px;
+   height: 275px;
+}
+
+#Game_main > #rank_section {
+   border: 2px solid goldenrod;
+    position: fixed;
+    left: 2.5%;
+    top: 14.4%;
+    width: 12.5%;
+    border-radius: 10px;
+}
+
+#Game_main > #rank_section > span {
+   border-bottom: 3px solid goldenrod;
+    display: block;
+    font-size: 22px;
+    color: goldenrod;
+}
+
+.rank_list {
+    text-align: left;
+    list-style-position: inside;
+    padding-left: 10px;
+    line-height: 45px;
+    color: #ffffff;
+}
+
+.flash_td {
+   max-width: 263px;
+   max-height: 319px;
+}
+
+.flash_content {
+   max-width: 225px;
+    line-height: 2;
+    font-size: 16px;
+}
+
+.flash_game_img {
+   display: block;
+   min-width: 225px;
+   /* max-width: 225px; */
+   min-height: 225px;
+   /* max-height: 225px; */
+   border-radius: 10px;
+}
