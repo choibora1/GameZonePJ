@@ -10,7 +10,7 @@ public class BoardVO {
 	private String id;
 	private String title;
 	private String content;
-	private String regdate; // 날짜는 Java에서 String으로 넣는 것이 편하다.
+	private String regdate;
 	private int cnt;
 	private int root;
 	private int step;
