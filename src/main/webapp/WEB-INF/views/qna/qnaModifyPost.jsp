@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GameZone | 문의글 수정</title>
-	<link rel="stylesheet" type="text/css" href ="resources/myLib/myStyle.css">
+	<link rel="stylesheet" type="text/css" href ="resources/css/myStyle.css">
 	<link rel="shortcut icon" href="resources/img/icon2.ico">
 	<!-- Stylesheets -->
 	<link rel="stylesheet" href="resources/css/owl.carousel.css" />

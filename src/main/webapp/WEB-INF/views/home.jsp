@@ -3,7 +3,7 @@
 <html>
 <head>
 	<title>Welcome to GameZone</title>
-	<link rel="stylesheet" type="text/css" href ="resources/myLib/myStyle.css">
+	<link rel="stylesheet" type="text/css" href ="resources/css/myStyle.css">
 	<link rel="shortcut icon" href="resources/img/icon2.ico">
    	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
    	<link rel="stylesheet" href="resources/css/style.css" />
