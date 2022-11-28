@@ -21,14 +21,6 @@
 				if ($(this).val() == 'n')
 					$('#keyword').val('');
 			}); // change
-	
-			// 2) 검색 후 요청 처리
-			/* $('#searchBtn').click(
-					function() {
-						self.location = "boardList" + "${pageMaker.searchQuery(1)}"
-								+ "&searchType=" + $('#searchType').val()
-								+ "&keyword=" + $('#keyword').val()
-			}) // click  */
 		}); // Ready
 		
 		function readPost() {
@@ -120,7 +112,7 @@
 						<tr id="boardtd">
 							<td>${board.seq}</td>
 							<td>
-		                        <!-- 로그인을 한 경우에만 title을 클릭하면 content를 볼 수 있도록 함 => bDetail 실행 -->
+		                        <!-- 로그인을 한 경우에만 title을 클릭하면 content를 볼 수 있도록 함 => readPost 실행 -->
 		                        <c:if test="${not empty loginID}">
 		                           <!-- loginID가 있을 때(로그인을 한 경우) -->
 		                              <a class="pointer" href="readPost?seq=${board.seq}">${board.title}</a>
