@@ -5,7 +5,6 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GameZone | 회원 리스트</title>
-	<!-- <link rel="stylesheet" type="text/css" href="resources/myLib/myStyle.css"> -->
 	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
 	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/animate.css" />

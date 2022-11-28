@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GameZone | 새로운 게임 등록</title>
-	<link rel="stylesheet" type="text/css" href="resources/myLib/myStyle.css">
+	<link rel="stylesheet" type="text/css" href="resources/css/myStyle.css">
 	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
 	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/animate.css" />
