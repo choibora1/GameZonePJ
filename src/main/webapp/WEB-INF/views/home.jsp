@@ -353,7 +353,7 @@
       </div>
    </section>
    <!-- Review section end -->
-	<p>testtesttesttesttesttesttesttesttesttesttesttesttesttesttest</p>
+	
     <!-- Footer section -->
     <footer class="footer-section">
        <div class="container">
