@@ -13,7 +13,7 @@
 	<script src="resources/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/myLib/inCheck.js"></script>
 	<script>
-		
+		let opCheck = false;
 		let pCheck = false;
 		let ppCheck = false;	
 		
@@ -21,14 +21,14 @@
 			
 			$('#oldPassword').focus();
 			
-			// ** Password
+			// ** Old Password
 			$('#oldPassword').keydown(function(e) {
 				if (e.which == 13) {
 					e.preventDefault();
 					$('#password').focus();
 				}
 			}).focusout(function() {
-				pCheck = pwCheck();
+				opCheck = opwCheck();
 			}); // oldPassword
 	
 			// ** Password
@@ -38,7 +38,7 @@
 					$('#password2').focus();
 				}
 			}).focusout(function() {
-				ppCheck = pw2Check();
+				pCheck = pwCheck();
 			}); // password
 			
 			// ** Password
@@ -55,6 +55,10 @@
 		
 		function inCheck() {
 			
+			if (opCheck == false) {
+				$('#opMessage').html('현재 비밀번호를 확인하세요 !!');
+			}
+			
 			if (pCheck == false) {
 				$('#pMessage').html('Password를 확인하세요 !!');
 			}
@@ -63,10 +67,10 @@
 				$('#ppMessage').html('Password가 일치하지 않습니다 !!');
 			}
 			
-			if (pCheck && ppCheck) {
+			if (opCheck && pCheck && ppCheck) {
 				
 				if (confirm("비밀번호를 변경하시겠습니까 ? (Yes:확인 / No:취소)") == false) {
-					alert('비밀번호 변경 취소되었습니다.');
+					alert('비밀번호 변경이 취소되었습니다.');
 					return false;
 					
 				} else
@@ -77,20 +81,6 @@
 				return false;
 			
 		} // inCheck()
-		
-		function updatePW() {
-			
-			if (confirm("수정하시겠습니까? (Yes : 확인 / No : 취소)")) {
-				alert(`비밀번호를 수정하겠습니다.`);
-	           	return true; // 삭제
-	           	
-			} else {
-	           	alert('비밀번호 수정 취소되었습니다.');
-				return false;
-			}
-			
-		} // updatePW
-	
 	</script>
 </head>
 <body>
@@ -134,7 +124,7 @@
 				<th bgcolor="LightCoral" style="text-align: center;"><label for="oldPassword">현재 비밀번호</label></th>
 				<td>
 					<input type="password" name="oldPassword" id="oldPassword" size="20" placeholder="현재 비밀번호">
-					<b><span id="pMessage" class="eMessage"></span></b>
+					<b><span id="opMessage" class="eMessage"></span></b>
 				</td>
 			</tr>
 

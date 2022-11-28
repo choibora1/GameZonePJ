@@ -18,7 +18,7 @@ function idCheck() {
 	let id = $('#id').val();
 
 	if (id.length < 5 || id.length > 10) {
-		$('#iMessage').html('ID 길이는 5 ~ 10자리입니다.');
+		$('#iMessage').html('ID는 5 ~ 10자리까지 사용 가능합니다.');
 		return false;
 
 	} else if (id.replace(/[a-z.0-9]/g, '').length > 0) {
@@ -39,19 +39,19 @@ function opwCheck() {
 	let oldPassword = $('#oldPassword').val();
 
 	if (oldPassword.length < 8 || oldPassword.length > 15) {
-		$('#pMessage').html('Password는 8 ~ 15자리입니다.');
+		$('#opMessage').html('비밀번호는 8 ~ 15자리입니다.');
 		return false;
 
 	} else if (oldPassword.replace(/[!-*.@]/gi, '').length >= oldPassword.length) {
-		$('#pMessage').html('Password에는 특수문자가 반드시 포함되어야 합니다.');
+		$('#opMessage').html('비밀번호에는 특수문자가 반드시 포함되어야 합니다.');
 		return false;
 
 	} else if (oldPassword.replace(/[a-z.0-9.!-*.@]/gi, '').length > 0) {
-		$('#pMessage').html('Password는 영문자, 숫자, 특수문자로만 입력해주세요.');
+		$('#opMessage').html('비밀번호는 영문자, 숫자, 특수문자로만 입력해주세요.');
 		return false;
 
 	} else {
-		$('#pMessage').html('');
+		$('#opMessage').html('');
 		return true;
 	}
 
@@ -64,15 +64,15 @@ function pwCheck() {
 	let password = $('#password').val();
 
 	if (password.length < 8 || password.length > 15) {
-		$('#pMessage').html('Password는 8 ~ 15자리입니다.');
+		$('#pMessage').html('비밀번호는 8 ~ 15자리입니다.');
 		return false;
 
 	} else if (password.replace(/[!-*.@]/gi, '').length >= password.length) {
-		$('#pMessage').html('Password에는 특수문자가 반드시 포함되어야 합니다.');
+		$('#pMessage').html('비밀번호에는 특수문자가 반드시 포함되어야 합니다.');
 		return false;
 
 	} else if (password.replace(/[a-z.0-9.!-*.@]/gi, '').length > 0) {
-		$('#pMessage').html('Password는 영문자, 숫자, 특수문자로만 입력해주세요.');
+		$('#pMessage').html('비밀번호는 영문자, 숫자, 특수문자로만 입력해주세요.');
 		return false;
 
 	} else {
@@ -90,11 +90,11 @@ function pw2Check() {
 	let password2 = $('#password2').val();
 
 	if (password != password2) {
-		$('#ppMessage').html('Password가 다릅니다.');
+		$('#ppMessage').html('비밀번호가 다릅니다.');
 		return false;
 
 	} else if (password2.length < 8 || password2.length > 15) {
-		$('#ppMessage').html('Password는 8 ~ 15자리입니다.');
+		$('#ppMessage').html('비밀번호는 8 ~ 15자리입니다.');
 		return false;
 
 	} else {
@@ -111,11 +111,11 @@ function nmCheck() {
 	let name = $('#user_name').val();
 
 	if (name.length < 2 || name.length > 10) {
-		$('#nMessage').html('이름은 2 ~ 10 자리입니다.');
+		$('#nMessage').html('이름은 2 ~ 10자리까지 입력 가능합니다.');
 		return false;
 
 	} else if (name.replace(/[a-z.가-힣]/gi, '').length > 0) {
-		$('#nMessage').html('Name은 영문, 한글만 입력 가능합니다.');
+		$('#nMessage').html('이름은 영문, 한글만 입력 가능합니다.');
 		return false;
 
 	} else {
@@ -228,7 +228,7 @@ function emaCheck() {
 		return false;
 
 	} else if (email.replace(/[a-z.0-9._\-]/gi, '').length > 0) {
-		$('#emMessage').html('email => 알파벳, 숫자, 특수기호 : 언더바[ _ ], 하이픈[ - ])으로만 입력해주세요.');
+		$('#emMessage').html('이메일은 알파벳, 숫자, 특수기호 : 언더바[ _ ], 하이픈[ - ])으로만 입력해주세요.');
 		return false;
 
 	} else {
@@ -255,15 +255,15 @@ function dowCheck() {
 		return false;
 
 	} else if (dowrite.replace(/[a-z.0-9.@]/gi, '').length > 0) {
-		$('#emMessage').html('dw => 알파벳, 숫자, [@], [.]으로만 입력해주세요.');
+		$('#emMessage').html('도메인은 알파벳, 숫자, [@], [.]으로만 입력해주세요.');
 		return false;
 
 	} else if (dowrite.replace('@', '').length >= dowrite.length) {
-		$('#emMessage').html('이메일 형식이 아닙니다. [ @ ]을 입력해주세요.');
+		$('#emMessage').html('이메일 형식이 아닙니다. [@]을 입력해주세요.');
 		return false;
 
 	} else if (dowrite.replace('.', '').length >= dowrite.length) {
-		$('#emMessage').html('이메일 형식이 아닙니다. [ . ]을 입력해주세요.');
+		$('#emMessage').html('이메일 형식이 아닙니다. [.]을 입력해주세요.');
 		return false;
 
 	} else {
