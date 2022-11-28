@@ -1,13 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>GameZone | ${one.game_name}</title>
-    <link rel="stylesheet" type="text/css" href="resources/css/myStyle.css">
+    <link rel="stylesheet" type="text/css" href="resources/myLib/myStyle.css">
     <link rel="stylesheet" href="resources/css/owl.carousel.css" />
     <link rel="stylesheet" href="resources/css/style.css" />
     <link rel="stylesheet" href="resources/css/animate.css" />
@@ -46,47 +44,44 @@
     	}
     </style>
 </head>
-
 <body>
-   <!-- Header section -->
-   <header class="header-section">
-      <div>
-         <!-- logo -->
-         <a class="site-logo" href="home">
-            <img src="resources/img/logo22.png" alt="gamelogo">
-         </a>
-         <!-- site menu -->
-         <nav class="main-menu">
-            <ul>
-               <li><a href="home">Home</a></li>
-               <li><a href="axPcGame">PC 게임조회</a></li>
-               <li><a href="axMobileGame">모바일 게임조회</a></li>
-               <li><a href="axFlashGame">플래시 게임</a></li>
-               <li><a href="boardList">자유 게시판</a></li>
-               <li><a href="qnaBoardList">Q&amp;A</a></li>
-            </ul>
-         </nav>
-         <div class="user-panel">
-            <c:choose>
-               <c:when test="${not empty loginID && loginID != 'admin'}">
-                  <a href="detailUser">내 정보 보기</a> / <a href="logout">로그아웃</a>
-               </c:when>
-               <c:when test="${loginID == 'admin'}">
-                  <a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
-               </c:when>
-               <c:otherwise>
-                  <a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
-               </c:otherwise>
-            </c:choose>
-         </div>
-      </div>
-   </header>
-   <!-- Header section end -->
-
+	<!-- Header section -->
+   	<header class="header-section">
+    	<div>
+        	<!-- logo -->
+         	<a class="site-logo" href="home">
+	        	<img src="resources/img/logo22.png" alt="gamelogo">
+	        </a>
+         	<!-- site menu -->
+         	<nav class="main-menu">
+            	<ul>
+               		<li><a href="home">Home</a></li>
+               		<li><a href="axPcGame">PC 게임조회</a></li>
+               		<li><a href="axMobileGame">모바일 게임조회</a></li>
+	               	<li><a href="axFlashGame">플래시 게임</a></li>
+	               	<li><a href="boardList">자유 게시판</a></li>
+	               	<li><a href="qnaBoardList">Q&amp;A</a></li>
+            	</ul>
+         	</nav>
+         	<div class="user-panel">
+            	<c:choose>
+               		<c:when test="${not empty loginID && loginID != 'admin'}">
+                  		<a href="detailUser">내 정보 보기</a> / <a href="logout">로그아웃</a>
+               		</c:when>
+               		<c:when test="${loginID == 'admin'}">
+                  		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
+               		</c:when>
+               		<c:otherwise>
+                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+               		</c:otherwise>
+            	</c:choose>
+         	</div>
+      	</div>
+   	</header>
+   	<!-- Header section end -->
     <main class="main_min">
         <div class="content-left" align="center">
-            <!-- intro -->
-            <!--기본 정보-->
+            <!-- intro 기본 정보 -->
             <c:if test="${not empty one}">
                 <h2 class="h_gm"><strong>${one.game_name}</strong></h2>
                 <div class="gm_info_area" style="margin: auto; height: 692px;">
@@ -99,38 +94,33 @@
                                 <a href="${one.site}" target="_blank" style="font-size: 18px">게임사이트로 이동</a>
                             </p>
                         </div>
-
                     </div>
                 </div>
-                
             </c:if>
             <c:if test="${loginID=='admin'}">
                 &nbsp;&nbsp;<a href="detailFlashGame?jCode=U&game_name=${one.game_name}">게임 수정</a>
-                &nbsp;&nbsp;<a href="deleteFlashGame?game_name=${one.game_name}" onclick="return deleteGame()" 
-                style="margin: 0px 10px 0px 15px;">게임 삭제</a>
+                &nbsp;&nbsp;<a href="deleteFlashGame?game_name=${one.game_name}" onclick="return deleteGame()" style="margin: 0px 10px 0px 15px;">게임 삭제</a>
             </c:if>
         </div>
     </main>
-  	<!-- Footer section -->
+    <!-- Footer section -->
     <footer class="footer-section">
-       <div class="container">
-          <ul class="footer-menu">
-             <li><a href="home">Home</a></li>
-             <li><a href="axPcGame">PC 게임</a></li>
-             <li><a href="axMobileGame">모바일 게임</a></li>
-             <li><a href="boardList">자유 게시판</a></li>
-             <li><a href="qnaBoardList">Q&amp;A</a></li>
-          </ul>
-          <p class="copyright">
-             Copyright &copy;
-             <script>
-                         document.write(new Date().getFullYear());
-                   </script>
-             All rights reserved | This template is made with <i
-                class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                href="#" target="_blank">GameZone</a>
-          </p>
-       </div>
+    	<div class="container">
+        	<ul class="footer-menu">
+            	<li><a href="home">Home</a></li>
+             	<li><a href="axPcGame">PC 게임</a></li>
+             	<li><a href="axMobileGame">모바일 게임</a></li>
+             	<li><a href="boardList">자유 게시판</a></li>
+             	<li><a href="qnaBoardList">Q&amp;A</a></li>
+          	</ul>
+          	<p class="copyright">
+            	Copyright &copy;
+            	<script>document.write(new Date().getFullYear());</script>
+             	All rights reserved | This project is made with 
+             	<i class="fa fa-heart-o" aria-hidden="true"></i> by 
+             	<a href="#" target="_blank">GameZone</a>
+          	</p>
+       	</div>
     </footer>
     <!-- Footer section end -->
     <!-- ====== Javascripts & Jquery ====== -->
@@ -139,5 +129,4 @@
     <script src="/js/jquery.marquee.min.js"></script>
     <script src="/js/main.js"></script>
 </body>
-
 </html>

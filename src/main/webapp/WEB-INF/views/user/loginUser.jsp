@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -15,8 +14,8 @@
         let iCheck = false;
         let pCheck = false;
         
-        $(function() {
-            $('#id').focus();
+		$(function() {
+        	$('#id').focus();
             // ** ID
             $('#id').keydown(function(e) {
                 if ( e.which == 13 ) {
@@ -41,11 +40,11 @@
 
         function ipCheck() {
             if (iCheck == false) {
-                    $('#iMessage').html('ID를 확인하세요 !!');
+                    $('#iMessage').html('ID를 확인해주세요.');
                 }
                 
                 if (pCheck == false) {
-                    $('#pMessage').html('Password를 확인하세요 !!');
+                    $('#pMessage').html('비밀번호를 확인해주세요');
                 }
     
                 if (iCheck && pCheck) {
@@ -54,33 +53,31 @@
                 } else
                     return false;
        	} //inCheck
-    </script>
-    </head>
-    <body>
-    
-        <div class="loginBox">
-            <a href="home"><img class="user" src="resources/img/gamelogo.png" height="200px" width="200px"></a>
-            <form action="loginUser" method="post">
-                <div class="inputBox">
-	            	<input id="id" type="text" name="id" placeholder="아이디"><br>
-	           	</div>
-	            <div>
-	               	<input id="password" type="password" name="password" placeholder="비밀번호"><br>
-	                <span id="iMessage" class="eMessage"></span>
-	                <span id="pMessage" class="eMessage"></span>
-                </div>
-                
-                <div>
-                </div>
-                <input type="submit" value="Login" id="submit">&nbsp;&nbsp;
-            </form>
-            <a href="#">Forget Password</a>
+	</script>
+</head>
+<body>
+	<div class="loginBox">
+		<a href="home">
+			<img class="user" src="resources/img/gamelogo.png" height="200px" width="200px">
+		</a>
+            
+		<form action="loginUser" method="post">
+			<div class="inputBox">
+				<input id="id" type="text" name="id" placeholder="아이디"><br>
+			</div>
+			<div>
+				<input id="password" type="password" name="password" placeholder="비밀번호"><br>
+				<span id="iMessage" class="eMessage"></span>
+				<span id="pMessage" class="eMessage"></span>
+			</div>
             <br>
-            <div class="text-center">
-                <a href="joinForm" style="color: #59238F;">Sign-Up</a>
-            </div>
-        </div>
-       
-    </body>
-    
+			<input type="submit" value="Login" id="submit">&nbsp;&nbsp;
+		</form>
+	<!-- <a href="#">Forget Password</a> 
+		<br> -->
+		<div class="text-center">
+			<a href="joinForm" style="color: #59238F;">Sign-Up</a>
+		</div>
+	</div>
+</body>
 </html>
