@@ -38,7 +38,8 @@
 	<insert id="insertFlashGame">
 		<selectKey keyProperty="game_number" resultType="int"
 			order="BEFORE">
-			select IFNULL(max(game_number), 0) + 1 from flashgame
+			select IFNULL(max(game_number), 0) + 1 
+			from flashgame
 		</selectKey>
 		insert into flashGame
 		values (#{game_number}, #{game_name}, #{site}, #{game_img})

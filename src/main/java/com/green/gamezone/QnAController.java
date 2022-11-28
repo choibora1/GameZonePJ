@@ -17,28 +17,28 @@ import vo.QnAVO;
 
 @Controller
 public class QnAController {
-	// ** 전역변수 활용
-
+	
 	@Autowired
 	QnAService service;
 
 	@RequestMapping(value = "/qnaBoardList")
 	public ModelAndView qnaBoardList(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
-
+		
 		cri.setSnoEno();
 
-		// 2) 서비스 처리
+		// Service
 		// => List 처리
 		mv.addObject("list", service.searchPost(cri));
 
-		// 3) View 처리 => PageMaker
+		// View => PageMaker
 		pageMaker.setCri(cri);
 		pageMaker.setTotalRowsCount(service.countPost(cri));
 		mv.addObject("pageMaker", pageMaker);
 
 		mv.setViewName("/qna/qnaBoardList");
 		return mv;
-	}
+		
+	} // qnaBoardList
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -46,15 +46,16 @@ public class QnAController {
 	@RequestMapping(value = "/qnaReadPost")
 	public ModelAndView qnaReadPost(HttpServletRequest request, HttpServletResponse response, QnAVO vo, ModelAndView mv) {
 
-		// 1. 요청 분석
+		// 1. 요청
 		String uri = "/qna/qnaReadPost";
 
-		// 2. Service 처리
+		// 2. Service
 		vo = service.readPost(vo);
 
 		System.out.println(vo);
 
 		if (vo != null) {
+			
 			// 2.1) 조회수 증가
 			String loginID = (String) request.getSession().getAttribute("loginID");
 			
@@ -63,6 +64,7 @@ public class QnAController {
 				// => 조회수 증가
 				if (service.countHits(vo) > 0)
 					vo.setCnt(vo.getCnt() + 1);
+				
 			} // if_증가조건
 
 			// 2.2) 수정요청 확인
@@ -91,7 +93,8 @@ public class QnAController {
 
 		mv.setViewName(uri);
 		return mv;
-	}
+		
+	} // qnaReadPost
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 
@@ -100,58 +103,58 @@ public class QnAController {
 	public ModelAndView qnawritePostForm(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
 		mv.setViewName("/qna/qnaWritePostForm");
 		return mv;
-	}
+	} // qnawritePostForm
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 
 	@RequestMapping(value = "/qnaWritePost", method = RequestMethod.POST)
 	public ModelAndView qnawriteBoard(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnAVO vo, RedirectAttributes rttr) {
 
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "redirect:qnaBoardList";
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.writePost(vo) > 0) {
 			rttr.addFlashAttribute("message", "새 문의글이 등록되었습니다.");
+			
 		} else {
 			mv.addObject("message", "새 문의글 등록 실패. 다시 시도해주세요.");
 			uri = "/qna/qnaWritePostForm";
 		}
 
-		// 3. 결과(View -> forward) 처리
+		// 3. 결과(View -> forward)
 		mv.setViewName(uri);
 		return mv;
 
 	} // writePost
 
-	// ----------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 	// ** modifyPost : 게시물 수정하기 1
 	@RequestMapping(value = "/qnaModifyPost")
 	// Request method 'GET' not supported
-	public ModelAndView qnaModifyPost(HttpServletRequest request,
-			HttpServletResponse response, ModelAndView mv, QnAVO vo) {
+	public ModelAndView qnaModifyPost(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnAVO vo) {
 
 		String uri = "/qna/qnaModifyPost";
 
 		mv.addObject("one", service.readPost(vo));
 		mv.setViewName(uri);
+		
 		return mv;
 
 	} // modifyPost
 
 	// ** modifyPost : 게시물 수정하기 2
 	@RequestMapping(value = "/qnaModifyPost", method = RequestMethod.POST)
-	public ModelAndView qnaUpdatePost(HttpServletRequest request,
-			HttpServletResponse response, ModelAndView mv, QnAVO vo) {
+	public ModelAndView qnaUpdatePost(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnAVO vo) {
 
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "/qna/qnaReadPost";
 
 		System.out.println(vo);
 		mv.addObject("one", vo);
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.modifyPost(vo) > 0) {
 			mv.addObject("message", "문의글이 수정되었습니다.");
 
@@ -159,7 +162,8 @@ public class QnAController {
 			mv.addObject("message", "문의글 수정 실패. 다시 시도해주세요.");
 			uri = "/qna/qnaModifyPost";
 		}
-
+		
+		// 3) 결과
 		mv.setViewName(uri);
 		return mv;
 
@@ -171,10 +175,10 @@ public class QnAController {
 	@RequestMapping(value = "/qnaRemovePost")
 	public ModelAndView qnaRemoveBoard(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnAVO vo, RedirectAttributes rttr) {
 
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "redirect:qnaBoardList";
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.removePost(vo) > 0) {
 			rttr.addFlashAttribute("message", "문의글이 삭제되었습니다.");
 		} else {
@@ -182,33 +186,35 @@ public class QnAController {
 			uri = "redirect:qnaDetailBoard?seq=" + vo.getSeq();
 		} // Service
 
-		// 3. 결과(ModelAndView) 전달
+		// 3. 결과(ModelAndView)
 		mv.setViewName(uri);
 		return mv;
 
 	} // removePost
 
-	// ----------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 	// ** Reply_Insert : 답글등록
 	@RequestMapping(value = "/qnaWriteReplyForm")
 	public ModelAndView qnaWriteReplyForm(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnAVO vo) {
+		
 		mv.setViewName("/qna/qnaWriteReplyForm");
 		return mv;
-	}
+	
+	} // qnaWriteReplyForm
 
-	// ----------------------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------------------
 
 	@RequestMapping(value = "/qnaWriteReply", method = RequestMethod.POST)
 	public ModelAndView qnaWriteReply(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, QnAVO vo, RedirectAttributes rttr) {
 
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "redirect:qnaBoardList";
 		
 		vo.setStep(vo.getStep() + 1);
 		vo.setIndent(vo.getIndent() + 1);
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.writeReply(vo) > 0) {
 			rttr.addFlashAttribute("message", "답글이 등록되었습니다.");
 
@@ -217,7 +223,7 @@ public class QnAController {
 			uri = "/qna/qnaWriteReplyForm";
 		}
 
-		// 3. 결과(ModelAndView) 전달
+		// 3. 결과(ModelAndView)
 		mv.setViewName(uri);
 		return mv;
 		

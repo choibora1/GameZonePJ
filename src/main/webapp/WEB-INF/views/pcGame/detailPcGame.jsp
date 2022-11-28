@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>GameZone | ${one.game_name}</title>
-    <link rel="stylesheet" type="text/css" href="/myLib/myStyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/myStyle.css">
     <link rel="stylesheet" href="resources/css/owl.carousel.css" />
     <link rel="stylesheet" href="resources/css/style.css" />
     <link rel="stylesheet" href="resources/css/animate.css" />

@@ -106,6 +106,7 @@ a {
 a:hover, a:focus {
    text-decoration: none;
    outline: none;
+   color: #ffb320;
 }
 
 ul, ol {
@@ -951,6 +952,42 @@ ul, ol {
    }
 }
 
+/*------------------
+  insert game
+---------------------*/
+
+#insert_game_form {
+   width: 1200px;
+   margin: auto;
+}
+
+#insert_game {
+   height: 752px;   
+}
+
+#insert_game th {
+   background-color: goldenrod;
+   text-align: center;
+   width: 100px;
+}
+
+#insert_game input {
+   width: 300px;
+   text-align: center;
+}
+
+.insert_game_row {
+   height: 303px;
+}
+
+.insert_game_row > new_img {
+   width: 233px;
+}
+
+#insert_game .insert_game_btn {
+   width: 60px;
+}
+
 /* ================================================================ boardList ===================================================================== */
 
 #searchBar {
@@ -1007,6 +1044,12 @@ ul, ol {
    color: #000;
    line-height: 2em;
    text-align: center;
+}
+
+#boardtd {
+   line-height: 2em;
+   text-align: center;
+   background-color: #000;
 }
 
 #Criteria_Page {

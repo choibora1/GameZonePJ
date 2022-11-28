@@ -318,29 +318,11 @@ h4 {
     }
 }
 
-.form-control {
-    display: block;
-    width: 100%;
-    height: calc(1.5em + .75rem + 2px);
+.controlBox {
+   height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
-}
-
-.eform-control {
-    /* display: block; */
-    width: 35%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 1.5;
     color: #495057;
     background-color: #fff;
@@ -348,38 +330,24 @@ h4 {
     border: 1px solid #ced4da;
     border-radius: .25rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-    text-align: left;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+}
+
+.eform-control {
+    width: 40%;
 }
 
 .iform-control {
     width: 72%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     text-align: left;
 }
 
 .dform-control {
     display: inline-block;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -2615,4 +2583,33 @@ button.bg-dark:hover {
 .mail-check-input {
     display: inline-block;
     width: 50%;
+}
+
+/* ====================================================== idDuplication ================================================================ */
+
+#duplication-form {
+   font-weight: normal;
+    color: #fff;
+    padding-left: 10px;
+}
+
+#duplication-form h3 {
+    color: #fff;
+    margin: 10px 0 20px 0;
+}
+
+#duplicationform-control {
+    width: 140px;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    text-align: left;
 }

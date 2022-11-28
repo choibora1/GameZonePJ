@@ -187,7 +187,6 @@
 					</c:when>
 					<c:otherwise>
 						<font size="5" color="Gray">&nbsp;<img src="resources/img/right.png">&nbsp;&nbsp;<img src="resources/img/last.png"></font>
-						<%-- <font size="5" color="Gray">&nbsp;<img onclick = "changePage('${pageMaker.searchQuery(pageMaker.epageNo+1)}')" src="resources/img/right.png">&nbsp;&nbsp;<img onclick = "changePage('${pageMaker.searchQuery(pageMaker.lastPageNo)}')" src="resources/img/last.png"></font> --%>
 					</c:otherwise>
 				</c:choose>
 			</div>

@@ -48,10 +48,10 @@ public class PcGameController {
 	
 		gameCriteria.setSnoEno();
 	
-		// 1) Criteria 처리
+		// 1) Criteria
 		gameCriteria.setCheck(null);
 	
-		// 2) 서비스 처리
+		// 2) Service
 		mv.addObject("list", service.pcGameList(gameCriteria));
 	
 		// 3) View 처리 => gamePageMaker
@@ -86,12 +86,12 @@ public class PcGameController {
 	
 		gameCriteria.setSnoEno();
 	
-		// 1) Criteria 처리
+		// 1) Criteria
 		if (gameCriteria.getCheck() != null && gameCriteria.getCheck().length < 1) {
 			gameCriteria.setCheck(null);
 		}
 	
-		// 2) 서비스 처리
+		// 2) Service
 		mv.addObject("list", service.pcGameList(gameCriteria));
 	
 		// 3) View 처리 => gamePageMaker
@@ -120,14 +120,13 @@ public class PcGameController {
 	@RequestMapping(value = "/insertPcGame")
 	public ModelAndView insertPcGame(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, GameVO vo, RedirectAttributes rttr) throws IOException {
 		
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "redirect:axPcGame";
 		
 		String realPath = request.getRealPath("/"); // deprecated Method
 
-		// 2) 위의 값을 이용해서 실제 저장위치 확인
 		if (realPath.contains(".eclipse."))
-			realPath = "C:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\pcGameImg\\";
+			realPath = "D:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\pcGameImg\\";
 
 		else
 			realPath += "resources\\pcGameImg\\";
@@ -144,18 +143,16 @@ public class PcGameController {
 		if (uploadimgfile != null && !uploadimgfile.isEmpty()) {
 
 			// ** Image를 선택 함 -> Image 저장 (경로_realPath + 파일명)
-			// 1) 물리적 저장경로에 Image 저장
 			file1 = realPath + uploadimgfile.getOriginalFilename();
 			uploadimgfile.transferTo(new File(file1));
 
-			// 2) Table 저장 준비
 			file2 = "resources/pcGameImg/" + uploadimgfile.getOriginalFilename();
 		}
 		
 		// ** 완성된 경로 vo에 set
 		vo.setGame_img(file2);
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.insertPcGame(vo) > 0) {
 			mv.addObject("message", "게임이 등록되었습니다.");
 
@@ -164,7 +161,7 @@ public class PcGameController {
 			uri = "/pcGame/insertPcGame";
 		}
 
-		// 3. 결과(View -> Forward) 처리
+		// 3. 결과(View -> Forward)
 		mv.setViewName(uri);
 		return mv;
 
@@ -176,14 +173,15 @@ public class PcGameController {
 	@RequestMapping(value = "/detailPcGame")
 	public ModelAndView detailPcGame(HttpServletRequest request, HttpServletResponse response, GameVO vo, ModelAndView mv, RankingVO rvo) {
 	   
-		// 1. 요청분석
+		// 1. 요청
 	    String uri = "/pcGame/detailPcGame";
 	    String loginID = (String)request.getSession().getAttribute("loginID");
 	      
-	    // 2. Service 처리
+	    // 2. Service
 	    vo = service.detailPcGame(vo);
 
 		if (vo != null ) {
+			
 			// 조회수 증가 부분
 		    rvo.setId(loginID);
 		    rvo.setGame_number(vo.getGame_number());
@@ -204,7 +202,6 @@ public class PcGameController {
 				uri = "/pcGame/updatePcGame"; 
 			}	
 			
-			// 2-3) 결과전달
 			request.setAttribute("one", vo);
 			
 		} else {
@@ -224,16 +221,15 @@ public class PcGameController {
 	@RequestMapping(value = "/updatePcGame", method = RequestMethod.POST)
 	public ModelAndView updatePcGame(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, GameVO vo) throws IOException {
 	
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "/pcGame/detailPcGame";
 	
 		mv.addObject("one", vo);
 		
 		String realPath = request.getRealPath("/"); // deprecated Method
 
-		// 2) 위의 값을 이용해서 실제 저장위치 확인
 		if (realPath.contains(".eclipse."))
-			realPath = "C:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\pcGameImg\\";
+			realPath = "D:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\pcGameImg\\";
 
 		else
 			realPath += "resources\\pcGameImg\\";
@@ -250,16 +246,14 @@ public class PcGameController {
 		if (uploadimgfile != null && !uploadimgfile.isEmpty()) {
 
 			// ** Image를 선택 함 -> Image 저장 (경로_realPath + 파일명)
-			// 1) 물리적 저장경로에 Image 저장
 			file1 = realPath + uploadimgfile.getOriginalFilename();
 			uploadimgfile.transferTo(new File(file1));
 
-			// 2) Table 저장 준비
 			file2 = "resources/pcGameImg/" + uploadimgfile.getOriginalFilename();
 			vo.setGame_img(file2);
 		}
 	
-		// 2. Service 처리
+		// 2. Service
 		if (service.updatePcGame(vo) > 0) {
 			mv.addObject("message", "게임이 수정되었습니다.");
 			mv.addObject("one", vo); // 수정된 vo를 보관
@@ -269,7 +263,7 @@ public class PcGameController {
 			uri = "/pcGame/updatePcGame";
 		}
 	
-		// 3. 결과(ModelAndView) 전달
+		// 3. 결과(ModelAndView)
 		mv.setViewName(uri);
 		return mv;
 	
@@ -281,10 +275,10 @@ public class PcGameController {
 	@RequestMapping(value = "/deletePcGame")
 	public ModelAndView deletePcGame(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, GameVO vo, RedirectAttributes rttr) {
 	
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "redirect:axPcGame";
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.deletePcGame(vo) > 0) {
 			rttr.addFlashAttribute("message", "게임이 삭제되었습니다.");
 
@@ -293,7 +287,7 @@ public class PcGameController {
 			uri = "redirect:detailPcGame?game_name=" + vo.getGame_name();
 		} // Service
 
-		// 3. 결과(ModelAndView) 전달
+		// 3. 결과(ModelAndView)
 		mv.setViewName(uri);
 		return mv;
 	

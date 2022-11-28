@@ -24,7 +24,8 @@ public class ReplyController {
 		mv.addObject("list", service.replyList(vo));
 		mv.setViewName("/reply/replyList");
 		return mv;
-	}
+		
+	} // replyList
 	
 //-------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -47,9 +48,10 @@ public class ReplyController {
 
 		mv.addObject("list", service.replyList(vo));
 		mv.setViewName("jsonView");
+		
 		return mv;
 
-	}
+	} // writeReply
 
 //-------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -73,7 +75,7 @@ public class ReplyController {
 		mv.setViewName("jsonView");
 		return mv;
 	
-	}
+	} // modifyReply
 
 //-------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -92,6 +94,6 @@ public class ReplyController {
 		mv.setViewName("jsonView");
 		return mv;
 
-	}
+	} // deleteReply
 
 } // class

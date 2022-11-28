@@ -34,6 +34,31 @@ function idCheck() {
 
 //--------------------------------------------------------------------------------------
 
+function opwCheck() {
+
+	let oldPassword = $('#oldPassword').val();
+
+	if (oldPassword.length < 8 || oldPassword.length > 15) {
+		$('#pMessage').html('Password는 8 ~ 15자리입니다.');
+		return false;
+
+	} else if (oldPassword.replace(/[!-*.@]/gi, '').length >= oldPassword.length) {
+		$('#pMessage').html('Password에는 특수문자가 반드시 포함되어야 합니다.');
+		return false;
+
+	} else if (oldPassword.replace(/[a-z.0-9.!-*.@]/gi, '').length > 0) {
+		$('#pMessage').html('Password는 영문자, 숫자, 특수문자로만 입력해주세요.');
+		return false;
+
+	} else {
+		$('#pMessage').html('');
+		return true;
+	}
+
+} // opwCheck
+
+//--------------------------------------------------------------------------------------
+
 function pwCheck() {
 
 	let password = $('#password').val();

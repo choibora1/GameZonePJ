@@ -26,14 +26,14 @@ public class BoardController {
 	@Autowired
 	ReplyService replyService;
 	// ** Criteria PageList
+	
 	@RequestMapping(value = "/boardList")
 	public ModelAndView boardList(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, SearchCriteria cri, PageMaker pageMaker) {
 
-		// 1) Criteria 처리
+		// 1) Paging
 		cri.setSnoEno();
 
-		// 2) 서비스 처리
-		// => List 처리
+		// 2) Service
 		mv.addObject("list", service.searchPost(cri));
 
 		// 3) View 처리 => PageMaker
@@ -43,6 +43,7 @@ public class BoardController {
 
 		mv.setViewName("/board/boardList");
 		return mv;
+		
 	}
 
 // ----------------------------------------------------------------------------------------------------------------------
@@ -50,7 +51,7 @@ public class BoardController {
 	@RequestMapping(value = "/readPost")
 	public ModelAndView readPost(HttpServletRequest request, HttpServletResponse response, BoardVO vo, ModelAndView mv) {
 
-		// 1. 요청 분석
+		// 1. 요청
 		String uri = "/board/readPost";
 
 		// 2. Service 처리
@@ -94,8 +95,10 @@ public class BoardController {
 	// ** writePost : 새글등록
 	@RequestMapping(value = "/writePostForm")
 	public ModelAndView writePostForm(HttpServletRequest request, HttpServletResponse response, ModelAndView mv) {
+		
 		mv.setViewName("/board/writePostForm");
 		return mv;
+		
 	}
 
 // ----------------------------------------------------------------------------------------------------------------------
@@ -103,10 +106,10 @@ public class BoardController {
 	@RequestMapping(value = "/writePost", method = RequestMethod.POST)
 	public ModelAndView writeBoard(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BoardVO vo, RedirectAttributes rttr) {
 
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "redirect:boardList";
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.writePost(vo) > 0) {
 			rttr.addFlashAttribute("message", "새 게시물이 등록되었습니다.");
 
@@ -115,23 +118,24 @@ public class BoardController {
 			uri = "/board/writePostForm";
 		}
 
-		// 3. 결과(View -> forward) 처리
+		// 3. 결과(View -> forward)
 		mv.setViewName(uri);
 		return mv;
+		
 	} // writePost
 
-	// ----------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------------------------------------------
 
 	// ** modifyPost : 게시물 수정
 	@RequestMapping(value = "/modifyPost", method = RequestMethod.POST)
 	public ModelAndView modifyPost(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BoardVO vo) {
 
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "/board/readPost";
 		
 		mv.addObject("one", vo);
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.modifyPost(vo) > 0) {
 			mv.addObject("message", "게시물이 수정되었습니다.");
 
@@ -151,13 +155,13 @@ public class BoardController {
 	@RequestMapping(value = "/removePost")
 	public ModelAndView removeBoard(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BoardVO vo, RedirectAttributes rttr) {
 		
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "redirect:boardList";
 	
-		// 댓글지워
+		// * 해당 seq의 댓글 지우기
 		service.removeReply(vo);
 	
-		// 2. Service 처리
+		// 2. Service
 		if (service.removePost(vo) > 0) {
 			rttr.addFlashAttribute("message", "게시물이 삭제되었습니다.");
 	
@@ -177,8 +181,10 @@ public class BoardController {
 	// ** Reply_Insert : 답글등록
 	@RequestMapping(value = "/writeReplyForm")
 	public ModelAndView writeReplyForm(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BoardVO vo) {
+		
 		mv.setViewName("/board/writeReplyForm");
 		return mv;
+		
 	}
 
 // ----------------------------------------------------------------------------------------------------------------------
@@ -187,13 +193,13 @@ public class BoardController {
 	@RequestMapping(value = "/writeReply", method = RequestMethod.POST)
 	public ModelAndView writeReply(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BoardVO vo, RedirectAttributes rttr) {
 
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "redirect:boardList";
 		
 		vo.setStep(vo.getStep() + 1);
 		vo.setIndent(vo.getIndent() + 1);
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.writeReply(vo) > 0) {
 			rttr.addFlashAttribute("message", "댓글이 등록되었습니다.");
 
@@ -202,7 +208,7 @@ public class BoardController {
 			uri = "/board/writeReplyForm";
 		}
 
-		// 3. 결과(ModelAndView) 전달
+		// 3. 결과(ModelAndView)
 		mv.setViewName(uri);
 		return mv;
 

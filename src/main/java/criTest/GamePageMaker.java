@@ -22,9 +22,11 @@ public class GamePageMaker {
    private boolean prev; // 이전 PageBlock 으로
    private boolean next; // 다음 PageBlock 으로
    
+   // private Criteria cri;    // ver01
    private GameSearchCriteria gameCriteria;
    
    // ** 필요한 값 Set
+   // SearchCriteria(ver02)
    public void setCri(GameSearchCriteria gameCriteria) {
       this.gameCriteria = gameCriteria;
    }
@@ -61,6 +63,7 @@ public class GamePageMaker {
       return uriComponents.toString();
    } //makeQuery
    
+   // ** ver02
    public String searchQuery(int currPage) {
 	// ** check 처리
 	// => MultiValueMap 생성

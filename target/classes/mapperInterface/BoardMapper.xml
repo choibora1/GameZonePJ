@@ -62,7 +62,8 @@
 	</select>
 
 	<select id="readPost" resultType="vo.BoardVO">
-		select * from board where seq = #{seq}
+		select * from board 
+		where seq = #{seq}
 	</select>
 
 	<insert id="writePost">

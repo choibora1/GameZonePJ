@@ -48,10 +48,10 @@ public class MobileGameController {
 	
 		gameCriteria.setSnoEno();
 	
-		// 1) Criteria 처리
+		// 1) Criteria
 		gameCriteria.setCheck(null);
 	
-		// 2) 서비스 처리
+		// 2) Service
 		mv.addObject("list", service.mobileGameList(gameCriteria));
 	
 		// 3) View 처리 => gamePageMaker
@@ -86,12 +86,12 @@ public class MobileGameController {
 	
 		gameCriteria.setSnoEno();
 	
-		// 1) Criteria 처리
+		// 1) Criteria
 		if (gameCriteria.getCheck() != null && gameCriteria.getCheck().length < 1) {
 			gameCriteria.setCheck(null);
 		}
 	
-		// 2) 서비스 처리
+		// 2) Service
 		mv.addObject("list", service.mobileGameList(gameCriteria));
 	
 		// 3) View 처리 => gamePageMaker
@@ -120,15 +120,14 @@ public class MobileGameController {
 	@RequestMapping(value = "/insertMobileGame")
 	public ModelAndView insertMobileGame(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, GameVO vo, RedirectAttributes rttr) throws IOException {
 		
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "redirect:axMobileGame";
 
 		String realPath = request.getRealPath("/"); // deprecated Method
 		System.out.println("** realPath = " + realPath);
 
-		// 2) 위의 값을 이용해서 실제 저장위치 확인
 		if (realPath.contains(".eclipse."))
-			realPath = "C:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\mobileGameImg\\";
+			realPath = "D:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\mobileGameImg\\";
 
 		else
 			realPath += "resources\\mobileGameImg\\";
@@ -145,18 +144,16 @@ public class MobileGameController {
 		if (uploadimgfile != null && !uploadimgfile.isEmpty()) {
 
 			// ** Image를 선택 함 -> Image 저장 (경로_realPath + 파일명)
-			// 1) 물리적 저장경로에 Image 저장
 			file1 = realPath + uploadimgfile.getOriginalFilename();
 			uploadimgfile.transferTo(new File(file1));
 
-			// 2) Table 저장 준비
 			file2 = "resources/mobileGameImg/" + uploadimgfile.getOriginalFilename();
 		}
 
 		// ** 완성된 경로 vo에 set
 		vo.setGame_img(file2);
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.insertMobileGame(vo) > 0) {
 			mv.addObject("message", "게임이 등록되었습니다.");
 
@@ -165,7 +162,7 @@ public class MobileGameController {
 			uri = "/mobileGame/insertMobileGame";
 		}
 
-		// 3. 결과(View -> Forward) 처리
+		// 3. 결과(View -> Forward)
 		mv.setViewName(uri);
 		return mv;
 
@@ -177,14 +174,15 @@ public class MobileGameController {
 	@RequestMapping(value = "/detailMobileGame")
 	public ModelAndView detailMobileGame(HttpServletRequest request, HttpServletResponse response, GameVO vo, ModelAndView mv, RankingVO rvo) {
 	   
-		// 1. 요청분석
+		// 1. 요청
 	    String uri = "/mobileGame/detailMobileGame";
 	    String loginID = (String)request.getSession().getAttribute("loginID");
 	      
-	    // 2. Service 처리
+	    // 2. Service
 	    vo = service.detailMobileGame(vo);
 
 		if (vo != null ) {
+			
 			// 조회수 증가 부분
 		    rvo.setId(loginID);
 		    rvo.setGame_number(vo.getGame_number());
@@ -205,7 +203,6 @@ public class MobileGameController {
 				uri = "/mobileGame/updateMobileGame"; 
 			}	
 			
-			// 2-3) 결과전달
 			request.setAttribute("one", vo);
 			
 		} else {
@@ -225,16 +222,15 @@ public class MobileGameController {
 	@RequestMapping(value = "/updateMobileGame", method = RequestMethod.POST)
 	public ModelAndView updateMobileGame(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, GameVO vo) throws IOException {
 
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "/mobileGame/detailMobileGame";
 
 		mv.addObject("one", vo);
 
 		String realPath = request.getRealPath("/"); // deprecated Method
 
-		// 2) 위의 값을 이용해서 실제 저장위치 확인
 		if (realPath.contains(".eclipse."))
-			realPath = "C:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\mobileGameImg\\";
+			realPath = "D:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\mobileGameImg\\";
 
 		else
 			realPath += "resources\\mobileGameImg\\";
@@ -251,17 +247,14 @@ public class MobileGameController {
 		if (uploadimgfile != null && !uploadimgfile.isEmpty()) {
 
 			// ** Image를 선택 함 -> Image 저장 (경로_realPath + 파일명)
-			// 1) 물리적 저장경로에 Image 저장
 			file1 = realPath + uploadimgfile.getOriginalFilename();
 			uploadimgfile.transferTo(new File(file1));
 
-			// 2) Table 저장 준비
 			file2 = "resources/mobileGameImg/" + uploadimgfile.getOriginalFilename();
 			vo.setGame_img(file2);
 		}
-		// ** 완성된 경로 vo에 set
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.updateMobileGame(vo) > 0) {
 			mv.addObject("message", "게임이 수정되었습니다.");
 			mv.addObject("one", vo); // 수정된 vo를 보관
@@ -271,7 +264,7 @@ public class MobileGameController {
 			uri = "/mobileGame/updateMobileGame";
 		}
 
-		// 3. 결과(ModelAndView) 전달
+		// 3. 결과(ModelAndView)
 		mv.setViewName(uri);
 		return mv;
 
@@ -283,10 +276,10 @@ public class MobileGameController {
 	@RequestMapping(value = "/deleteMobileGame")
 	public ModelAndView deleteMobileGame(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, GameVO vo, RedirectAttributes rttr) {
 		
-		// 1. 요청분석
+		// 1. 요청
 		String uri = "redirect:axMobileGame";
 
-		// 2. Service 처리
+		// 2. Service
 		if (service.deleteMobileGame(vo) > 0) {
 			rttr.addFlashAttribute("message", "게임이 삭제되었습니다.");
 
@@ -295,7 +288,7 @@ public class MobileGameController {
 			uri = "redirect:detailMobileGame?game_name=" + vo.getGame_name();
 		} // Service
 
-		// 3. 결과(ModelAndView) 전달
+		// 3. 결과(ModelAndView)
 		mv.setViewName(uri);
 		return mv;
 	

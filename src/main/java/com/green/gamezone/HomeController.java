@@ -48,10 +48,11 @@ public class HomeController {
 
 	@RequestMapping(value = "/emailAuth", method = RequestMethod.POST)
 	public ModelAndView emailAuth(String email, ModelAndView mv) {		
+		
 		Random random = new Random();
 		int checkNum = random.nextInt(888888) + 111111;
 
-		/* 이메일 보내기 */
+		// ** 이메일 보내기
         String setFrom = "gamezone.green@gmail.com";
         String toMail = email;
         String title = "GameZone 회원가입 인증 이메일 입니다.";
@@ -81,6 +82,6 @@ public class HomeController {
         System.out.println(checkNum);
         return mv;
 	
-	}
+	} // emailAuth
 
 } // class
