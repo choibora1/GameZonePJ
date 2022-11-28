@@ -959,10 +959,22 @@ ul, ol {
 #insert_game_form {
    width: 1200px;
    margin: auto;
+   height: 702px;
 }
 
 #insert_game {
-   height: 752px;   
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 50px;
+	height: 400px;   
+	width: 100%;
+	justify-content: center;
+}
+
+#insert_game > tfoot {
+	width: 820px;
+	display: flex;
+	justify-content: center;
 }
 
 #insert_game th {
@@ -987,6 +999,8 @@ ul, ol {
 #insert_game .insert_game_btn {
    width: 60px;
 }
+
+
 
 /* ================================================================ boardList ===================================================================== */
 
