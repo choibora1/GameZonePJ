@@ -374,6 +374,7 @@
                 href="#" target="_blank">GameZone</a>
           </p>
        </div>
+       <p>test</p>
     </footer>
     <!-- Footer section end -->
 
