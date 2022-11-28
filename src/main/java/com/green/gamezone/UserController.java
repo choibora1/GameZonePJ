@@ -357,7 +357,7 @@ public class UserController {
 		UserVO vo2 = new UserVO();
 
 		String id = (String) request.getSession().getAttribute("loginID");
-		String uri = "/user/detailUser";
+		String uri = "redirect:detailUser";
 
 		vo2.setId(id);
 		vo2 = service.detailUser(vo2);

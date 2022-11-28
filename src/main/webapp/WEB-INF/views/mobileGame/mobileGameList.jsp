@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>GameZone | 모바일게임 리스트</title>
-	<link rel="stylesheet" type="text/css" href="resources/css/myStyle.css">
+	<link rel="stylesheet" type="text/css" href="resources/myLib/myStyle.css">
 	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
 	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/animate.css" />
@@ -51,14 +50,12 @@
 			</tr>
 		</c:if>
 	</table>
-
 	<!-- ** Criteria_Page ** -->
 	<div id="Criteria_Page">
 		<!-- First, Prev -->
 		<div id="Criteria_left">
 		<c:choose>
 			<c:when test="${gamePageMaker.prev && gamePageMaker.spageNo > 1}">
-				<!-- ** New Version02_searchQuery 사용 ** -->
 				<a href="mobileGameList${gamePageMaker.searchQuery(1)}" class="aclick"><img src="resources/img/first.png"></a>&nbsp;
 				<a href="mobileGameList${gamePageMaker.searchQuery(gamePageMaker.spageNo-1)}" class="aclick"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
 			</c:when>
@@ -75,7 +72,6 @@
 			</c:if>
 
 			<c:if test="${i != gamePageMaker.gameCriteria.currPage}">
-				<!-- ** New Version02_searchQuery 사용 ** -->
 				<a href="mobileGameList${gamePageMaker.searchQuery(i)}" class="aclick">${i}</a>&nbsp;
 			</c:if>
 		</c:forEach>
@@ -83,7 +79,6 @@
 		<!-- Next, Last -->
 		<c:choose>
 			<c:when test="${gamePageMaker.next && gamePageMaker.epageNo > 0}">
-				<!-- ** New Version02_searchQuery 사용 ** -->
 				<a href="mobileGameList${gamePageMaker.searchQuery(gamePageMaker.epageNo+1)}" class="aclick"><img src="resources/img/right.png"></a>
 				<a href="mobileGameList${gamePageMaker.searchQuery(gamePageMaker.lastPageNo)}" class="aclick">&nbsp;&nbsp;<img src="resources/img/last.png"></a>
 			</c:when>
@@ -94,6 +89,5 @@
 		</c:choose>
 		</div>
 	</div>
-
 </body>
 </html>

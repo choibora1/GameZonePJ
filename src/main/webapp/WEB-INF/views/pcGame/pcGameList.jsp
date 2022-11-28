@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>GameZone | PC게임 리스트</title>
-	<link rel="stylesheet" type="text/css" href="resources/css/myStyle.css">
+	<link rel="stylesheet" type="text/css" href="resources/myLib/myStyle.css">
 	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
 	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/animate.css" />
@@ -58,7 +57,6 @@
 		<div id="Criteria_left">
 		<c:choose>
 			<c:when test="${gamePageMaker.prev && gamePageMaker.spageNo > 1}">
-				<!-- ** New Version02_searchQuery 사용 ** -->
 				<a href="pcGameList${gamePageMaker.searchQuery(1)}" class="aclick"><img src="resources/img/first.png"></a>&nbsp;
 				<a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.spageNo - 1)}" class="aclick"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
 				<!-- 클릭 시 displayPageNo의 다음 페이지 첫 번째로 이동 -->
@@ -78,7 +76,6 @@
 			</c:if>
 
 			<c:if test="${i != gamePageMaker.gameCriteria.currPage}">
-				<!-- ** New Version02_searchQuery 사용 ** -->
 				<a href="pcGameList${gamePageMaker.searchQuery(i)}" class="aclick">${i}</a>&nbsp;
 			</c:if>
 		</c:forEach>
@@ -98,6 +95,5 @@
 		</c:choose>
 		</div>
 	</div>
-
 </body>
 </html>

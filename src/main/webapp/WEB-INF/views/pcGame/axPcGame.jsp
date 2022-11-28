@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="UTF-8">
 	<title>GameZone | PC게임 리스트</title>
-	<link rel="stylesheet" type="text/css" href="resources/css/myStyle.css">
+	<link rel="stylesheet" type="text/css" href="resources/myLib/myStyle.css">
 	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
 	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/animate.css" />
@@ -34,17 +33,17 @@
     	<div>
         	<!-- logo -->
          	<a class="site-logo" href="home">
-         		<img src="resources/img/logo22.png" alt="gamelogo">
-         	</a>
+	        	<img src="resources/img/logo22.png" alt="gamelogo">
+	        </a>
          	<!-- site menu -->
          	<nav class="main-menu">
             	<ul>
                		<li><a href="home">Home</a></li>
                		<li><a href="axPcGame">PC 게임조회</a></li>
                		<li><a href="axMobileGame">모바일 게임조회</a></li>
-               		<li><a href="axFlashGame">플래시게임</a></li>
-               		<li><a href="boardList">자유 게시판</a></li>
-               		<li><a href="qnaBoardList">Q&amp;A</a></li>
+	               	<li><a href="axFlashGame">플래시 게임</a></li>
+	               	<li><a href="boardList">자유 게시판</a></li>
+	               	<li><a href="qnaBoardList">Q&amp;A</a></li>
             	</ul>
          	</nav>
          	<div class="user-panel">
@@ -52,18 +51,17 @@
                		<c:when test="${not empty loginID && loginID != 'admin'}">
                   		<a href="detailUser">내 정보 보기</a> / <a href="logout">로그아웃</a>
                		</c:when>
-               		
                		<c:when test="${loginID == 'admin'}">
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
-               		
                		<c:otherwise>
-                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
       	</div>
    	</header>
+   	<!-- Header section end -->
    	<main id="Game_main">
    		<div id="rank_section">
 			<span> 게임검색순위 TOP 10</span>
@@ -399,83 +397,66 @@
           	<div id="Criteria_Page">
 				<!-- First, Prev -->
 				<div id="Criteria_left">
-            	<c:choose>
-            		<%-- <c:when test="${gamePageMaker.prev && gamePageMaker.spageNo > 1}">
-						<a href="pcGameList${gamePageMaker.searchQuery(1)}" class="aclick"><img src="resources/img/first.png"></a>&nbsp;&nbsp;
-		         		<a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.spageNo - 1)}" class="aclick"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
-					</c:when>
-					<c:otherwise>
-						<!-- <font size="5" color="Gray"><img src="resources/img/first.png">&nbsp;<img src="resources/img/left.png">&nbsp;&nbsp;</font> -->
-						<font size="5" color="Gray"><img onclick = "changePage('${gamePageMaker.searchQuery(1)}')"  src="resources/img/first.png">&nbsp;<img onclick = "changePage('${pageMaker.searchQuery(pageMaker.spageNo-1)}')" src="resources/img/left.png">&nbsp;&nbsp;</font>
-					</c:otherwise> --%>
-            		
-                	<c:when test="${gamePageMaker.prev && gamePageMaker.spageNo > 1}">
-                   		<a href="pcGameList${gamePageMaker.searchQuery(1)}" class="aclick"><img src="resources/img/first.png"></a>&nbsp;
-                   		<a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.spageNo - 1)}" class="aclick"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
-						<!-- 클릭 시 displayPageNo의 다음 페이지 첫 번째로 이동 -->
-		                <%-- <a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.gameCriteria.currPage - 1)}" class="aclick">&lt;</a>&nbsp;&nbsp; --%>
-		                <!-- 클릭 시 바로 다음 페이지로 이동 -->
-                	</c:when>
-
-	                <c:otherwise>
-                   		<font color="DimGray"><img src="resources/img/first.png">&nbsp;<img src="resources/img/left.png">&nbsp;&nbsp;</font>
-                	</c:otherwise>
-             	</c:choose>
-
-            	<!-- Display PageNo -->
-             	<c:forEach var="i" begin="${gamePageMaker.spageNo}" end="${gamePageMaker.epageNo}">
-                	<c:if test="${i == gamePageMaker.gameCriteria.currPage}">
-                   		<font size="5" color="DarkOrange">${i}</font>&nbsp;
-                	</c:if>
-
-                	<c:if test="${i != gamePageMaker.gameCriteria.currPage}">
-                  		<!-- ** New Version02_searchQuery 사용 ** -->
-                   		<a href="pcGameList${gamePageMaker.searchQuery(i)}" class="aclick">${i}</a>&nbsp;
-                	</c:if>
-             	</c:forEach>
-
-            	<!-- Next, Last -->
-             	<c:choose>
-                	<c:when test="${gamePageMaker.next && gamePageMaker.epageNo > 0}">
-                   		<!-- ** New Version02_searchQuery 사용 ** -->
-                   		<a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.epageNo + 1)}" class="aclick"><img src="resources/img/right.png"></a>
-						<%-- <a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.gameCriteria.currPage + 1)}" class="aclick">&nbsp;&nbsp;&gt;</a> --%>
-                   		<a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.lastPageNo)}" class="aclick">&nbsp;&nbsp;<img src="resources/img/last.png"></a>
-                	</c:when>
- 
-                	<c:otherwise>
-                   		<font color="DimGray">&nbsp;<img src="resources/img/right.png">&nbsp;&nbsp;<img src="resources/img/last.png"></font>
-                	</c:otherwise>
-             	</c:choose>
+	            	<c:choose>
+	                	<c:when test="${gamePageMaker.prev && gamePageMaker.spageNo > 1}">
+	                   		<a href="pcGameList${gamePageMaker.searchQuery(1)}" class="aclick"><img src="resources/img/first.png"></a>&nbsp;
+	                   		<a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.spageNo - 1)}" class="aclick"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
+							<!-- 클릭 시 displayPageNo의 다음 페이지 첫 번째로 이동 -->
+			                <%-- <a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.gameCriteria.currPage - 1)}" class="aclick">&lt;</a>&nbsp;&nbsp; --%>
+			                <!-- 클릭 시 바로 다음 페이지로 이동 -->
+	                	</c:when>
+	
+		                <c:otherwise>
+	                   		<font color="DimGray"><img src="resources/img/first.png">&nbsp;<img src="resources/img/left.png">&nbsp;&nbsp;</font>
+	                	</c:otherwise>
+	             	</c:choose>
+	
+	            	<!-- Display PageNo -->
+	             	<c:forEach var="i" begin="${gamePageMaker.spageNo}" end="${gamePageMaker.epageNo}">
+	                	<c:if test="${i == gamePageMaker.gameCriteria.currPage}">
+	                   		<font size="5" color="DarkOrange">${i}</font>&nbsp;
+	                	</c:if>
+	
+	                	<c:if test="${i != gamePageMaker.gameCriteria.currPage}">
+	                  		<!-- ** New Version02_searchQuery 사용 ** -->
+	                   		<a href="pcGameList${gamePageMaker.searchQuery(i)}" class="aclick">${i}</a>&nbsp;
+	                	</c:if>
+	             	</c:forEach>
+	
+	            	<!-- Next, Last -->
+	             	<c:choose>
+	                	<c:when test="${gamePageMaker.next && gamePageMaker.epageNo > 0}">
+	                   		<a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.epageNo + 1)}" class="aclick"><img src="resources/img/right.png"></a>
+							<%-- <a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.gameCriteria.currPage + 1)}" class="aclick">&nbsp;&nbsp;&gt;</a> --%>
+	                   		<a href="pcGameList${gamePageMaker.searchQuery(gamePageMaker.lastPageNo)}" class="aclick">&nbsp;&nbsp;<img src="resources/img/last.png"></a>
+	                	</c:when>
+	 
+	                	<c:otherwise>
+	                   		<font color="DimGray">&nbsp;<img src="resources/img/right.png">&nbsp;&nbsp;<img src="resources/img/last.png"></font>
+	                	</c:otherwise>
+	             	</c:choose>
              	</div>
-          	</div>
-          	<!-- Paging -->
-
-       	</div>
-       	<!-- resultArea -->
- 
+          	</div> <!-- Paging -->
+       	</div> <!-- resultArea -->
 	</main>
-    
     <!-- Footer section -->
     <footer class="footer-section">
-       <div class="container">
-          <ul class="footer-menu">
-             <li><a href="home">Home</a></li>
-             <li><a href="axPcGame">PC 게임</a></li>
-             <li><a href="axMobileGame">모바일 게임</a></li>
-             <li><a href="boardList">자유 게시판</a></li>
-             <li><a href="qnaBoardList">Q&amp;A</a></li>
-          </ul>
-          <p class="copyright">
-             Copyright &copy;
-             <script>
-                         document.write(new Date().getFullYear());
-                   </script>
-             All rights reserved | This template is made with <i
-                class="fa fa-heart-o" aria-hidden="true"></i> by <a
-                href="#" target="_blank">GameZone</a>
-          </p>
-       </div>
+    	<div class="container">
+        	<ul class="footer-menu">
+            	<li><a href="home">Home</a></li>
+             	<li><a href="axPcGame">PC 게임</a></li>
+             	<li><a href="axMobileGame">모바일 게임</a></li>
+             	<li><a href="boardList">자유 게시판</a></li>
+             	<li><a href="qnaBoardList">Q&amp;A</a></li>
+          	</ul>
+          	<p class="copyright">
+            	Copyright &copy;
+            	<script>document.write(new Date().getFullYear());</script>
+             	All rights reserved | This project is made with 
+             	<i class="fa fa-heart-o" aria-hidden="true"></i> by 
+             	<a href="#" target="_blank">GameZone</a>
+          	</p>
+       	</div>
     </footer>
     <!-- Footer section end -->
     <!-- ====== Javascripts & Jquery ====== -->
