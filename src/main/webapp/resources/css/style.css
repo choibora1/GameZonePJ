@@ -1050,14 +1050,6 @@ ul, ol {
    border-color: #000000;
 }
 
-#boardtable {
-   width: 85%;
-   padding-right: 15px;
-   padding-left: 15px;
-   margin-right: auto;
-   margin-left: auto;
-}
-
 #boardth {
    background-color: #fff;
    color: #000;
@@ -1101,10 +1093,27 @@ ul, ol {
  
 /* ================================================================ boardList ===================================================================== */
 
+#board_bg_set {
+	position: relative;
+}
+
+#board_img_left,
+#board_img_right {
+	position: absolute;
+	margin: 5px;
+}
+
+#board_img_right {
+	right: 0;
+	top: 0;
+}
+
 #searchBar,
 #qnawritebar {
    text-align: right;
-   width: 91.5%
+   width: 86.2%;
+   margin: 5px;
+   
 }
 
 #searchBtn:hover {
@@ -1145,11 +1154,9 @@ ul, ol {
 
 #boardtable,
 #qnatable {
-   width: 85%;
-   padding-right: 15px;
-   padding-left: 15px;
-   margin-right: auto;
-   margin-left: auto;
+   width: 72%;
+   padding: 0 15px;
+   margin: auto;
 }
 
 #boardth,
@@ -1162,7 +1169,7 @@ ul, ol {
 
 #boardtd,
 #qnatd {
-   line-height: 2em;
+   line-height: 2.13em;
    text-align: center;
    background-color: #000;
 }

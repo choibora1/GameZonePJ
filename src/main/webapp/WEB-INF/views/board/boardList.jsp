@@ -67,7 +67,11 @@
 	
 	<!-- Recent game section  -->
 	<section class="spad">
-		<div>
+		<div id="board_bg_set">
+			<a href="https://rox.gnjoy.com/pre-register?af_xp=email&pid=Email&c=ApolloMKTMedia&af_adset=m11&af_ad=ruliwebpc" target="_blank">
+				<img id="board_img_left" alt="ragnarokX" src="resources/img/ragnarokX_left.jpg">
+			</a>
+			
 			<div class="section-title">
 				<h2>자유 게시판</h2>
 			</div>
@@ -136,6 +140,9 @@
 					</c:forEach>
 				</c:if>
 			</table>
+			<a href="https://rox.gnjoy.com/pre-register?af_xp=email&pid=Email&c=ApolloMKTMedia&af_adset=m11&af_ad=ruliwebpc" target="_blank">
+				<img id="board_img_right" alt="ragnarokX" src="resources/img/ragnarokX_right.jpg">
+			</a>
 		</div>
 	</section>
 		
