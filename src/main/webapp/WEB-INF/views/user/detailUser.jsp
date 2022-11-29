@@ -10,13 +10,11 @@
 	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/animate.css" />
 	<link rel="shortcut icon" href="resources/img/icon2.ico">
-	<script src="resources/myLib/jquery-3.2.1.min.js"></script>
+	<script src="resources/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/myLib/inCheck.js"></script>
 	<script>
 		function deleteUser() {
-			
 			if (confirm("탈퇴하시겠습니까? (Yes : 확인 / No : 취소)")) {
-				
 				alert('탈퇴되었습니다. 이용해주셔서 감사합니다 :)');
                	return true; // 탈퇴
 			} else {
@@ -62,8 +60,8 @@
    	</header>
    	<!-- Header section end -->
 	<c:if test="${not empty message}">
-		<hr>
 		${message}<br>
+		<hr>
 	</c:if>
 	<main class="detail_main">
 		<div class="container rounded bg-white">
@@ -71,8 +69,8 @@
 				<div class="col-md-3">
 					<div class="d-flex flex-column align-items-center text-center p-3 py-5">
 						<img src="${one.uploadimg}" class="select_img" width="230" height="300"><br>
-						<input type="text" class="font-weight-bold profile_id" value="${one.id}" name="id" id="id" readonly> 
-						<input type="text" class="text-black-50 profile_email" value="${one.email}${one.domain}" readonly>
+						<h4><input type="text" class="font-weight-bold profile_id" value="${one.id}" name="id" id="id" readonly></h4>
+						<h5><input type="text" class="text-black-50 profile_email" value="${one.email}${one.domain}" readonly></h5>
 					</div>
 				</div>
 

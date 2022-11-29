@@ -7,10 +7,10 @@
 	<title>GameZone | 게시글 수정</title>
 	<link rel="stylesheet" type="text/css" href ="resources/css/myStyle.css">
 	<link rel="shortcut icon" href="resources/img/icon2.ico">
-	<!-- Stylesheets -->
 	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
 	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/animate.css" />
+	<script src="resources/js/jquery-3.2.1.min.js"></script>
 	<script>
 		function modifyPost() {
 			
@@ -157,7 +157,6 @@
     <!-- Footer section end -->
 
 	<!--====== Javascripts & Jquery ======-->
-	<script src="resources/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
 	<script src="resources/js/owl.carousel.min.js"></script>
 	<script src="resources/js/jquery.marquee.min.js"></script>
