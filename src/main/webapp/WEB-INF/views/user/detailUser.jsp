@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GameZone | 내 정보 보기</title>
-	<link rel="stylesheet" href="resources/css/update.css">
+	<link rel="stylesheet" href="resources/css/user.css">
 	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
 	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/animate.css" />
@@ -81,18 +81,18 @@
 						</div>
 						<div class="row mt-3">
 							<div class="col-md-12">
-								<label class="labels">I D</label> <input type="text" class="detail-form" name="id"
+								<label class="labels">I D</label> <input type="text" class="detail-form controlBox" name="id"
 									id="id" value="${one.id}" readonly>
 							</div>
 
 							<div class="col-md-12">
-								<label class="labels">Name</label> <input type="text" class="detail-form" name="id"
+								<label class="labels">Name</label> <input type="text" class="detail-form controlBox" name="id"
 									id="id" value="${one.user_name}" readonly>
 							</div>
 
 							<div class="col-md-12">
 								<label class="labels">Gender</label>
-								<input type="text" class="detail-form" name="gender" id="gender" <c:if
+								<input type="text" class="detail-form controlBox" name="gender" id="gender" <c:if
 									test="${one.gender == 1}">
 									value="woman"
 								</c:if>
@@ -103,20 +103,19 @@
 							</div>
 
 							<div class="col-md-12">
-								<label class="labels">BirthDay</label> <input type="text" class="detail-form"
+								<label class="labels">BirthDay</label> <input type="text" class="detail-form controlBox"
 									name="birthday" id="birthday" value="${one.birthday}" readonly>
 							</div>
 							
 							<div class="col-md-12">
-								<label class="labels">Phone</label> <input type="text" class="detail-form" name="phone"
+								<label class="labels">Phone</label> <input type="text" class="detail-form controlBox" name="phone"
 									id="phone" value="${one.phone}" readonly>
 							</div>
 
 							<div class="col-md-12">
-								<label class="labels">Email</label> <input type="text" class="detail-form" name="email"
+								<label class="labels">Email</label> <input type="text" class="detail-form controlBox" name="email"
 									id="email" value="${one.email}${one.domain}" readonly>
 							</div>
-
 						</div>
 					</div>
 				</div>
