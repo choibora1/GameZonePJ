@@ -40,9 +40,14 @@
 	<!-- 회원가입 메일 인증 -->
    	<beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
     	<beans:property name="host" value="smtp.gmail.com" />
-      	<beans:property name="port" value="587" /> <!--  naver : 465 or 25 / gmail : 587 -->
+    	<!-- <beans:property name="host" value="smtp.naver.com" /> -->
+      	<beans:property name="port" value="587" /> <!-- gmail : 587 -->
+      	<!-- <beans:property name="port" value="465" /> --> <!-- naver : 465 or 25 -->
       	<beans:property name="username" value="gamezone.green@gmail.com" />
+      	<!-- <beans:property name="username" value="보낼 이메일 주소" /> -->
       	<beans:property name="password" value="wgbgeugnlzcfcrqt" />
+		<!-- <beans:property name="password" value="해당 이메일 비밀번호" /> -->
+		<!-- ***** 보내는 이메일 주소 변경 시 HomeController 같이 수정 필요 ******** -->
       	<beans:property name="javaMailProperties">
        		<beans:props>
             	<beans:prop key="mail.smtp.auth">true</beans:prop>

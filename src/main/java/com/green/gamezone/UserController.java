@@ -163,7 +163,7 @@ public class UserController {
 				uri = "home";
 
 			} else {
-				mv.addObject("message", "Password 오류, 다시 시도해주세요");
+				mv.addObject("message", "비밀번호 오류, 다시 시도해주세요");
 			}
 
 		} else {

@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<title>GameZone | ID 중복확인</title>
 	<link rel="stylesheet" href="resources/css/style.css">
-	<link rel="stylesheet" href="resources/css/update.css">
+	<link rel="stylesheet" href="resources/css/user.css">
 	<script src="resources/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/myLib/inCheck.js"></script>
 	<script>
