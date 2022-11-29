@@ -71,12 +71,15 @@
 				<span id="pMessage" class="eMessage"></span>
 			</div>
             <br>
-			<input type="submit" value="Login" id="submit">&nbsp;&nbsp;
+			<input type="submit" value="로그인" id="submit">&nbsp;&nbsp;
 		</form>
-	<!-- <a href="#">Forget Password</a> 
-		<br> -->
+		<c:if test="${not empty message}">
+			<script>
+				alert(`${message}`);
+			</script>		
+		</c:if>
 		<div class="text-center">
-			<a href="joinForm" style="color: #59238F;">Sign-Up</a>
+			<a href="joinForm" style="color: #59238F;">회원가입</a>
 		</div>
 	</div>
 </body>
