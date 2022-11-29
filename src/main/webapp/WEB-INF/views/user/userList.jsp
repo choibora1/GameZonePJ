@@ -65,100 +65,100 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-		<main class="main_min">
+	<main class="main_min">
 		<c:if test="${not empty message}">
 			${message}<br>
 		</c:if>
-	<hr>
-	<div id="searchBar">
-		<select name="searchType" id="searchType">
-			<option value="n" ${pageMaker.cri.searchType == null ? 'selected' : '' }>전체(All)</option>
-			<option value="i" ${pageMaker.cri.searchType == 'i' ? 'selected' : '' }>ID</option>
-			<option value="a" ${pageMaker.cri.searchType == 'a' ? 'selected' : '' }>Name</option>
-			<option value="b" ${pageMaker.cri.searchType == 'b' ? 'selected' : '' }>BirthDay</option>
-			<option value="in" ${pageMaker.cri.searchType == 'in' ? 'selected' : '' }>ID or Name</option>
-		</select>
+		<hr>
+		<div id="searchBar">
+			<select name="searchType" id="searchType">
+				<option value="n" ${pageMaker.cri.searchType == null ? 'selected' : '' }>전체(All)</option>
+				<option value="i" ${pageMaker.cri.searchType == 'i' ? 'selected' : '' }>ID</option>
+				<option value="a" ${pageMaker.cri.searchType == 'a' ? 'selected' : '' }>Name</option>
+				<option value="b" ${pageMaker.cri.searchType == 'b' ? 'selected' : '' }>BirthDay</option>
+				<option value="in" ${pageMaker.cri.searchType == 'in' ? 'selected' : '' }>ID or Name</option>
+			</select>
 		
-		<input type="text" name="keyword" id="keyword" value="${pageMaker.cri.keyword}">
-		<button id="searchBtn">Search</button>
-	</div>
-	<br>
-	<hr>
+			<input type="text" name="keyword" id="keyword" value="${pageMaker.cri.keyword}">
+			<button id="searchBtn">Search</button>
+		</div>
+		<br>
+		<hr>
 	   
-	<table width=100%>
-		<tr bgcolor="hotpink" height="30" style="text-align: center;">
-			<th>I D</th>
-			<th>Name</th>
-			<th>Birthday</th>
-			<th>Gender</th>
-			<th>Email</th>
-			<th>Phone</th>
-		</tr>
+		<table width=100%>
+			<tr bgcolor="hotpink" height="30" style="text-align: center;">
+				<th>I D</th>
+				<th>Name</th>
+				<th>Birthday</th>
+				<th>Gender</th>
+				<th>Email</th>
+				<th>Phone</th>
+			</tr>
+			
+			<c:if test="${not empty list}">
+				<c:forEach var="user" items="${list}">
+					<tr height="30">
+						<td>
+						<c:if test="${loginID == 'admin'}">
+							<a href="detailUser?id=${user.id}">${user.id}</a>
+						</c:if>
+						
+						<%-- <c:if test="${loginID != 'admin'}">
+							${user.id}
+						</c:if> --%>
+						
+						</td>
+						<td>${user.user_name}</td>
+						<td>${user.birthday}</td>
+						<td>${user.gender}</td>
+						<td>${user.email}</td>
+						<td>${user.phone}</td>
+					</tr>
+				</c:forEach>
+			</c:if>
+		</table>
+		<hr>
 		
-		<c:if test="${not empty list}">
-			<c:forEach var="user" items="${list}">
-				<tr height="30">
-					<td>
-					<c:if test="${loginID == 'admin'}">
-						<a href="detailUser?id=${user.id}">${user.id}</a>
-					</c:if>
-					
-					<%-- <c:if test="${loginID != 'admin'}">
-						${user.id}
-					</c:if> --%>
-					
-					</td>
-					<td>${user.user_name}</td>
-					<td>${user.birthday}</td>
-					<td>${user.gender}</td>
-					<td>${user.email}</td>
-					<td>${user.phone}</td>
-				</tr>
+		<div align="center">
+			<!-- First, Prev -->
+			<c:choose>
+				<c:when test="${pageMaker.prev && pageMaker.spageNo > 1}">
+					<a href="userList${pageMaker.searchQuery(1)}">FIRST</a>&nbsp;
+					<a href="userList${pageMaker.searchQuery(pageMaker.spageNo-1)}">&lt;</a>&nbsp;&nbsp;
+				</c:when>
+				
+				<c:otherwise>
+					<font color="DimGray">FIRST&nbsp;&lt;&nbsp;&nbsp;</font>
+				</c:otherwise>
+			</c:choose>
+		
+		
+			<!-- Display PageNo -->
+			<c:forEach var="i" begin="${pageMaker.spageNo}" end="${pageMaker.epageNo}">
+				<c:if test="${i == pageMaker.cri.currPage}">
+					<font size="5" color="DarkOrange">${i}</font>&nbsp;
+				</c:if>
+				
+				<c:if test="${i != pageMaker.cri.currPage}">
+					<a href="userList${pageMaker.searchQuery(i)}">${i}</a>&nbsp;
+				</c:if>
 			</c:forEach>
-		</c:if>
-	</table>
-	<hr>
-	
-	<div align="center">
-		<!-- First, Prev -->
-		<c:choose>
-			<c:when test="${pageMaker.prev && pageMaker.spageNo > 1}">
-				<a href="userList${pageMaker.searchQuery(1)}">FIRST</a>&nbsp;
-				<a href="userList${pageMaker.searchQuery(pageMaker.spageNo-1)}">&lt;</a>&nbsp;&nbsp;
-			</c:when>
-			
-			<c:otherwise>
-				<font color="DimGray">FIRST&nbsp;&lt;&nbsp;&nbsp;</font>
-			</c:otherwise>
-		</c:choose>
-	
-	
-		<!-- Display PageNo -->
-		<c:forEach var="i" begin="${pageMaker.spageNo}" end="${pageMaker.epageNo}">
-			<c:if test="${i == pageMaker.cri.currPage}">
-				<font size="5" color="DarkOrange">${i}</font>&nbsp;
-			</c:if>
-			
-			<c:if test="${i != pageMaker.cri.currPage}">
-				<a href="userList${pageMaker.searchQuery(i)}">${i}</a>&nbsp;
-			</c:if>
-		</c:forEach>
-	
-	
-		<!-- Next, Last -->
-		<c:choose>
-			<c:when test="${pageMaker.next && pageMaker.epageNo > 0}">
-				<a href="userList${pageMaker.searchQuery(pageMaker.epageNo+1)}">&nbsp;&nbsp;&gt;</a>
-				<a href="userList${pageMaker.searchQuery(pageMaker.lastPageNo)}">&nbsp;LAST</a>
-			</c:when>
-			
-			<c:otherwise>
-				<font color="DimGray">&nbsp;&gt;&nbsp;&nbsp;LAST</font>
-			</c:otherwise>
-		</c:choose>
-	
-	</div>
-</main>
+		
+		
+			<!-- Next, Last -->
+			<c:choose>
+				<c:when test="${pageMaker.next && pageMaker.epageNo > 0}">
+					<a href="userList${pageMaker.searchQuery(pageMaker.epageNo+1)}">&nbsp;&nbsp;&gt;</a>
+					<a href="userList${pageMaker.searchQuery(pageMaker.lastPageNo)}">&nbsp;LAST</a>
+				</c:when>
+				
+				<c:otherwise>
+					<font color="DimGray">&nbsp;&gt;&nbsp;&nbsp;LAST</font>
+				</c:otherwise>
+			</c:choose>
+		
+		</div>
+	</main>
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

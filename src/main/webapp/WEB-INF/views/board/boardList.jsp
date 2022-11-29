@@ -66,7 +66,12 @@
    	<!-- Header section end -->
 	
 	<!-- Recent game section  -->
-	<section class="spad">
+	<main class="relative_flex">
+		<div class="board_top">
+			<a href="https://lineagem.plaync.com/preorder/record/oasis2you/index?LM=19208101" target="_blank">
+				<img src="resources/img/lineagem.jpg">
+			</a>
+		</div>
 		<div id="board_bg_set">
 			<a href="https://rox.gnjoy.com/pre-register?af_xp=email&pid=Email&c=ApolloMKTMedia&af_adset=m11&af_ad=ruliwebpc" target="_blank">
 				<img id="board_img_left" alt="ragnarokX" src="resources/img/ragnarokX_left.jpg">
@@ -85,12 +90,12 @@
 					<option value="tc" ${pageMaker.cri.searchType=='tc' ? 'selected' : ' ' }>제목 or 내용</option>
 				</select> 
 				<input type="text" name="keyword" id="keyword" value="${pageMaker.cri.keyword}">
-					<button id="searchBtn">검색</button>
-					<div id="writePostbtn">
-						<c:if test="${not empty loginID}">
-							<a href="writePostForm" class="writePostbtn">새 게시글 등록하기</a><br>
-						</c:if>
-					</div>
+				<button id="searchBtn">검색</button>
+				<div id="writePostbtn">
+					<c:if test="${not empty loginID}">
+						<a href="writePostForm" class="writePostbtn">새 게시글 등록하기</a><br>
+					</c:if>
+				</div>
 			</div>
 			<br>
 
@@ -144,54 +149,54 @@
 				<img id="board_img_right" alt="ragnarokX" src="resources/img/ragnarokX_right.jpg">
 			</a>
 		</div>
-	</section>
-		
-	<!-- Criteria_Page -->
-	<div id="Criteria_Page">
-		<!-- First, Prev -->
-		<div id="Criteria_left">
-			<c:choose>
-				<c:when test="${pageMaker.prev && pageMaker.spageNo > 1}">
-					<a href="boardList${pageMaker.searchQuery(1)}"><img src="resources/img/first.png"></a>&nbsp;&nbsp;
-			    	<a href="boardList${pageMaker.searchQuery(pageMaker.spageNo - 1)}"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
-				</c:when>
-				<c:otherwise>
-					<font size="5" color="Gray"><img src="resources/img/first.png">&nbsp;
-					<img src="resources/img/left.png">&nbsp;&nbsp;</font>
-					<%-- <font size="5" color="Gray"><img onclick = "changePage('${pageMaker.searchQuery(1)}')"  src="resources/img/first.png">&nbsp;<img onclick = "changePage('${pageMaker.searchQuery(pageMaker.spageNo-1)}')" src="resources/img/left.png">&nbsp;&nbsp;</font> --%>
-				</c:otherwise>
-			</c:choose>
+		<!-- Criteria_Page -->
+		<div id="Criteria_Page">
+			<!-- First, Prev -->
+			<div id="Criteria_left">
+				<c:choose>
+					<c:when test="${pageMaker.prev && pageMaker.spageNo > 1}">
+						<a href="boardList${pageMaker.searchQuery(1)}"><img src="resources/img/first.png"></a>&nbsp;&nbsp;
+				    	<a href="boardList${pageMaker.searchQuery(pageMaker.spageNo - 1)}"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
+					</c:when>
+					<c:otherwise>
+						<font size="5" color="Gray"><img src="resources/img/first.png">&nbsp;
+						<img src="resources/img/left.png">&nbsp;&nbsp;</font>
+						<%-- <font size="5" color="Gray"><img onclick = "changePage('${pageMaker.searchQuery(1)}')"  src="resources/img/first.png">&nbsp;<img onclick = "changePage('${pageMaker.searchQuery(pageMaker.spageNo-1)}')" src="resources/img/left.png">&nbsp;&nbsp;</font> --%>
+					</c:otherwise>
+				</c:choose>
+			</div>
+	
+			<!-- Display PageNo -->
+			<div id="Criteria_num">
+				<c:forEach var="i" begin="${pageMaker.spageNo}" end="${pageMaker.epageNo}">
+					<c:if test="${i == pageMaker.cri.currPage}">
+						<font size="5" color="Orange">${i}</font>&nbsp;
+				   	</c:if>
+					<c:if test="${i!=pageMaker.cri.currPage}">
+						<a href="boardList${pageMaker.searchQuery(i)}">${i}</a>&nbsp;
+					</c:if>
+				</c:forEach>
+			</div>
+	
+			<!-- Next, Last -->
+			<div id="Criteria_right">
+				<c:choose>
+					<c:when test="${pageMaker.next && pageMaker.epageNo>0}"> &nbsp;&nbsp;
+						<a href="boardList${pageMaker.searchQuery(pageMaker.epageNo+1)}"><img src="resources/img/right.png"></a> &nbsp;&nbsp;
+						<a href="boardList${pageMaker.searchQuery(pageMaker.lastPageNo)}"><img src="resources/img/last.png"></a>
+					</c:when>
+					<c:otherwise>
+						<font size="5" color="Gray">&nbsp;
+							<img src="resources/img/right.png">&nbsp;&nbsp;
+							<img src="resources/img/last.png">
+						</font>
+					</c:otherwise>
+				</c:choose>
+			</div>
 		</div>
-
-		<!-- Display PageNo -->
-		<div id="Criteria_num">
-			<c:forEach var="i" begin="${pageMaker.spageNo}" end="${pageMaker.epageNo}">
-				<c:if test="${i == pageMaker.cri.currPage}">
-					<font size="5" color="Orange">${i}</font>&nbsp;
-			   	</c:if>
-				<c:if test="${i!=pageMaker.cri.currPage}">
-					<a href="boardList${pageMaker.searchQuery(i)}">${i}</a>&nbsp;
-				</c:if>
-			</c:forEach>
-		</div>
-
-		<!-- Next, Last -->
-		<div id="Criteria_right">
-			<c:choose>
-				<c:when test="${pageMaker.next && pageMaker.epageNo>0}"> &nbsp;&nbsp;
-					<a href="boardList${pageMaker.searchQuery(pageMaker.epageNo+1)}"><img src="resources/img/right.png"></a> &nbsp;&nbsp;
-					<a href="boardList${pageMaker.searchQuery(pageMaker.lastPageNo)}"><img src="resources/img/last.png"></a>
-				</c:when>
-				<c:otherwise>
-					<font size="5" color="Gray">&nbsp;
-						<img src="resources/img/right.png">&nbsp;&nbsp;
-						<img src="resources/img/last.png">
-					</font>
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</div>
+	</main>
 	<!-- ==================================================== -->
+	
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">
