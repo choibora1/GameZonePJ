@@ -7,7 +7,7 @@
     <title>GameZone | 로그인</title>
     <link rel="stylesheet" type="text/css" href="resources/css/login.css">
 	<link rel="shortcut icon" href="resources/img/icon2.ico">
-    <script src="resources/myLib/jquery-3.2.1.min.js"></script>
+    <script src="resources/js/jquery-3.2.1.min.js"></script>
     <script src="resources/myLib/inCheck.js"></script>
 
     <script>
