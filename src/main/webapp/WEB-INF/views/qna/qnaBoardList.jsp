@@ -48,8 +48,16 @@
    	</header>
    	<!-- Header section end -->
 	<!-- Recent game section  -->
-	<section class="spad set-bg" data-setbg="">
-		<div>
+	<section>
+		<div class="board_top">
+			<a href="https://lineagem.plaync.com/preorder/record/oasis2you/index?LM=19208101" target="_blank">
+				<img src="resources/img/lineagem.jpg">
+			</a>
+		</div>
+		<div id="board_bg_set">
+			<a href="https://worldofwarcraft.com/ko-kr/" target="_blank">
+				<img id="board_img_left" alt="worldofwarcraft" src="resources/img/wow_side.jpg">
+			</a>
 			<div class="section-title">
 				<h2>Q&amp;A</h2>
 			</div>
@@ -60,6 +68,9 @@
 					<br>
 				</c:if>
 			</div>
+			<a href="https://worldofwarcraft.com/ko-kr/" target="_blank">
+				<img id="board_img_right" alt="worldofwarcraft" src="resources/img/wow_side.jpg">
+			</a>
 		</div>
 		<br>
 		<!-- qna table -->
@@ -141,49 +152,49 @@
 				</c:forEach>
 			</c:if>
 		</table>
+		<!-- Criteria_Page -->
+		<div id="Criteria_Page">
+			<!-- First, Prev -->
+			<div id="Criteria_left">
+				<c:choose>
+					<c:when test="${pageMaker.prev && pageMaker.spageNo>1}">
+						<a href="qnaBoardList${pageMaker.searchQuery(1)}"><img src="resources/img/first.png"></a>&nbsp;&nbsp;
+						<a href="qnaBoardList${pageMaker.searchQuery(pageMaker.spageNo-1)}"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
+					</c:when>
+					<c:otherwise>
+						<font color="Gray">
+							<img src="resources/img/first.png">&nbsp;
+							<img src="resources/img/left.png">&nbsp;&nbsp;
+						</font>
+					</c:otherwise>
+				</c:choose>
+			</div>
+			<!-- Display PageNo -->
+			<div id="Criteria_num">
+				<c:forEach var="i" begin="${pageMaker.spageNo}" end="${pageMaker.epageNo}">
+					<c:if test="${i == pageMaker.cri.currPage}">
+						<font size="5" color="Orange">${i}</font>&nbsp;
+					</c:if>
+					<c:if test="${i!=pageMaker.cri.currPage}">
+						<a href="qnaBoardList${pageMaker.searchQuery(i)}">${i}</a>&nbsp;
+					</c:if>
+				</c:forEach>
+			</div>
+	
+			<!-- Next, Last -->
+			<div id="Criteria_right">
+				<c:choose>
+					<c:when test="${pageMaker.next && pageMaker.epageNo>0}">&nbsp;&nbsp;
+					<a href="qnaBoardList${pageMaker.searchQuery(pageMaker.epageNo+1)}"><img src="resources/img/right.png"></a>&nbsp;&nbsp;
+					<a href="qnaBoardList${pageMaker.searchQuery(pageMaker.lastPageNo)}"><img src="resources/img/last.png"></a>
+					</c:when>
+					<c:otherwise>
+						<font color="Gray">&nbsp;<img src="resources/img/right.png">&nbsp;&nbsp;<img src="resources/img/last.png"></font>
+					</c:otherwise>
+				</c:choose>
+			</div>
+		</div>
 	</section>
-	<!-- Criteria_Page -->
-	<div id="Criteria_Page">
-		<!-- First, Prev -->
-		<div id="Criteria_left">
-			<c:choose>
-				<c:when test="${pageMaker.prev && pageMaker.spageNo>1}">
-					<a href="qnaBoardList${pageMaker.searchQuery(1)}"><img src="resources/img/first.png"></a>&nbsp;&nbsp;
-					<a href="qnaBoardList${pageMaker.searchQuery(pageMaker.spageNo-1)}"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
-				</c:when>
-				<c:otherwise>
-					<font color="Gray">
-						<img src="resources/img/first.png">&nbsp;
-						<img src="resources/img/left.png">&nbsp;&nbsp;
-					</font>
-				</c:otherwise>
-			</c:choose>
-		</div>
-		<!-- Display PageNo -->
-		<div id="Criteria_num">
-			<c:forEach var="i" begin="${pageMaker.spageNo}" end="${pageMaker.epageNo}">
-				<c:if test="${i == pageMaker.cri.currPage}">
-					<font size="5" color="Orange">${i}</font>&nbsp;
-				</c:if>
-				<c:if test="${i!=pageMaker.cri.currPage}">
-					<a href="qnaBoardList${pageMaker.searchQuery(i)}">${i}</a>&nbsp;
-				</c:if>
-			</c:forEach>
-		</div>
-
-		<!-- Next, Last -->
-		<div id="Criteria_right">
-			<c:choose>
-				<c:when test="${pageMaker.next && pageMaker.epageNo>0}">&nbsp;&nbsp;
-				<a href="qnaBoardList${pageMaker.searchQuery(pageMaker.epageNo+1)}"><img src="resources/img/right.png"></a>&nbsp;&nbsp;
-				<a href="qnaBoardList${pageMaker.searchQuery(pageMaker.lastPageNo)}"><img src="resources/img/last.png"></a>
-				</c:when>
-				<c:otherwise>
-					<font color="Gray">&nbsp;<img src="resources/img/right.png">&nbsp;&nbsp;<img src="resources/img/last.png"></font>
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</div>
 	<!-- ==================================================== -->
     <!-- Footer section -->
     <footer class="footer-section">

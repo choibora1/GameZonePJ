@@ -81,43 +81,47 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-	<form action="qnaWritePost" method="post" id="qnaForm">
-		<table>
-			<tr height="40">
-				<td bgcolor="lemonchiffon">I  D</td>
-		      	<td><input type="text" name="id" value="${loginID}" size="20" readonly></td>
-			</tr>
-			
-		   	<tr height="40">
-		   		<td bgcolor="lemonchiffon">Title</td>
-		     	<td><input type="text" name="title" id="title" placeholder="제목을 반드시 입력하세요." ></td>
-		   	</tr>
-		   
-		   	<tr height="40">
-		   		<td bgcolor="lemonchiffon">Content</td>
-		      	<td><textarea rows="5" cols="50" name="content" id="content"></textarea></td>
-		   	</tr>
-		   
-			<tr>
-		   		<td></td>
-		      	<td>
-		      		<input type="button" value="등록" onclick="return inCheck()">&nbsp;&nbsp;
-		         	<a href="javascript:history.go(-1)"><input type="button"  value="취소"></a>
-		   			<div>
-			      		<input type="checkbox" name="secret" id="secret" value = "true">비밀글 설정
-			      		<input type="hidden" name="secret" id="secret_hidden" value = "false">
-		   			</div>
-				</td>
-			</tr>
-		</table>
-	</form>
-	<c:if test="${not empty message}">
-	<hr>
-		${message}<br>
-	</c:if>
-	<hr>
-   	&nbsp;&nbsp;<a href="qnaBoardList">목록으로</a>
+   	
+   	<main>
+		<form action="qnaWritePost" method="post" id="qnaForm">
+			<table>
+				<tr height="40">
+					<td bgcolor="lemonchiffon">I  D</td>
+			      	<td><input type="text" name="id" value="${loginID}" size="20" readonly></td>
+				</tr>
+				
+			   	<tr height="40">
+			   		<td bgcolor="lemonchiffon">Title</td>
+			     	<td><input type="text" name="title" id="title" placeholder="제목을 반드시 입력하세요." ></td>
+			   	</tr>
+			   
+			   	<tr height="40">
+			   		<td bgcolor="lemonchiffon">Content</td>
+			      	<td><textarea rows="5" cols="50" name="content" id="content"></textarea></td>
+			   	</tr>
+			   
+				<tr>
+			   		<td></td>
+			      	<td>
+			      		<input type="button" value="등록" onclick="return inCheck()">&nbsp;&nbsp;
+			         	<a href="javascript:history.go(-1)"><input type="button"  value="취소"></a>
+			   			<div>
+				      		<input type="checkbox" name="secret" id="secret" value = "true">비밀글 설정
+				      		<input type="hidden" name="secret" id="secret_hidden" value = "false">
+			   			</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<c:if test="${not empty message}">
+		<hr>
+			${message}<br>
+		</c:if>
+		<hr>
+	   	&nbsp;&nbsp;<a href="qnaBoardList">목록으로</a>
+   	</main>
    	<!-- ==================================================== -->
+   	
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

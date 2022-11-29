@@ -73,52 +73,55 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-	<form action="qnaModifyPost" method="post">
-		<table>
-			<tr>
-				<td>Seq</td>
-				<td><input type="text" name="seq" value="${one.seq}" size="20" readonly></td>
-			</tr>
-			<tr>
-				<td>I D</td>
-				<td><input type="text" name="id" value="${one.id}"  size="20" readonly> </td>
-			</tr>
-			<tr>
-				<td>Title</td>
-				<td><input type="text" name="title" value="${one.title}"> </td>
-			</tr>
-			<tr>
-				<td>Content</td>
-				<td><textarea rows="5" cols="50" name="content">${one.content}</textarea></td>
-			</tr>
-			<tr>
-				<td>RegDate</td>
-				<td><input type="text" name="regdate" value="${one.regdate}"  readonly></td>
-			</tr>
-			<tr>
-				<td>조회수</td>
-				<td><input type="text" name="cnt" value="${one.cnt}"  size="20" readonly></td>
-			</tr>
-			
-			<tr>
-				<td></td>
-				<td>
-					<input type="submit" value="글 수정" onclick="return modifyQnA()">&nbsp;&nbsp;
-					<a href="javascript:history.go(-1)">취소</a>
-				</td>
-			</tr>
-		</table>
-	</form>
-	<!-- jstl -->
-	<c:if test="${not empty message}">
-		<hr><${message}<br>
-	</c:if>
-	
-	<c:if test="${loginID == one.id || loginID == 'admin'}">&nbsp;&nbsp;
-      <a href="qnaRemovePost?seq=${one.seq}&root=${one.root}" onclick="return removeQnA()">[글 삭제]</a>
-	</c:if>
-	<br> 
-	&nbsp;&nbsp;<a href="qnaBoardList">목록으로</a>
+   	
+   	<section>
+		<form action="qnaModifyPost" method="post">
+			<table>
+				<tr>
+					<td>Seq</td>
+					<td><input type="text" name="seq" value="${one.seq}" size="20" readonly></td>
+				</tr>
+				<tr>
+					<td>I D</td>
+					<td><input type="text" name="id" value="${one.id}"  size="20" readonly> </td>
+				</tr>
+				<tr>
+					<td>Title</td>
+					<td><input type="text" name="title" value="${one.title}"> </td>
+				</tr>
+				<tr>
+					<td>Content</td>
+					<td><textarea rows="5" cols="50" name="content">${one.content}</textarea></td>
+				</tr>
+				<tr>
+					<td>RegDate</td>
+					<td><input type="text" name="regdate" value="${one.regdate}"  readonly></td>
+				</tr>
+				<tr>
+					<td>조회수</td>
+					<td><input type="text" name="cnt" value="${one.cnt}"  size="20" readonly></td>
+				</tr>
+				
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="글 수정" onclick="return modifyQnA()">&nbsp;&nbsp;
+						<a href="javascript:history.go(-1)">취소</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<!-- jstl -->
+		<c:if test="${not empty message}">
+			<hr><${message}<br>
+		</c:if>
+		
+		<c:if test="${loginID == one.id || loginID == 'admin'}">&nbsp;&nbsp;
+	      <a href="qnaRemovePost?seq=${one.seq}&root=${one.root}" onclick="return removeQnA()">[글 삭제]</a>
+		</c:if>
+		<br> 
+		&nbsp;&nbsp;<a href="qnaBoardList">목록으로</a>
+	</section>
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

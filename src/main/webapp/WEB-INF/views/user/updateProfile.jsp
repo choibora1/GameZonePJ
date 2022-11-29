@@ -248,95 +248,98 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-	<form action="updateProfile" method="post" enctype="multipart/form-data">
-		<div class="container rounded bg-white">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="d-flex flex-column align-items-center text-center p-3 pt-5">
-						<img src="${one.uploadimg}" class="select_img" width="230" height="300"> 
-                        <input type="hidden" name="uploadimg" value="${one.uploadimg}"><br> 
-                        <input type="file" name="uploadimgfile" id="uploadimgfile">
-                        <script>
-                           $('#uploadimgfile').change(function () {
-                              if (this.files && this.files[0]) {
-                                 var reader = new FileReader;
-                                 reader.readAsDataURL(this.files[0]);
-                                 reader.onload = function (e) {
-                                    $(".select_img").attr("src", e.target.result).width(100).height(100);
-                                 } // onload_function
-                              } // if
-                           }); // change
-                        </script><br>
-                        <h4><input type="text" class="font-weight-bold profile_id" value="${one.id}" name="id" id="id" readonly></h4>
-                        <h5><input type="text" class="text-black-50 profile_email" value="${one.email}${one.domain}" readonly></h5>
-					</div>
-				</div>
-				<div class="col-md-5">
-					<div class="p-3 py-5">
-						<div class="d-flex justify-content-between align-items-center mb-3">
-							<h4 class="text-right text-white">Profile Settings</h4>
-                        </div>
-                        <div class="row mt-3">
-                           <div class="col-md-12">
-                              <label class="labels">Name</label>
-                              <input type="text" class="form-control controlBox" name="user_name" id="user_name" value="${one.user_name}">
-                              <b><span id="nMessage" class="eMessage"></span></b>
-                           </div>
-
-                           <!-- gender  -->
-                           <div class="gcol-md-12">
-                              <label class="labels">Gender</label><br>
-                              <div class="radio_m">
-                                 <span class="gradio_w">여</span> 
-                                 <input class="gradio" type="radio" name="gender" value="1" <c:if test="${one.gender == 1}">checked</c:if>>
-                                 <span class="gradio_m">남</span> 
-                                 <input class="gradio" type="radio" name="gender" value="2" <c:if test="${one.gender == 2}">checked</c:if>><br>
-                              </div>
-                           </div>
-                           <!-- gender -->
-                           
-                           <div class="col-md-12">
-                              <label class="labels">Phone</label><input type="text" class="form-control controlBox" name="phone"
-                                 id="phone" value="${one.phone}"><br> <b><span id="phMessage"
-                                    class="eMessage"></span></b>
-                           </div>
-
-                           <div class="ecol-md-12">
-                              <label class="labels">Email</label><br> 
-                              <input type="text" class="eform-control controlBox" id="email" name="email" value="${one.email}">
-                              <input name="dw" class="dform-control controlBox" id="dw" type="text" value="${one.domain}">
-                              <select class="email-select" name="domain" id="domain">
-                                 <option value="1">직접 입력</option>
-                                 <option value="@naver.com">@naver.com</option>
-                                 <option value="@google.com">@google.com</option>
-                                 <option value="@daum.net">@hanmail.net</option>
-                                 <option value="@nate.com">@nate.com</option>
-                                 <option value="@kakao.com">@kakao.com</option>
-                              </select> <br> <b><span id="emMessage" class="eMessage"></span></b>
-                           </div>
-                           
-                           <div class="email-check">
-								<input type="button" id="emailCheck" value="이메일 인증하기">
-								<div id="enter_auth_number">
-									<input class="mail-check-input" id="check_number" placeholder="인증번호 6자리" maxlength="6">
-									<input type="button" id="email_auth_key" value="인증번호 확인">
-								</div>
-								<b><span id="ecMessage" class="eMessage"></span></b>
-							</div>
+   	
+   	<main>
+		<form action="updateProfile" method="post" enctype="multipart/form-data">
+			<div class="container rounded bg-white">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="d-flex flex-column align-items-center text-center p-3 pt-5">
+							<img src="${one.uploadimg}" class="select_img" width="230" height="300"> 
+	                        <input type="hidden" name="uploadimg" value="${one.uploadimg}"><br> 
+	                        <input type="file" name="uploadimgfile" id="uploadimgfile">
+	                        <script>
+	                           $('#uploadimgfile').change(function () {
+	                              if (this.files && this.files[0]) {
+	                                 var reader = new FileReader;
+	                                 reader.readAsDataURL(this.files[0]);
+	                                 reader.onload = function (e) {
+	                                    $(".select_img").attr("src", e.target.result).width(100).height(100);
+	                                 } // onload_function
+	                              } // if
+	                           }); // change
+	                        </script><br>
+	                        <h4><input type="text" class="font-weight-bold profile_id" value="${one.id}" name="id" id="id" readonly></h4>
+	                        <h5><input type="text" class="text-black-50 profile_email" value="${one.email}${one.domain}" readonly></h5>
 						</div>
 					</div>
-					<div class="button">
-						<div class="text-center">
-                        	<input class="btn btn-primary" type="submit" id="submit" value="저장" onclick="return inCheck()">
-                        </div>
-                        <div class="text-center">
-                           <input class="btn btn-primary" type="reset" value="취소">
-                        </div>
+					<div class="col-md-5">
+						<div class="p-3 py-5">
+							<div class="d-flex justify-content-between align-items-center mb-3">
+								<h4 class="text-right text-white">Profile Settings</h4>
+	                        </div>
+	                        <div class="row mt-3">
+	                           <div class="col-md-12">
+	                              <label class="labels">Name</label>
+	                              <input type="text" class="form-control controlBox" name="user_name" id="user_name" value="${one.user_name}">
+	                              <b><span id="nMessage" class="eMessage"></span></b>
+	                           </div>
+	
+	                           <!-- gender  -->
+	                           <div class="gcol-md-12">
+	                              <label class="labels">Gender</label><br>
+	                              <div class="radio_m">
+	                                 <span class="gradio_w">여</span> 
+	                                 <input class="gradio" type="radio" name="gender" value="1" <c:if test="${one.gender == 1}">checked</c:if>>
+	                                 <span class="gradio_m">남</span> 
+	                                 <input class="gradio" type="radio" name="gender" value="2" <c:if test="${one.gender == 2}">checked</c:if>><br>
+	                              </div>
+	                           </div>
+	                           <!-- gender -->
+	                           
+	                           <div class="col-md-12">
+	                              <label class="labels">Phone</label><input type="text" class="form-control controlBox" name="phone"
+	                                 id="phone" value="${one.phone}"><br> <b><span id="phMessage"
+	                                    class="eMessage"></span></b>
+	                           </div>
+	
+	                           <div class="ecol-md-12">
+	                              <label class="labels">Email</label><br> 
+	                              <input type="text" class="eform-control controlBox" id="email" name="email" value="${one.email}">
+	                              <input name="dw" class="dform-control controlBox" id="dw" type="text" value="${one.domain}">
+	                              <select class="email-select" name="domain" id="domain">
+	                                 <option value="1">직접 입력</option>
+	                                 <option value="@naver.com">@naver.com</option>
+	                                 <option value="@google.com">@google.com</option>
+	                                 <option value="@daum.net">@hanmail.net</option>
+	                                 <option value="@nate.com">@nate.com</option>
+	                                 <option value="@kakao.com">@kakao.com</option>
+	                              </select> <br> <b><span id="emMessage" class="eMessage"></span></b>
+	                           </div>
+	                           
+	                           <div class="email-check">
+									<input type="button" id="emailCheck" value="이메일 인증하기">
+									<div id="enter_auth_number">
+										<input class="mail-check-input" id="check_number" placeholder="인증번호 6자리" maxlength="6">
+										<input type="button" id="email_auth_key" value="인증번호 확인">
+									</div>
+									<b><span id="ecMessage" class="eMessage"></span></b>
+								</div>
+							</div>
+						</div>
+						<div class="button">
+							<div class="text-center">
+	                        	<input class="btn btn-primary" type="submit" id="submit" value="저장" onclick="return inCheck()">
+	                        </div>
+	                        <div class="text-center">
+	                           <input class="btn btn-primary" type="reset" value="취소">
+	                        </div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</main>
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">
