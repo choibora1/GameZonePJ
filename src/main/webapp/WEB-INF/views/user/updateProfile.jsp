@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GameZone | 정보 수정</title>
-	<link rel="stylesheet" href="resources/css/update.css">
+	<link rel="stylesheet" href="resources/css/user.css">
 	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
 	<link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="stylesheet" href="resources/css/animate.css" />
