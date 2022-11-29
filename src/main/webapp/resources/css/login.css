@@ -19,6 +19,11 @@ body {
     }
 }
 
+.loginMessage {
+	text-align: center;
+	height: 50px;
+}
+
 #iMessage,
 #pMessage {
 	color:red;
@@ -56,7 +61,7 @@ h3 {
 
 .loginBox input {
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 7px;
 }
 
 .loginBox input[type="text"],
@@ -86,12 +91,13 @@ h3 {
 
 .inputBox {
     position: relative;
+    margin-bottom: 4px;
+    height: 71px;
 }
 
-.inputBox span {
-    position: absolute;
-    top: 10px;
-    color: #262626
+
+.loginBox form {
+	height: 240px;
 }
 
 .loginBox input[type="submit"] {

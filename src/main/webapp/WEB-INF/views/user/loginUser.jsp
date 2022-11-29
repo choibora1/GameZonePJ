@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
     <title>GameZone | 로그인</title>
     <link rel="stylesheet" type="text/css" href="resources/css/login.css">
+    <link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="shortcut icon" href="resources/img/icon2.ico">
     <script src="resources/js/jquery-3.2.1.min.js"></script>
     <script src="resources/myLib/inCheck.js"></script>
@@ -64,13 +65,13 @@
 		<form action="loginUser" method="post">
 			<div class="inputBox">
 				<input id="id" type="text" name="id" placeholder="아이디"><br>
+				<span id="iMessage" class="eMessage"></span><br>
 			</div>
-			<div>
+			<div class="inputBox">
 				<input id="password" type="password" name="password" placeholder="비밀번호"><br>
-				<span id="iMessage" class="eMessage"></span>
 				<span id="pMessage" class="eMessage"></span>
 			</div>
-            <br>
+			<br>
 			<input type="submit" value="로그인" id="submit">&nbsp;&nbsp;
 		</form>
 		<c:if test="${not empty message}">

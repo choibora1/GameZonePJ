@@ -54,6 +54,7 @@ public class HomeController {
 
 		// ** 이메일 보내기
         String setFrom = "gamezone.green@gmail.com";
+        // String setFrom = "보낼 이메일 주소";
         String toMail = email;
         String title = "GameZone 회원가입 인증 이메일 입니다.";
         String content = 
