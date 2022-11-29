@@ -56,15 +56,15 @@
 		function inCheck() {
 			
 			if (opCheck == false) {
-				$('#opMessage').html('현재 비밀번호를 확인하세요 !!');
+				$('#opMessage').html('현재 비밀번호를 확인하세요.');
 			}
 			
 			if (pCheck == false) {
-				$('#pMessage').html('Password를 확인하세요 !!');
+				$('#pMessage').html('새 비밀번호를 확인하세요.');
 			}
 			
 			if (ppCheck == false) {
-				$('#ppMessage').html('Password가 일치하지 않습니다 !!');
+				$('#ppMessage').html('비밀번호가 일치하지 않습니다.');
 			}
 			
 			if (opCheck && pCheck && ppCheck) {
@@ -77,9 +77,11 @@
 					alert('비밀번호를 변경하겠습니다.');
 					return true;
 				
-			} else
+			} else {
+				//alert('오류가 있습니다 다시 시도 부탁드립니다.');
 				return false;
-			
+			}
+		
 		} // inCheck()
 	</script>
 </head>
@@ -147,15 +149,16 @@
 			<tr height="40">
 				<td></td>
 				<td>
-					<input type="submit" value="수정" onclick="return updatePW()">&nbsp;&nbsp;
+					<input type="submit" value="수정" onclick="return inCheck()">&nbsp;&nbsp;
 					<a href="javascript:history.go(-1)">취소</a>
 				</td>
 			</tr>
 		</table>
 	</form>
 	<c:if test="${not empty message}">
-		<hr>
-			${message}<br>
+		<script>
+			alert(`${message}`);
+		</script>		
 	</c:if>
 	<!-- Footer section -->
     <footer class="footer-section">
