@@ -29,11 +29,17 @@ body {
     line-height: 1.5;
     text-align: left;
     background-color: rgb(51, 51, 51);
-   color: white;
+   	color: white;
+ 	min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-
-
+main,
+section {
+	position: relative;
+    flex: 1;
+}
 
 .h1,
 .h2,
@@ -113,6 +119,11 @@ ul, ol {
    padding: 0;
    margin: 0;
 }
+
+/* .relative_flex {
+	position: relative;
+    flex: 1;
+} */
 
 .col-lg-3,
 .col-lg-4,
@@ -1009,6 +1020,10 @@ ul, ol {
 
 /* ================================================================ boardList ===================================================================== */
 
+.board_top {
+	text-align: center;
+} 
+
 #searchBar {
    text-align: right;
    width: 91.5%
@@ -1099,13 +1114,14 @@ ul, ol {
 
 #board_img_left,
 #board_img_right {
-	position: absolute;
-	margin: 5px;
+	position: fixed;
+	top: 100px;
+	max-height: 740px;
+	height: 100%;
 }
 
 #board_img_right {
 	right: 0;
-	top: 0;
 }
 
 #searchBar,
@@ -1176,6 +1192,7 @@ ul, ol {
 
 #Criteria_Page {
    text-align: center;
+   margin-top: 50px;
 }
 
 #Criteria_Page img {

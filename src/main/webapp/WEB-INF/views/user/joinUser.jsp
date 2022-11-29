@@ -336,135 +336,169 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-	<form action="joinUser" method="post" id="myForm" enctype="multipart/form-data">
-		<div class="container rounded bg-white mt-5 mb-5">
-			<div class="row">
-				<div class="col-md-3">
-					<div class="d-flex flex-column align-items-center text-center p-3 py-5">
-						<img src="resources/img/사진.png" class="select_img" width="230" height="300">
-						<input type="hidden" name="uploadimg" value="${one.uploadimg}"><br>
-						<input type="file" name="uploadimgfile" id="uploadimgfile">
-						<script>
-                        	$('#uploadimgfile').change(function () {
-                            	if (this.files && this.files[0]) {
-                                	var reader = new FileReader;
-                                 	reader.readAsDataURL(this.files[0]);
-                                 	reader.onload = function (e) {
-                                    	$(".select_img").attr("src", e.target.result).width(230).height(300);
-                                 	} // onload_function
-                            	} // if
-                          	}); // change
-                        </script>
-					</div>
-				</div>
-				<div class="col-md-5">
-					<div class="p-3 join_py-5">
-						<div class="d-flex justify-content-between align-items-center mb-3">
-							<h4 class="text-right">GameZone | 회원가입</h4>
+   	
+   	<main>
+		<form action="joinUser" method="post" id="myForm" enctype="multipart/form-data">
+			<div class="container rounded bg-white mt-5 mb-5">
+				<div class="row">
+					<div class="col-md-3">
+						<div class="d-flex flex-column align-items-center text-center p-3 py-5">
+							<img src="resources/img/사진.png" class="select_img" width="230" height="300">
+							<input type="hidden" name="uploadimg" value="${one.uploadimg}"><br>
+							<input type="file" name="uploadimgfile" id="uploadimgfile">
+							<script>
+	                        	$('#uploadimgfile').change(function () {
+	                            	if (this.files && this.files[0]) {
+	                                	var reader = new FileReader;
+	                                 	reader.readAsDataURL(this.files[0]);
+	                                 	reader.onload = function (e) {
+	                                    	$(".select_img").attr("src", e.target.result).width(230).height(300);
+	                                 	} // onload_function
+	                            	} // if
+	                          	}); // change
+	                        </script>
 						</div>
-						<div class="row mt-3">
-							<!-- id -->
-							<div class="col-md-12">
-								<label class="id">I D</label><br> 
-								<input type="text" class="iform-control controlBox" name="id" id="id" placeholder="영문, 숫자 5~10자만 가능">
-								<button class="idDuplicationCheck" type="button" id="idDuplicationCheck" onclick="idDupCheck()">ID 중복확인</button><br>
-								<b><span id="iMessage" class="eMessage"></span></b>
+					</div>
+					<div class="col-md-5">
+						<div class="p-3 join_py-5">
+							<div class="d-flex justify-content-between align-items-center mb-3">
+								<h4 class="text-right">GameZone | 회원가입</h4>
 							</div>
-							<!-- id end -->
-
-							<!-- password -->
-							<div class="col-md-12">
-								<label class="password">PassWord</label>
-								<input type="password" class="form-control controlBox" name="password" id="password" placeholder="특수문자 반드시 포함">
-								<b><span id="pMessage" class="eMessage"></span></b>
-							</div>
-							<!-- password end -->
-
-							<!-- password2 -->
-							<div class="col-md-12">
-								<label class="password2" for="password">PW 확인</label>
-								<input type="password" class="form-control controlBox" name=password2 id=password2>
-								<b><span id="ppMessage" class="eMessage"></span></b>
-							</div>
-							<!-- password2 end -->
-
-							<!-- name -->
-							<div class="col-md-12">
-								<label class="user_name">Name</label>
-								<input type="text" class="form-control controlBox" name="user_name" id="user_name">
-								<b><span id="nMessage" class="eMessage"></span></b>
-							</div>
-							<!-- name end -->
-
-							<!-- gender -->
-							<div class="gcol-md-12">
-								<label class="labels">Gender</label>
-								<div class="radio_m">
-									<span class="gradio_w">여</span>
-									<input class="gradio" type="radio" name="gender" value="1" checked <c:if test="${one.gender == 1}">checked</c:if>> 
-									<span class="gradio_m">남</span>
-									<input class="gradio" type="radio" name="gender" value="2" <c:if test="${one.gender == 2}">checked</c:if>><br>
+							<div class="row mt-3">
+								<!-- id -->
+								<div class="col-md-12">
+									<label class="id">I D</label><br> 
+									<input type="text" class="iform-control controlBox" name="id" id="id" placeholder="영문, 숫자 5~10자만 가능">
+									<button class="idDuplicationCheck" type="button" id="idDuplicationCheck" onclick="idDupCheck()">ID 중복확인</button><br>
+									<b><span id="iMessage" class="eMessage"></span></b>
 								</div>
-							</div>
-							<!-- gender end -->
-
-							<!-- email -->
-							<div class="col-md-12">
-								<label class="birth_year">BirthDay</label>
-								<div class="join_birth" id="birthday">
-									<select class="year-select" name="birth_year" id="birth_year">
-										<option id="year" disabled selected>출생 연도</option>
-									</select> 
-									<select class="month-select" name="birth_month" id="birth_month">
-										<option disabled selected>월</option>
-										<option value="01">01</option>
-										<option value="02">02</option>
-										<option value="03">03</option>
-										<option value="04">04</option>
-										<option value="05">05</option>
-										<option value="06">06</option>
-										<option value="07">07</option>
-										<option value="08">08</option>
-										<option value="09">09</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-									</select>
-									<select class="day-select" name="birth_day" id="birth_day">
-										<option disabled selected>일</option>
-										<option value="01">01</option>
-										<option value="02">02</option>
-										<option value="03">03</option>
-										<option value="04">04</option>
-										<option value="05">05</option>
-										<option value="06">06</option>
-										<option value="07">07</option>
-										<option value="08">08</option>
-										<option value="09">09</option>
-										<option value="10">10</option>
-										<option value="11">11</option>
-										<option value="12">12</option>
-										<option value="13">13</option>
-										<option value="14">14</option>
-										<option value="15">15</option>
-										<option value="16">16</option>
-										<option value="17">17</option>
-										<option value="18">18</option>
-										<option value="19">19</option>
-										<option value="20">20</option>
-										<option value="21">21</option>
-										<option value="22">22</option>
-										<option value="23">23</option>
-										<option value="24">24</option>
-										<option value="25">25</option>
-										<option value="26">26</option>
-										<option value="27">27</option>
-										<option value="28">28</option>
-										<option value="29">29</option>
-										<option value="30">30</option>
-										<option value="31">31</option>
-									</select>
+								<!-- id end -->
+	
+								<!-- password -->
+								<div class="col-md-12">
+									<label class="password">PassWord</label>
+									<input type="password" class="form-control controlBox" name="password" id="password" placeholder="특수문자 반드시 포함">
+									<b><span id="pMessage" class="eMessage"></span></b>
 								</div>
+								<!-- password end -->
+	
+								<!-- password2 -->
+								<div class="col-md-12">
+									<label class="password2" for="password">PW 확인</label>
+									<input type="password" class="form-control controlBox" name=password2 id=password2>
+									<b><span id="ppMessage" class="eMessage"></span></b>
+								</div>
+								<!-- password2 end -->
+	
+								<!-- name -->
+								<div class="col-md-12">
+									<label class="user_name">Name</label>
+									<input type="text" class="form-control controlBox" name="user_name" id="user_name">
+									<b><span id="nMessage" class="eMessage"></span></b>
+								</div>
+								<!-- name end -->
+	
+								<!-- gender -->
+								<div class="gcol-md-12">
+									<label class="labels">Gender</label>
+									<div class="radio_m">
+										<span class="gradio_w">여</span>
+										<input class="gradio" type="radio" name="gender" value="1" checked <c:if test="${one.gender == 1}">checked</c:if>> 
+										<span class="gradio_m">남</span>
+										<input class="gradio" type="radio" name="gender" value="2" <c:if test="${one.gender == 2}">checked</c:if>><br>
+									</div>
+								</div>
+								<!-- gender end -->
+	
+								<!-- email -->
+								<div class="col-md-12">
+									<label class="birth_year">BirthDay</label>
+									<div class="join_birth" id="birthday">
+										<select class="year-select" name="birth_year" id="birth_year">
+											<option id="year" disabled selected>출생 연도</option>
+										</select> 
+										<select class="month-select" name="birth_month" id="birth_month">
+											<option disabled selected>월</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+											<option value="03">03</option>
+											<option value="04">04</option>
+											<option value="05">05</option>
+											<option value="06">06</option>
+											<option value="07">07</option>
+											<option value="08">08</option>
+											<option value="09">09</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+										</select>
+										<select class="day-select" name="birth_day" id="birth_day">
+											<option disabled selected>일</option>
+											<option value="01">01</option>
+											<option value="02">02</option>
+											<option value="03">03</option>
+											<option value="04">04</option>
+											<option value="05">05</option>
+											<option value="06">06</option>
+											<option value="07">07</option>
+											<option value="08">08</option>
+											<option value="09">09</option>
+											<option value="10">10</option>
+											<option value="11">11</option>
+											<option value="12">12</option>
+											<option value="13">13</option>
+											<option value="14">14</option>
+											<option value="15">15</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+											<option value="21">21</option>
+											<option value="22">22</option>
+											<option value="23">23</option>
+											<option value="24">24</option>
+											<option value="25">25</option>
+											<option value="26">26</option>
+											<option value="27">27</option>
+											<option value="28">28</option>
+											<option value="29">29</option>
+											<option value="30">30</option>
+											<option value="31">31</option>
+										</select>
+									</div>
+									<b><span id="bMessage" class="eMessage"></span></b>
+								</div>
+								<!-- birthday end -->
+	
+								<div class="col-md-12">
+									<label class="phone">Phone</label>
+									<input type="text" class="form-control controlBox" name="phone" id="phone" placeholder="번호만 입력해주세요.  예) 01012345678">
+									<b><span id="phMessage" class="eMessage"></span></b>
+								</div>
+	
+								<div class="ecol-md-12">
+									<label class="email">Email</label><br>
+									<input type="text" class="eform-control controlBox" id="email" name="email" value="${one.email}" placeholder="[ -  _ ] 사용 가능">
+									<input name="dw" class="dform-control controlBox" id="dw" type="text" value="${one.domain}" placeholder="@도메인"> 
+									<select class="email-select" name="domain" id="domain">
+										<option value="1">직접 입력</option>
+										<option value="@naver.com">@naver.com</option>
+										<option value="@google.com">@google.com</option>
+										<option value="@daum.net">@daum.net</option>
+										<option value="@nate.com">@nate.com</option>
+										<option value="@kakao.com">@kakao.com</option>
+									</select><br>
+									<b><span id="emMessage" class="eMessage"></span></b>
+								</div>
+	
+								<div class="email-check">
+									<input type="button" id="emailCheck" value="이메일 인증하기">
+									<div id="enter_auth_number">
+										<input class="mail-check-input" id="check_number" placeholder="인증번호 6자리" maxlength="6">
+										<input type="button" id="email_auth_key" value="인증번호 확인">
+									</div>
+									<b><span id="ecMessage" class="eMessage"></span></b>
 								<b><span id="bMessage" class="eMessage"></span></b>
 							</div>
 							<!-- birthday end -->
@@ -496,22 +530,22 @@
 									<input class="mail-check-input" id="check_number" placeholder="인증번호 6자리" maxlength="6">
 									<input type="button" id="email_auth_key" value="인증번호 확인">
 								</div>
-								<b><span id="ecMessage" class="eMessage"></span></b>
 							</div>
 						</div>
-					</div>
-					<div class="button">
-						<div class="text-center">
-							<input class="btn btn-primary" type="submit" id="submit" value="가입" onclick="return inCheck()" disabled="disabled">
-						</div>
-						<div class="text-center">
-							<input class="btn btn-primary" type="reset" value="취소">
+						<div class="button">
+							<div class="text-center">
+								<input class="btn btn-primary" type="submit" id="submit" value="가입" onclick="return inCheck()" disabled="disabled">
+							</div>
+							<div class="text-center">
+								<input class="btn btn-primary" type="reset" value="취소">
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
+	</main>
+	
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

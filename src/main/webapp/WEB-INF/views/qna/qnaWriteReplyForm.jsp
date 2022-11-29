@@ -75,48 +75,50 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-	<form action="qnaWriteReply" method="post">
-		<table>
-			<tr height="40">
-				<td bgcolor="violet">아이디</td>
-				<td><input type="text" name="id" value="${loginID}" size="20" readonly></td>
-			</tr>
-			
-			<tr height="40">
-				<td bgcolor="violet">제목</td>
-				<td><input type="text" name="title" id="title" placeholder="제목을 반드시 입력하세요."></td>
-			</tr>
-			
-			<tr height="40">
-				<td bgcolor="violet">내용</td>
-				<td><textarea rows="5" cols="50" name="content" id="content"></textarea></td>
-			</tr>
-			
-			<tr height="40">
-				<td></td>
-				<td><input type="text" name="root" value="${qnAVO.root}" hidden>
-					<input type="text" name="step" value="${qnAVO.step}" hidden>
-					<input type="text" name="indent" value="${param.indent}" hidden>
-					<input type="text" name="secret" value="${param.secret}" hidden>
-				</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td>
-					<input type="submit" value="등록" onclick="return writeReply()">&nbsp;&nbsp;
-					<a href="javascript:history.go(-1)"><input type="button" value="취소"></a>
-				</td>
-			</tr>
-		</table>
-	</form>
-	<c:if test="${not empty message}">
+   	<main>
+		<form action="qnaWriteReply" method="post">
+			<table>
+				<tr height="40">
+					<td bgcolor="violet">아이디</td>
+					<td><input type="text" name="id" value="${loginID}" size="20" readonly></td>
+				</tr>
+				
+				<tr height="40">
+					<td bgcolor="violet">제목</td>
+					<td><input type="text" name="title" id="title" placeholder="제목을 반드시 입력하세요."></td>
+				</tr>
+				
+				<tr height="40">
+					<td bgcolor="violet">내용</td>
+					<td><textarea rows="5" cols="50" name="content" id="content"></textarea></td>
+				</tr>
+				
+				<tr height="40">
+					<td></td>
+					<td><input type="text" name="root" value="${qnAVO.root}" hidden>
+						<input type="text" name="step" value="${qnAVO.step}" hidden>
+						<input type="text" name="indent" value="${param.indent}" hidden>
+						<input type="text" name="secret" value="${param.secret}" hidden>
+					</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td>
+						<input type="submit" value="등록" onclick="return writeReply()">&nbsp;&nbsp;
+						<a href="javascript:history.go(-1)"><input type="button" value="취소"></a>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<c:if test="${not empty message}">
+			<hr>
+			${message}<br>
+		</c:if>
 		<hr>
-		${message}<br>
-	</c:if>
-	<hr>
-	&nbsp;&nbsp;
-	<a href="qnaBoardList">목록으로</a> &nbsp;&nbsp;
-	<a href="javascript:history.go(-1)">이전으로</a>
+		&nbsp;&nbsp;
+		<a href="qnaBoardList">목록으로</a> &nbsp;&nbsp;
+		<a href="javascript:history.go(-1)">이전으로</a>
+	</main>
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

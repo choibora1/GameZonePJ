@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
     <title>GameZone | 로그인</title>
     <link rel="stylesheet" type="text/css" href="resources/css/login.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
     <link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="shortcut icon" href="resources/img/icon2.ico">
     <script src="resources/js/jquery-3.2.1.min.js"></script>
