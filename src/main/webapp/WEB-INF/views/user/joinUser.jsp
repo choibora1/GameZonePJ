@@ -482,7 +482,7 @@
 								<select class="email-select" name="domain" id="domain">
 									<option value="1">직접 입력</option>
 									<option value="@naver.com">@naver.com</option>
-									<option value="@google.com">@google.com</option>
+									<option value="@google.com">@gmail.com</option>
 									<option value="@daum.net">@daum.net</option>
 									<option value="@nate.com">@nate.com</option>
 									<option value="@kakao.com">@kakao.com</option>
