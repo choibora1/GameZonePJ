@@ -966,9 +966,14 @@ ul, ol {
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 50px;
-	height: 400px;   
+	height: 675px;   
 	width: 100%;
 	justify-content: center;
+	align-items: center;
+}
+
+#insert_game > tbody {
+	line-height : 3.5;
 }
 
 #insert_game > tfoot {
