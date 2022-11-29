@@ -319,7 +319,7 @@ h4 {
 }
 
 .controlBox {
-   height: calc(1.5em + .75rem + 2px);
+    height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: bold;
@@ -366,7 +366,7 @@ h4 {
     text-shadow: 0 0 0 #495057
 }
 
-.form-control:focus {
+.controlBox:focus {
     color: #495057;
     background-color: #fff;
     border-color: #80bdff;
@@ -703,7 +703,8 @@ fieldset:disabled a.btn {
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.detail-menubtn:hover {
     color: #000000;
     background-color: #d28900;
     border-color: #d28900;
@@ -2521,17 +2522,6 @@ button.bg-dark:hover {
 .detail-form {
     display: block;
     width: 100%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .detail_main {
@@ -2546,16 +2536,15 @@ button.bg-dark:hover {
     width: 130px;
     padding: .375rem .75rem;
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 1.5;
-    color: #495057;
     background-color: #ffb320;
     background-clip: padding-box;
-    border: 1px solid #ced4da;
+    border: 1px solid #ffb320;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     color: #000;
     text-align: center;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .detail-menu {
