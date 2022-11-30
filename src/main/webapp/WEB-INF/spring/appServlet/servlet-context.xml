@@ -61,5 +61,5 @@
    	</beans:bean>
 	 
 	<mybatis-spring:scan base-package="mapperInterface"/>
-	 
+
 </beans:beans>
