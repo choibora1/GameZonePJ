@@ -82,6 +82,10 @@
 		                  	</script>
 		                </td>
 		            </tr>
+		            <tr id="insert_game_text">
+						<td></td>
+		        		<td>사진 크기는 가로 233px 세로 303px 로 고정</td>
+		        	</tr>
 	            </thead>
 	            <tbody>
 		        	<tr>
@@ -95,8 +99,8 @@
 		        	</tr>
 		        
 		        	<tr>
-		           		<th>발매일</th>
-		           		<td><input type="text" name="launch" placeholder="발매일(YYYY-MM-DD)"></td>
+		           		<th>출시일</th>
+		           		<td><input type="text" name="launch" placeholder="출시일(YYYY-MM-DD)"></td>
 		        	</tr>
 		  
 		        	<tr>
@@ -134,14 +138,13 @@
 		           		<td></td>
 		           		<td>
 		           			<input class="insert_game_btn" type="submit" value="등록" onclick="return insertGame()">&nbsp;&nbsp;&nbsp;
-		              		<input class="insert_game_btn" type="reset" value="취소">
+		              		<input class="insert_game_btn" type="reset" value="초기화">&nbsp;&nbsp;&nbsp;
+		              		<input class="insert_game_btn" type="button" onClick="history.go(-1)" value="이전으로">
 		          		</td>
 		         	</tr>
 	         	</tfoot>
 			</table>
 		</form>
-		&nbsp;&nbsp;&nbsp;<a href="javascript:history.go(-1)">[이전으로]</a>
-		<hr>
 		<c:if test="${not empty message}">
 	         ${message}<br>
 		</c:if>
