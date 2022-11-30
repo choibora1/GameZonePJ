@@ -1108,20 +1108,17 @@ ul, ol {
  
 /* ================================================================ boardList ===================================================================== */
 
-#board_bg_set {
-	position: relative;
-}
-
 #board_img_left,
 #board_img_right {
 	position: fixed;
-	top: 100px;
-	max-height: 740px;
+	top: 150px;
+	max-height: 800px;
 	height: 100%;
 }
 
 #board_img_right {
 	right: 0;
+	top: 0;
 }
 
 #searchBar,
