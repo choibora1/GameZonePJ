@@ -389,7 +389,7 @@
 									<b><span id="ppMessage" class="eMessage"></span></b>
 								</div>
 								<!-- password2 end -->
-	
+
 								<!-- name -->
 								<div class="col-md-12">
 									<label class="user_name">Name</label>
@@ -397,7 +397,7 @@
 									<b><span id="nMessage" class="eMessage"></span></b>
 								</div>
 								<!-- name end -->
-	
+
 								<!-- gender -->
 								<div class="gcol-md-12">
 									<label class="labels">Gender</label>
@@ -409,7 +409,7 @@
 									</div>
 								</div>
 								<!-- gender end -->
-	
+
 								<!-- email -->
 								<div class="col-md-12">
 									<label class="birth_year">BirthDay</label>
@@ -470,7 +470,7 @@
 									<b><span id="bMessage" class="eMessage"></span></b>
 								</div>
 								<!-- birthday end -->
-	
+
 								<div class="col-md-12">
 									<label class="phone">Phone</label>
 									<input type="text" class="form-control controlBox" name="phone" id="phone" placeholder="번호만 입력해주세요.  예) 01012345678">
@@ -484,14 +484,14 @@
 									<select class="email-select" name="domain" id="domain">
 										<option value="1">직접 입력</option>
 										<option value="@naver.com">@naver.com</option>
-										<option value="@google.com">@google.com</option>
+										<option value="@google.com">@gmail.com</option>
 										<option value="@daum.net">@daum.net</option>
 										<option value="@nate.com">@nate.com</option>
 										<option value="@kakao.com">@kakao.com</option>
 									</select><br>
 									<b><span id="emMessage" class="eMessage"></span></b>
 								</div>
-	
+
 								<div class="email-check">
 									<input type="button" id="emailCheck" value="이메일 인증하기">
 									<div id="enter_auth_number">
@@ -499,36 +499,6 @@
 										<input type="button" id="email_auth_key" value="인증번호 확인">
 									</div>
 									<b><span id="ecMessage" class="eMessage"></span></b>
-								<b><span id="bMessage" class="eMessage"></span></b>
-							</div>
-							<!-- birthday end -->
-
-							<div class="col-md-12">
-								<label class="phone">Phone</label>
-								<input type="text" class="form-control controlBox" name="phone" id="phone" placeholder="번호만 입력해주세요.  예) 01012345678">
-								<b><span id="phMessage" class="eMessage"></span></b>
-							</div>
-
-							<div class="ecol-md-12">
-								<label class="email">Email</label><br>
-								<input type="text" class="eform-control controlBox" id="email" name="email" value="${one.email}" placeholder="[ -  _ ] 사용 가능">
-								<input name="dw" class="dform-control controlBox" id="dw" type="text" value="${one.domain}" placeholder="@도메인"> 
-								<select class="email-select" name="domain" id="domain">
-									<option value="1">직접 입력</option>
-									<option value="@naver.com">@naver.com</option>
-									<option value="@google.com">@gmail.com</option>
-									<option value="@daum.net">@daum.net</option>
-									<option value="@nate.com">@nate.com</option>
-									<option value="@kakao.com">@kakao.com</option>
-								</select><br>
-								<b><span id="emMessage" class="eMessage"></span></b>
-							</div>
-
-							<div class="email-check">
-								<input type="button" id="emailCheck" value="이메일 인증하기">
-								<div id="enter_auth_number">
-									<input class="mail-check-input" id="check_number" placeholder="인증번호 6자리" maxlength="6">
-									<input type="button" id="email_auth_key" value="인증번호 확인">
 								</div>
 							</div>
 						</div>
