@@ -1022,6 +1022,7 @@ ul, ol {
 
 .board_top {
 	text-align: center;
+	margin-top: 15px;
 } 
 
 #searchBar {
@@ -1111,20 +1112,19 @@ ul, ol {
 #board_img_left,
 #board_img_right {
 	position: fixed;
-	top: 150px;
-	max-height: 800px;
+	top: 100px;
+	max-height: 780px;
 	height: 100%;
 }
 
 #board_img_right {
 	right: 0;
-	top: 0;
 }
 
 #searchBar,
 #qnawritebar {
    text-align: right;
-   width: 86.2%;
+   width: 84.9%;
    margin: 5px;
    
 }

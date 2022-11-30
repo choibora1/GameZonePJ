@@ -20,7 +20,7 @@
 				if ($(this).val() == 'n')
 					$('#keyword').val('');
 			}); // change
-	
+
 		}); // Ready
 		
 		function readPost() {
@@ -66,7 +66,7 @@
    	<!-- Header section end -->
 	
 	<!-- Recent game section  -->
-	<main class="relative_flex">
+	<main>
 		<div class="board_top">
 			<a href="https://lineagem.plaync.com/preorder/record/oasis2you/index?LM=19208101" target="_blank">
 				<img src="resources/img/lineagem.jpg">
@@ -219,7 +219,6 @@
     <!-- Footer section end -->
 
 	<!-- ====== Javascripts & Jquery ====== -->
-	<script src="resources/js/jquery-3.2.1.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
 	<script src="resources/js/owl.carousel.min.js"></script>
 	<script src="resources/js/jquery.marquee.min.js"></script>
