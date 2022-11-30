@@ -70,7 +70,7 @@
 					<div class="d-flex flex-column align-items-center text-center p-3 py-5">
 						<img src="${one.uploadimg}" class="select_img" width="230" height="300"><br>
 						<h4><input type="text" class="font-weight-bold profile_id" value="${one.id}" name="id" id="id" readonly></h4>
-						<h5><input type="text" class="text-black-50 profile_email" value="${one.email}${one.domain}" readonly></h5>
+						<h5 style="min-width: 300px;"><input type="text" class="text-black-50 profile_email" value="${one.email}${one.domain}" readonly></h5>
 					</div>
 				</div>
 

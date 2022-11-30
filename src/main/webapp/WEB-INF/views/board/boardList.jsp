@@ -20,7 +20,13 @@
 				if ($(this).val() == 'n')
 					$('#keyword').val('');
 			}); // change
-
+			
+			$('#searchBtn').click(function() {
+	            self.location = "boardList" + "${pageMaker.makeQuery(1)}" 
+	               + "&searchType=" + $('#searchType').val()
+	               + "&keyword=" + $('#keyword').val()
+	         }) // click
+			
 		}); // Ready
 		
 		function readPost() {
