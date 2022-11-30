@@ -39,6 +39,7 @@ main,
 section {
 	position: relative;
     flex: 1;
+    height: 100%;
 }
 
 .h1,
@@ -771,7 +772,6 @@ ul, ol {
    margin-bottom: 0;
    font-weight: 500;
    color: #aeaeae;
-   line-height: 0;
 }
 
 .pointer {
@@ -781,13 +781,13 @@ ul, ol {
 /*------------------
   Responsive
 ---------------------*/
-@media ( min-width : 1200px) {
+/* @media ( min-width : 1200px) {
    .container {
       max-width: 1176px;
    }
 }
 
-/* Medium screen : 992px. */
+Medium screen : 992px.
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
    .main-menu {
       margin-right: 90px;
@@ -806,7 +806,7 @@ ul, ol {
    }
 }
 
-/* Tablet :768px. */
+Tablet :768px.
 @media only screen and (min-width: 768px) and (max-width: 991px) {
    .site-logo {
       max-width: 130px;
@@ -843,7 +843,7 @@ ul, ol {
    }
 }
 
-/* Large Mobile :480px. */
+Large Mobile :480px.
 @media only screen and (max-width: 767px) {
    .header-section {
       overflow: visible;
@@ -923,7 +923,7 @@ ul, ol {
    }
 }
 
-/* Medium Mobile :480px. */
+Medium Mobile :480px.
 @media only screen and (max-width: 576px) {
    .hero-slider .owl-dots {
       padding: 0 15px;
@@ -934,7 +934,7 @@ ul, ol {
    }
 }
 
-/* Small Mobile :320px. */
+Small Mobile :320px.
 @media only screen and (max-width: 479px) {
    .hero-slider .hs-item {
       height: auto;
@@ -961,19 +961,21 @@ ul, ol {
    .pointer {
       cursor: pointer;
    }
-}
+} */
 
 /*------------------
   insert game
 ---------------------*/
 
-#insert_game_form {
+#insert_game_form,
+#update_game_form {
    width: 1200px;
    margin: auto;
    height: 702px;
 }
 
-#insert_game {
+#insert_game,
+#update_game {
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 50px;
@@ -983,37 +985,61 @@ ul, ol {
 	align-items: center;
 }
 
-#insert_game > tbody {
-	line-height : 3.5;
+#insert_game > tbody,
+#update_game > tbody {
+	line-height : 2.5;
 }
 
-#insert_game > tfoot {
+#insert_game > tbody > tr,
+#update_game > tbody > tr {
+	display: block;
+	margin-bottom : 10px;
+}
+
+#insert_game > tfoot,
+#update_game > tfoot {
 	width: 820px;
 	display: flex;
 	justify-content: center;
 }
 
-#insert_game th {
-   background-color: goldenrod;
+#insert_game th,
+#update_game th {
+   background-color: black;
    text-align: center;
    width: 100px;
+   border: 1px solid;
+   border-radius: 10px;
 }
 
-#insert_game input {
+#insert_game_text,
+#update_game_text {
+	display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#insert_game input,
+#update_game input {
    width: 300px;
    text-align: center;
+   height: 40px;
 }
 
-.insert_game_row {
+#insert_game .insert_game_row
+#update_game .update_game_row {
    height: 303px;
 }
 
-.insert_game_row > new_img {
+.insert_game_row > new_img,
+.update_game_row > new_img {
    width: 233px;
 }
 
-#insert_game .insert_game_btn {
+#insert_game .insert_game_btn,
+#update_game .update_game_btn {
    width: 60px;
+   height: 25px;
 }
 
 
@@ -1112,9 +1138,10 @@ ul, ol {
 #board_img_left,
 #board_img_right {
 	position: fixed;
-	top: 100px;
-	max-height: 780px;
+	top: 11%;
+	max-height: 80%;
 	height: 100%;
+	margin: 0 1%;
 }
 
 #board_img_right {

@@ -112,7 +112,7 @@
       	<div class="news-ticker">
         	<div class="news-ticker-contant">
             	<div class="nt-item">
-               		<span class="new">출시예정</span>디아블로 4 : 2023년 4월 출시 예상! 
+               		<span class="new">출시예정</span>디아블로 Ⅳ : 2023년 4월 출시 예상! 
             	</div>
             	<div class="nt-item">
                		<span class="strategy">전략 게임</span>문명 5 : 플레이어들은 원시시대부터 우주시대까지 문명을 건설하고 이끌며 세계의 지배자가 되기 위해 사투를...

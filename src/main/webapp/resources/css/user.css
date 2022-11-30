@@ -2582,6 +2582,7 @@ button.bg-dark:hover {
 .profile_id,
 .profile_email {
     color: #fff;
+    width: 100%;
 }
 
 .email-check {
