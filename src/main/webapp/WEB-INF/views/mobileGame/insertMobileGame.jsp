@@ -60,81 +60,84 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-	<form action="insertMobileGame" method="post" enctype="multipart/form-data">
-		<table>
-			<tr height="40">
-				<th bgcolor="YellowGreen" style="text-align: center;">Image</th>
-				<td>
-					<img src="" class="new_img"><br>
-					<input type="file" name="uploadimgfile" id="uploadimgfile">
-					<script>
-						$('#uploadimgfile').change(function() {
-							if(this.files && this.files[0]) {
-								var reader = new FileReader;
-								reader.readAsDataURL(this.files[0]);
-								reader.onload = function(e) {
-									$(".new_img").attr("src", e.target.result).width(100).height(100);
-								} // onload_function
-							} // if
-						}); // change
-					</script>
-		 		</td>
-			</tr>
-				
-			<tr height="40">
-				<th bgcolor="YellowGreen" style="text-align: center;">Category</th>
-				<td><input type="text" name="category" placeholder="카테고리(영문)" size="40"></td>
-			</tr>
-		
-			<tr height="40">
-				<th bgcolor="YellowGreen" style="text-align: center;">Game_Name</th>
-				<td><input type="text" name="game_name" placeholder="게임 이름" size="40"></td>
-			</tr>
-				
-			<tr height="40">
-				<th bgcolor="YellowGreen" style="text-align: center;">Launch</th>
-				<td><input type="text" name="launch" placeholder="발매일(YYYY-MM-DD)" size="40"></td>
-			</tr>
-		
-			<tr height="40">
-				<th bgcolor="YellowGreen" style="text-align: center;">Publisher</th>
-				<td><input type="text" name="publisher" placeholder="배급사" size="40"></td>
-			</tr>
-				
-			<tr height="40">
-				<th bgcolor="YellowGreen" style="text-align: center;">Price</th>
-				<td><input type="text" name="price" placeholder="가격" size="40"></td>
-			</tr>
-		
-			<tr height="40">
-				<th bgcolor="YellowGreen" style="text-align: center;">Grade</th>
-				<td><input type="text" name="grade" placeholder="등급" size="40"></td>
-			</tr>
-				
-			<tr height="40">
-				<th bgcolor="YellowGreen" style="text-align: center;">Site</th>
-				<td><input type="text" name="site" placeholder="사이트" size="40"></td>
-			</tr>
-				
-			<tr height="40">
-				<th bgcolor="YellowGreen" style="text-align: center;">Intro</th>
-				<td><input type="text" name="intro" placeholder="게임 소개" size="40"></td>
-			</tr>
-				
-			<tr height="40">
-				<th bgcolor="YellowGreen" style="text-align: center;">Video</th>
-				<td><input type="text" name="video" placeholder="영상 링크" size="40"></td>
-			</tr>
-				
-			<tr>
-				<td></td>
-				<td><input type="submit" value="등록" onclick="return insertGame()">&nbsp;&nbsp;&nbsp;
-					<input type="reset" value="취소">
-				</td>
-			</tr>
-		</table>
-	</form>
-	&nbsp;&nbsp;&nbsp;<a href="javascript:history.go(-1)">[이전으로]</a>
+   	
+   	<main>
+		<form action="insertMobileGame" method="post" enctype="multipart/form-data">
+			<table>
+				<tr height="40">
+					<th bgcolor="YellowGreen" style="text-align: center;">Image</th>
+					<td>
+						<img src="" class="new_img"><br>
+						<input type="file" name="uploadimgfile" id="uploadimgfile">
+						<script>
+							$('#uploadimgfile').change(function() {
+								if(this.files && this.files[0]) {
+									var reader = new FileReader;
+									reader.readAsDataURL(this.files[0]);
+									reader.onload = function(e) {
+										$(".new_img").attr("src", e.target.result).width(100).height(100);
+									} // onload_function
+								} // if
+							}); // change
+						</script>
+			 		</td>
+				</tr>
+					
+				<tr height="40">
+					<th bgcolor="YellowGreen" style="text-align: center;">Category</th>
+					<td><input type="text" name="category" placeholder="카테고리(영문)" size="40"></td>
+				</tr>
+			
+				<tr height="40">
+					<th bgcolor="YellowGreen" style="text-align: center;">Game_Name</th>
+					<td><input type="text" name="game_name" placeholder="게임 이름" size="40"></td>
+				</tr>
+					
+				<tr height="40">
+					<th bgcolor="YellowGreen" style="text-align: center;">Launch</th>
+					<td><input type="text" name="launch" placeholder="발매일(YYYY-MM-DD)" size="40"></td>
+				</tr>
+			
+				<tr height="40">
+					<th bgcolor="YellowGreen" style="text-align: center;">Publisher</th>
+					<td><input type="text" name="publisher" placeholder="배급사" size="40"></td>
+				</tr>
+					
+				<tr height="40">
+					<th bgcolor="YellowGreen" style="text-align: center;">Price</th>
+					<td><input type="text" name="price" placeholder="가격" size="40"></td>
+				</tr>
+			
+				<tr height="40">
+					<th bgcolor="YellowGreen" style="text-align: center;">Grade</th>
+					<td><input type="text" name="grade" placeholder="등급" size="40"></td>
+				</tr>
+					
+				<tr height="40">
+					<th bgcolor="YellowGreen" style="text-align: center;">Site</th>
+					<td><input type="text" name="site" placeholder="사이트" size="40"></td>
+				</tr>
+					
+				<tr height="40">
+					<th bgcolor="YellowGreen" style="text-align: center;">Intro</th>
+					<td><input type="text" name="intro" placeholder="게임 소개" size="40"></td>
+				</tr>
+					
+				<tr height="40">
+					<th bgcolor="YellowGreen" style="text-align: center;">Video</th>
+					<td><input type="text" name="video" placeholder="영상 링크" size="40"></td>
+				</tr>
+					
+				<tr>
+					<td></td>
+					<td><input type="submit" value="등록" onclick="return insertGame()">&nbsp;&nbsp;&nbsp;
+						<input type="reset" value="취소">
+					</td>
+				</tr>
+			</table>
+		</form>
+		&nbsp;&nbsp;&nbsp;<a href="javascript:history.go(-1)">[이전으로]</a>
+	</main>
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

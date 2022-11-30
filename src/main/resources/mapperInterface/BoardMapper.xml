@@ -6,9 +6,15 @@
 
 	<sql id="search">
 		<if test="keyword != null">
-			<bind name="keyVal" value="'%' + keyword + '%'" />
+			<bind value="'%' + keyword + '%'" name="keyVal"/>
 		</if>
 		<choose>
+			<when test="searchType == 'n'.toString()">
+				and title like #{keyVal}
+				or content like #{keyVal}
+				or id like #{keyVal} )
+			</when>
+		
 			<when test="searchType == 't'.toString()">
 				and title like #{keyVal} )
 			</when>
@@ -21,19 +27,9 @@
 				and id like #{keyVal} )
 			</when>
 
-			<when test="searchType == 'r'.toString()">
-				and regdate like #{keyVal} )
-			</when>
-
 			<when test="searchType == 'tc'.toString()">
 				and title like #{keyVal}
 				or content like #{keyVal} )
-			</when>
-
-			<when test="searchType == 'tci'.toString()">
-				and title like #{keyVal}
-				or content like #{keyVal}
-				or id like #{keyVal} )
 			</when>
 
 			<otherwise>)</otherwise>

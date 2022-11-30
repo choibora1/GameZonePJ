@@ -6,6 +6,8 @@
 <meta charset="UTF-8">
     <title>GameZone | 로그인</title>
     <link rel="stylesheet" type="text/css" href="resources/css/login.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/style.css" />
 	<link rel="shortcut icon" href="resources/img/icon2.ico">
     <script src="resources/js/jquery-3.2.1.min.js"></script>
     <script src="resources/myLib/inCheck.js"></script>
@@ -64,19 +66,22 @@
 		<form action="loginUser" method="post">
 			<div class="inputBox">
 				<input id="id" type="text" name="id" placeholder="아이디"><br>
+				<span id="iMessage" class="eMessage"></span><br>
 			</div>
-			<div>
+			<div class="inputBox">
 				<input id="password" type="password" name="password" placeholder="비밀번호"><br>
-				<span id="iMessage" class="eMessage"></span>
 				<span id="pMessage" class="eMessage"></span>
 			</div>
-            <br>
-			<input type="submit" value="Login" id="submit">&nbsp;&nbsp;
+			<br>
+			<input type="submit" value="로그인" id="submit">&nbsp;&nbsp;
 		</form>
-	<!-- <a href="#">Forget Password</a> 
-		<br> -->
+		<c:if test="${not empty message}">
+			<script>
+				alert(`${message}`);
+			</script>		
+		</c:if>
 		<div class="text-center">
-			<a href="joinForm" style="color: #59238F;">Sign-Up</a>
+			<a href="joinForm" style="color: #59238F;">회원가입</a>
 		</div>
 	</div>
 </body>

@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GameZone | 비밀번호 수정</title>
-	<link rel="stylesheet" type="text/css" href="resources/css/myStyle.css">
+	<!-- <link rel="stylesheet" type="text/css" href="resources/css/myStyle.css"> -->
 	<link rel="stylesheet" type="text/css" href="resources/css/user.css">
 	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
 	<link rel="stylesheet" href="resources/css/style.css" />
@@ -121,46 +121,56 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-	<form action="updatePassword" method="post" id="myForm">
-		<table style="width: 100;">
-			<tr height="40">
-				<th bgcolor="LightCoral" style="text-align: center;"><label for="oldPassword">현재 비밀번호</label></th>
-				<td>
-					<input type="password" name="oldPassword" id="oldPassword" size="20" placeholder="현재 비밀번호">
-					<b><span id="opMessage" class="eMessage"></span></b>
-				</td>
-			</tr>
+   	
+   	<main>
+		<form action="updatePassword" method="post" id="myForm">
+			<div class="container rounded bg-white">
+				<div class="row">
+					<div class="col-md-5 text-center">
+						<div class="row mt-3 p-3 py-5">
+							<div class="col-updatePw">
+								<label class="labels" for="oldPassword">현재 비밀번호</label>
+								<input type="password" name="oldPassword" id="oldPassword" class="controlBox" placeholder="현재 비밀번호"><br>
+								<div class="updatepwMessage">
+									<b><span id="opMessage" class="eMessage"></span></b>
+								</div>
+							</div>
 
-			<tr height="40">
-				<th bgcolor="LightCoral" style="text-align: center;"><label for="password">새 비밀번호</label></th>
-				<td>
-					<input type="password" name="password" id="password" size="20" placeholder="특수문자 반드시 포함">
-					<b><span id="pMessage" class="eMessage"></span></b>
-				</td>
-			</tr>
-
-			<tr height="40">
-				<th bgcolor="LightCoral" style="text-align: center;"><label for="password2">새 비밀번호 확인</label></th>
-				<td>
-					<input type="password" name=password2 id=password2 size="20">
-					<b><span id="ppMessage" class="eMessage"></span></b>
-				</td>
-			</tr>
-
-			<tr height="40">
-				<td></td>
-				<td>
-					<input type="submit" value="수정" onclick="return inCheck()">&nbsp;&nbsp;
-					<a href="javascript:history.go(-1)">취소</a>
-				</td>
-			</tr>
-		</table>
-	</form>
-	<c:if test="${not empty message}">
-		<script>
-			alert(`${message}`);
-		</script>		
-	</c:if>
+							<div class="col-updatePw">
+								<label class="labels" for="password">새 비밀번호</label>
+								<input type="password" name="password" id="password" class="controlBox" placeholder="특수문자 반드시 포함"><br>
+								<div class="updatepwMessage">
+									<b><span id="pMessage" class="eMessage"></span></b>
+								</div>
+							</div>
+							
+							<div class="col-updatePw">
+								<label class="labels" for="password2">새 비밀번호 확인</label>
+								<input type="password" name=password2 id=password2 class="controlBox"><br>
+								<div class="updatepwMessage">
+									<b><span id="ppMessage" class="eMessage"></span></b>
+								</div>
+							</div>
+						</div>
+						
+						<div class="pwbutton">
+							<div class="text-center">
+								<input class="btn btn-primary" type="submit" value="수정" onclick="return inCheck()">
+							</div>
+							<div class="text-center">
+								<a class="btn btn-primary" href="javascript:history.go(-1)">취소</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<c:if test="${not empty message}">
+			<script>
+				alert(`${message}`);
+			</script>
+		</c:if>
+	</main>
 	<!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

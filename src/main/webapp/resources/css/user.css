@@ -255,7 +255,8 @@ h4 {
 .col-md-auto,
 .ecol-md-12,
 .gcol-md-12,
-.email-check {
+.email-check,
+.col-updatePw {
     position: relative;
     width: 100%;
     padding-right: 15px;
@@ -295,7 +296,17 @@ h4 {
         margin-bottom: 20px;
         max-height: 80px;
     }
-
+    
+    .col-updatePw {
+    	max-width: 100%;
+    	margin-bottom: 30px;
+    }
+    
+    .col-updatePw span,
+    .pwbutton {
+    	right: 30%;
+    }
+    
     .ecol-md-12 {
         width: 100%;
         margin-bottom: 20px;
@@ -2357,6 +2368,18 @@ button.bg-dark:hover {
     padding-left: 24px;
 }
 
+.updatepwMessage {
+	text-align: right !important;
+}
+
+.pwbutton {
+/* 	display: flex;
+    width: 200px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 24px; */
+}
+
 .eMessage {
     color: red;
     font-size: .8em;
@@ -2373,6 +2396,7 @@ button.bg-dark:hover {
 
 .labels {
     font-weight: bold;
+    min-width: 120px;
 }
 
 /* ======================================= joinform ================================ */
