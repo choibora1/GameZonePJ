@@ -59,92 +59,98 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-   	<section>
+   	<main>
 		<h3>${param.game_name}</h3>
 		<c:if test="${not empty message}">
 			${message}<br>
 		</c:if>
 		<hr>
-		<form action="updatePcGame" method="post" enctype="multipart/form-data">
-			<table>
-				<tr height="40">
-					<th bgcolor="DarkSeaGreen" style="text-align: center;">Image</th>
-					<td>
-						<img src="${one.game_img}" class="new_img" width="80" height="100"> <input type="hidden" name="game_img" value="${one.game_img}"><br>
-						<input type="file" name="uploadimgfile" id="uploadimgfile">
-						<script>
-							$('#uploadimgfile').change(function() {
-								if (this.files && this.files[0]) {
-									var reader = new FileReader;
-									reader.readAsDataURL(this.files[0]);
-									reader.onload = function(e) {
-										$(".new_img").attr("src", e.target.result).width(100).height(100);
-									} // onload_function
-								} // if
-							}); // change
-						</script>
-					</td>
-				</tr>
-	
-				<tr height="40">
-					<th bgcolor="DarkSeaGreen" style="text-align: center;">Category</th>
-					<td><input type="text" name="category" value="${one.category}"
-						size="40"></td>
-				</tr>
-	
-				<tr height="40">
-					<th bgcolor="DarkSeaGreen" style="text-align: center;">Game_Name</th>
-					<td><input type="text" name="game_name" value="${one.game_name}" size="40" readonly></td>
-				</tr>
-	
-				<tr height="40">
-					<th bgcolor="DarkSeaGreen" style="text-align: center;">Launch</th>
-					<td><input type="text" name="launch" value="${one.launch}" size="40"></td>
-				</tr>
-	
-				<tr height="40">
-					<th bgcolor="DarkSeaGreen" style="text-align: center;">Publisher</th>
-					<td><input type="text" name="publisher" value="${one.publisher}" size="40"></td>
-				</tr>
-	
-				<tr height="40">
-					<th bgcolor="DarkSeaGreen" style="text-align: center;">Price</th>
-					<td><input type="text" name="price" value="${one.price}" size="40"></td>
-				</tr>
-	
-				<tr height="40">
-					<th bgcolor="DarkSeaGreen" style="text-align: center;">Grade</th>
-					<td><input type="text" name="grade" value="${one.grade}" size="40"></td>
-				</tr>
-	
-				<tr height="40">
-					<th bgcolor="DarkSeaGreen" style="text-align: center;">Site</th>
-					<td><input type="text" name="site" value="${one.site}" size="40"></td>
-				</tr>
-	
-				<tr height="40">
-					<th bgcolor="DarkSeaGreen" style="text-align: center;">Intro</th>
-					<td><input type="text" name="intro" value="${one.intro}" size="40"></td>
-				</tr>
-	
-				<tr height="40">
-					<th bgcolor="DarkSeaGreen" style="text-align: center;">Video</th>
-					<td><input type="text" name="video" value="${one.video}"
-						size="40"></td>
-				</tr>
-	
-				<tr>
-					<td></td>
-					<td>
-						<input type="submit" value="수정" onclick="return updateGame()">&nbsp;&nbsp;&nbsp;
-						<a href="javascript:history.go(-1)">수정 취소</a>
-					</td>
-				</tr>
+		<form action="updatePcGame" id="update_game_form" method="post" enctype="multipart/form-data">
+			<table id="update_game">
+				<thead>
+					<tr class="update_game_row">
+						<th>게임 사진</th>
+						<td style=" vertical-align: bottom;">
+							<img src="${one.game_img}" class="new_img" width="80" height="100"> <input type="hidden" name="game_img" value="${one.game_img}"><br>
+							<input type="file" name="uploadimgfile" id="uploadimgfile">
+							<script>
+								$('#uploadimgfile').change(function() {
+									if (this.files && this.files[0]) {
+										var reader = new FileReader;
+										reader.readAsDataURL(this.files[0]);
+										reader.onload = function(e) {
+											$(".new_img").attr("src", e.target.result).width(233).height(303);
+										} // onload_function
+									} // if
+								}); // change
+							</script>
+						</td>
+					</tr>
+					<tr id="update_game_text">
+						<td></td>
+		        		<td>사진 크기는 가로 233px 세로 303px 로 고정</td>
+		        	</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>장르</th>
+						<td><input type="text" name="category" value="${one.category}"></td>
+					</tr>
+		
+					<tr>
+						<th>게임이름</th>
+						<td><input type="text" name="game_name" value="${one.game_name}" readonly></td>
+					</tr>
+		
+					<tr>
+						<th>출시일</th>
+						<td><input type="text" name="launch" value="${one.launch}"></td>
+					</tr>
+		
+					<tr>
+						<th>배급사</th>
+						<td><input type="text" name="publisher" value="${one.publisher}"></td>
+					</tr>
+		
+					<tr>
+						<th>가격</th>
+						<td><input type="text" name="price" value="${one.price}"></td>
+					</tr>
+		
+					<tr>
+						<th>이용 등급</th>
+						<td><input type="text" name="grade" value="${one.grade}"></td>
+					</tr>
+		
+					<tr>
+						<th>공식 사이트</th>
+						<td><input type="text" name="site" value="${one.site}"></td>
+					</tr>
+		
+					<tr>
+						<th>게임 소개</th>
+						<td><input type="text" name="intro" value="${one.intro}"></td>
+					</tr>
+		
+					<tr>
+						<th>영상 링크</th>
+						<td><input type="text" name="video" value="${one.video}"></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td></td>
+						<td>
+		           			<input class="update_game_btn" type="submit" value="등록" onclick="return insertGame()">&nbsp;&nbsp;&nbsp;
+		              		<input class="update_game_btn" type="reset" value="초기화">&nbsp;&nbsp;&nbsp;
+		              		<input class="update_game_btn" type="button" onClick="history.go(-1)" value="이전으로">
+						</td>
+					</tr>
+				</tfoot>
 			</table>
 		</form>
-		&nbsp;&nbsp;&nbsp;
-		<a href="javascript:history.go(-1)">[이전으로]</a>
-	</section>
+	</main>
+	
 	<!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">
