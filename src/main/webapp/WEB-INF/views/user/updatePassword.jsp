@@ -75,7 +75,6 @@
 					return false;
 					
 				} else
-					alert('비밀번호를 변경하겠습니다.');
 					return true;
 				
 			} else {
@@ -121,7 +120,11 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-   	
+   	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
    	<main>
 		<form action="updatePassword" method="post" id="myForm">
 			<div class="container rounded bg-white">
@@ -169,11 +172,6 @@
 				</div>
 			</div>
 		</form>
-		<c:if test="${not empty message}">
-			<script>
-				alert(`${message}`);
-			</script>
-		</c:if>
 	</main>
 	<!-- Footer section -->
     <footer class="footer-section">

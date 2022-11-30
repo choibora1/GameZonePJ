@@ -208,7 +208,6 @@
                     return false;
 
                 } else
-                	alert('수정하겠습니다.');
                 	return true;
 
 			} else {
@@ -254,6 +253,11 @@
       	</div>
    	</header>
    	<!-- Header section end -->
+   	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
    	<main>
 		<form action="updateProfile" method="post" enctype="multipart/form-data">
 			<div class="container rounded bg-white">
@@ -356,11 +360,6 @@
 				</div>
 			</div>
 		</form>
-		<c:if test="${not empty message}">
-			<script>
-				alert(`${message}`);
-			</script>
-		</c:if>
 	</main>
     <!-- Footer section -->
     <footer class="footer-section">
