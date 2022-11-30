@@ -60,8 +60,9 @@
    	</header>
    	<!-- Header section end -->
 	<c:if test="${not empty message}">
-		${message}<br>
-		<hr>
+		<script>
+			alert(`${message}`);
+		</script>
 	</c:if>
 	<main class="detail_main">
 		<div class="container rounded bg-white">
