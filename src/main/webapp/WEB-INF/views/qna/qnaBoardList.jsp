@@ -47,6 +47,11 @@
       	</div>
    	</header>
    	<!-- Header section end -->
+   	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
 	<!-- Recent game section  -->
 	<section>
 		<div class="board_top">
@@ -82,10 +87,6 @@
 				<th width=25%>작성일자</th>
 				<!-- <th width=10%>조회수</th> -->
 			</tr>
-
-			<!-- ======================================================= -->
-
-			<!-- jstl -->
 			<c:if test="${not empty list}">
 				<c:forEach var="qna" items="${list}">
 					<tr id="boardtd">
@@ -122,7 +123,7 @@
 											<c:out value="${qna.title}" />
 										</a>
 									</c:when>
-									<c:when test="${qna.secret == true}">비밀글은 작성자와 관리자만 볼 수 있습니다.</c:when>
+									<c:when test="${qna.secret == true}">작성자와 관리자만 볼 수 있습니다.</c:when>
 								</c:choose>
 							</c:if>
 
@@ -130,7 +131,7 @@
 							<!-- 비밀글 : 비밀글은 작성자와 관리자만 볼 수 있습니다 / 비밀글 x : ${qna.title} -->
 							<c:if test="${empty loginID}">
 								<c:if test="${qna.secret == false}">${qna.title}</c:if>
-								<c:if test="${qna.secret == true}">비밀글은 작성자와 관리자만 볼 수 있습니다.</c:if>
+								<c:if test="${qna.secret == true}">작성자와 관리자만 볼 수 있습니다.</c:if>
 							</c:if>
 						</td>
 
@@ -195,7 +196,6 @@
 			</div>
 		</div>
 	</section>
-	<!-- ==================================================== -->
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

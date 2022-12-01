@@ -114,7 +114,7 @@ public class BoardController {
 			rttr.addFlashAttribute("message", "새 게시물이 등록되었습니다.");
 
 		} else {
-			mv.addObject("message", "새 게시물 등록 실패. 다시 시도해주세요");
+			mv.addObject("message", "게시물 등록 실패. 다시 시도해주세요");
 			uri = "/board/writePostForm";
 		}
 
@@ -177,8 +177,8 @@ public class BoardController {
 	} // removePost
 
 // ----------------------------------------------------------------------------------------------------------------------
-
-	// ** Reply_Insert : 답글등록
+	// ************ 댓글로 대체 함 **************************************************************************************
+/*	// ** Reply_Insert : 답글등록
 	@RequestMapping(value = "/writeReplyForm")
 	public ModelAndView writeReplyForm(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BoardVO vo) {
 		
@@ -186,12 +186,13 @@ public class BoardController {
 		return mv;
 		
 	}
-
+*/
 // ----------------------------------------------------------------------------------------------------------------------
 
-	// ** 답글 등록
+	// ** 댓글 등록
 	@RequestMapping(value = "/writeReply", method = RequestMethod.POST)
-	public ModelAndView writeReply(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, BoardVO vo, RedirectAttributes rttr) {
+	public ModelAndView writeReply(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, 
+									BoardVO vo, RedirectAttributes rttr) {
 
 		// 1. 요청
 		String uri = "redirect:boardList";
