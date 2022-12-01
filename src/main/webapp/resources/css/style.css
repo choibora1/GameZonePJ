@@ -178,7 +178,7 @@ ul, ol {
 
 .section-title {
    text-align: center;
-   margin-bottom: 75px;
+   margin-bottom: 35px;
 }
 
 .section-title h2 {
@@ -539,7 +539,7 @@ ul, ol {
    width: 71%;
    float: right;
    overflow: hidden;
-   /* display: inline-block; 이전 값*/
+   /* display: inline-block; �씠�쟾 媛�*/
    display: block;
 }
 
@@ -1042,14 +1042,19 @@ Small Mobile :320px.
    height: 25px;
 }
 
+/*------------------
+  Board List
+---------------------*/
 
-
-/* ================================================================ boardList ===================================================================== */
 
 .board_top {
 	text-align: center;
 	margin-top: 15px;
 } 
+
+.board top img {
+	width: 70%;
+}
 
 #searchBar {
    text-align: right;
@@ -1105,6 +1110,11 @@ Small Mobile :320px.
    background-color: #000;
 }
 
+#boardtd th:nth-child(2) {
+	text-align: left;
+	padding: 0 20px;
+}
+
 #Criteria_Page {
    text-align: center;
 }
@@ -1133,14 +1143,13 @@ Small Mobile :320px.
     display: inline-block;
  }
  
-/* ================================================================ boardList ===================================================================== */
 
 #board_img_left,
 #board_img_right {
 	position: fixed;
 	top: 11%;
-	max-height: 80%;
-	height: 100%;
+	max-height: 75%;
+	width: 13%;
 	margin: 0 1%;
 }
 

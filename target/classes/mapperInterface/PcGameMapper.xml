@@ -6,6 +6,7 @@
 
 	<!-- ============================================================= -->
 
+	<!-- PcGameList -->
 	<select id="pcGameList" resultType="vo.GameVO">
 		select game_img, game_name
 		from pcgame
@@ -14,7 +15,7 @@
 			<bind name="keyVal" value="'%' + keyword + '%'" />
 			and (game_name like #{keyVal})
 		</if>
-
+		
 		<if test="check != null">
 			<foreach collection="check" item="it" open=" and ( " close=")" separator="or ">
 				FIND_IN_SET(#{it}, category)
