@@ -123,7 +123,7 @@
 											<c:out value="${qna.title}" />
 										</a>
 									</c:when>
-									<c:when test="${qna.secret == true}">비밀글은 작성자와 관리자만 볼 수 있습니다.</c:when>
+									<c:when test="${qna.secret == true}">작성자와 관리자만 볼 수 있습니다.</c:when>
 								</c:choose>
 							</c:if>
 
@@ -131,7 +131,7 @@
 							<!-- 비밀글 : 비밀글은 작성자와 관리자만 볼 수 있습니다 / 비밀글 x : ${qna.title} -->
 							<c:if test="${empty loginID}">
 								<c:if test="${qna.secret == false}">${qna.title}</c:if>
-								<c:if test="${qna.secret == true}">비밀글은 작성자와 관리자만 볼 수 있습니다.</c:if>
+								<c:if test="${qna.secret == true}">작성자와 관리자만 볼 수 있습니다.</c:if>
 							</c:if>
 						</td>
 

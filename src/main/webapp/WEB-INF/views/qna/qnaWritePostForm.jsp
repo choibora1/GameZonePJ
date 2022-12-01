@@ -32,16 +32,16 @@
 			} else {
 				$("#secret_hidden").attr("disabled", false);
 			}
-
-			$('#qnaForm').submit(); // return true;
 	
 			if (confirm("등록하시겠습니까? (Yes : 확인 / No : 취소)")) {
+				$('#qnaForm').submit(); // return true;
 	           	return true; // 삭제
 	           	
 			} else {
 	           	alert('등록이 취소되었습니다.');
 				return false;
 			}
+			
 		}
 	</script>
 </head>

@@ -14,7 +14,6 @@
 	<script>
 		function updateGame() {
 			if (confirm("수정하시겠습니까? (Yes : 확인 / No : 취소)")) {
-				alert(`${one.game_name}을(를) 수정하겠습니다.`);
 	           	return true; // 삭제
 	           	
 			} else {
@@ -59,12 +58,13 @@
       	</div>
    	</header>
    	<!-- Header section end -->
+   	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
    	<main>
 		<h3>${param.game_name}</h3>
-		<c:if test="${not empty message}">
-			${message}<br>
-		</c:if>
-		<hr>
 		<form action="updateMobileGame" method="post"
 			enctype="multipart/form-data">
 			<table>
@@ -145,9 +145,6 @@
 		</form>
 		&nbsp;&nbsp;&nbsp;
 		<a href="javascript:history.go(-1)">[이전으로]</a>
-		<c:if test="${not empty message}">
-				${message}<br>
-		</c:if>
 	</main>
 	<!-- Footer section -->
     <footer class="footer-section">

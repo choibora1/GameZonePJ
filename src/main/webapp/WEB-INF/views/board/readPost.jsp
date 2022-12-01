@@ -120,7 +120,7 @@
 	       		<c:if test="${not empty loginID}">
 	           		<!-- textarea -->
 	           		<textarea rows="3" cols="94" name="content" id="replyContent" 
-	           		placeholder="명예훼손, 개인정보 유출, 분쟁 유발, 허위사실 유포 등의 글은 법률에 의해 처벌받을 수 있습니다. 건전한 커뮤니티를 위해 자제를 당부드립니다."></textarea>
+	           		placeholder="명예훼손, 개인정보 유출, 분쟁 유발, 허위사실 유포 등의 글은 법률에 의해 처벌받을 수 있습니다. &nbsp; &nbsp; &nbsp; 건전한 커뮤니티를 위해 자제를 당부드립니다."></textarea>
 	           		<!-- 등록 -->
 	           		<input type="button" value="등록" class="sclick">
 	       		</c:if>

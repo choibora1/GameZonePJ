@@ -71,7 +71,7 @@
 					<tr class="update_game_row">
 						<th>게임 사진</th>
 						<td style=" vertical-align: bottom;">
-							<img src="${one.game_img}" class="new_img" width="80" height="100"> <input type="hidden" name="game_img" value="${one.game_img}"><br>
+							<img src="${one.game_img}" class="new_img" width="233" height="303"> <input type="hidden" name="game_img" value="${one.game_img}"><br>
 							<input type="file" name="uploadimgfile" id="uploadimgfile">
 							<script>
 								$('#uploadimgfile').change(function() {
@@ -141,7 +141,7 @@
 					<tr>
 						<td></td>
 						<td>
-		           			<input class="update_game_btn" type="submit" value="등록" onclick="return insertGame()">&nbsp;&nbsp;&nbsp;
+		           			<input class="update_game_btn" type="submit" value="등록" onclick="return updateGame()">&nbsp;&nbsp;&nbsp;
 		              		<input class="update_game_btn" type="reset" value="초기화">&nbsp;&nbsp;&nbsp;
 		              		<input class="update_game_btn" type="button" onClick="history.go(-1)" value="이전으로">
 						</td>
