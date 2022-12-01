@@ -119,6 +119,7 @@ table > tr:first-child {
   	border: 2px solid goldenrod;
     position: fixed;
     width: 12.5%;
+    max-height: 48%;
     border-radius: 10px;
     transform: translateX(-120%) translateY(10%);
 }
@@ -134,7 +135,7 @@ table > tr:first-child {
     text-align: left;
     list-style-position: inside;
     padding-left: 10px;
-    line-height: 45px;
+    line-height: 40px;
     color: #ffffff;
 }
 
