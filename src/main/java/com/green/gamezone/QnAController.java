@@ -153,7 +153,6 @@ public class QnAController {
 		// 1. 요청
 		String uri = "/qna/qnaReadPost";
 
-		System.out.println(vo);
 		mv.addObject("one", vo);
 
 		// 2. Service
