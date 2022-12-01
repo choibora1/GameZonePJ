@@ -14,7 +14,6 @@
 	<script>
 		function updateGame() {
 			if (confirm("수정하시겠습니까? (Yes : 확인 / No : 취소)")) {
-				alert(`${one.game_name}을(를) 수정하겠습니다.`);
 	           	return true;
 	           	
 			} else {
@@ -59,19 +58,20 @@
       	</div>
    	</header>
    	<!-- Header section end -->
+   	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
    	<main>
 		<h3>${param.game_name}</h3>
-		<c:if test="${not empty message}">
-			${message}<br>
-		</c:if>
-		<hr>
 		<form action="updatePcGame" id="update_game_form" method="post" enctype="multipart/form-data">
 			<table id="update_game">
 				<thead>
 					<tr class="update_game_row">
 						<th>게임 사진</th>
 						<td style=" vertical-align: bottom;">
-							<img src="${one.game_img}" class="new_img" width="80" height="100"> <input type="hidden" name="game_img" value="${one.game_img}"><br>
+							<img src="${one.game_img}" class="new_img" width="233" height="303"> <input type="hidden" name="game_img" value="${one.game_img}"><br>
 							<input type="file" name="uploadimgfile" id="uploadimgfile">
 							<script>
 								$('#uploadimgfile').change(function() {
@@ -141,7 +141,7 @@
 					<tr>
 						<td></td>
 						<td>
-		           			<input class="update_game_btn" type="submit" value="등록" onclick="return insertGame()">&nbsp;&nbsp;&nbsp;
+		           			<input class="update_game_btn" type="submit" value="등록" onclick="return updateGame()">&nbsp;&nbsp;&nbsp;
 		              		<input class="update_game_btn" type="reset" value="초기화">&nbsp;&nbsp;&nbsp;
 		              		<input class="update_game_btn" type="button" onClick="history.go(-1)" value="이전으로">
 						</td>
@@ -150,7 +150,6 @@
 			</table>
 		</form>
 	</main>
-	
 	<!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

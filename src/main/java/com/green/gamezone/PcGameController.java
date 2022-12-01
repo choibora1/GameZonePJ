@@ -33,7 +33,6 @@ public class PcGameController {
 	// ** Ajax pcGameList
 	@RequestMapping(value = "/axPcGame")
 	public ModelAndView axPcGame(ModelAndView mv, GameSearchCriteria gameCriteria, GamePageMaker gamePageMaker) {
-	
 		// ** 순위 출력
 		List<GameVO> list = new ArrayList<GameVO>();
 		
@@ -59,11 +58,9 @@ public class PcGameController {
 		gamePageMaker.setTotalRowsCount(service.viewCount(gameCriteria));
 	
 		mv.addObject("gamePageMaker", gamePageMaker);
-	
 		mv.setViewName("/pcGame/axPcGame");
 	
 		return mv;
-	
 	} // Ajax pcGameList
 	
 	
@@ -71,22 +68,18 @@ public class PcGameController {
 	@RequestMapping(value = "/pcGameList")
 	public ModelAndView pcGameList(HttpServletRequest request, HttpServletResponse response, ModelAndView mv,
 									GameSearchCriteria gameCriteria, GamePageMaker gamePageMaker) {
-	
 		// ** 순위 출력
 		List<GameVO> list = new ArrayList<GameVO>();
-		
 		list = service.showList();
 		
 		if (list != null) {
 			mv.addObject("rank", list);
-			
 		} else {
 			mv.addObject("message", "출력 자료가 없습니다.");
 		}
 	
-		gameCriteria.setSnoEno();
-	
 		// 1) Criteria
+		gameCriteria.setSnoEno();
 		if (gameCriteria.getCheck() != null && gameCriteria.getCheck().length < 1) {
 			gameCriteria.setCheck(null);
 		}
@@ -99,10 +92,9 @@ public class PcGameController {
 		gamePageMaker.setTotalRowsCount(service.viewCount(gameCriteria));
 	
 		mv.addObject("gamePageMaker", gamePageMaker);
-	
 		mv.setViewName("/pcGame/pcGameList");
+		
 		return mv;
-	
 	} // pcGameList
 
 //----------------------------------------------------------------------------------------------------------------------------------------
@@ -126,7 +118,7 @@ public class PcGameController {
 		String realPath = request.getRealPath("/"); // deprecated Method
 
 		if (realPath.contains(".eclipse."))
-			realPath = "D:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\pcGameImg\\";
+			realPath = "C:\\Users\\User\\git\\GameZone\\src\\main\\webapp\\resources\\pcGameImg\\";
 
 		else
 			realPath += "resources\\pcGameImg\\";
@@ -229,7 +221,7 @@ public class PcGameController {
 		String realPath = request.getRealPath("/"); // deprecated Method
 
 		if (realPath.contains(".eclipse."))
-			realPath = "D:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\pcGameImg\\";
+			realPath = "C:\\Users\\User\\git\\GameZone\\src\\main\\webapp\\resources\\pcGameImg\\";
 
 		else
 			realPath += "resources\\pcGameImg\\";
