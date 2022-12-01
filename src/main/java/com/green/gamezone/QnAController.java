@@ -52,8 +52,6 @@ public class QnAController {
 		// 2. Service
 		vo = service.readPost(vo);
 
-		System.out.println(vo);
-
 		if (vo != null) {
 			
 			// 2.1) 조회수 증가

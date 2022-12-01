@@ -26,10 +26,10 @@
 				return false;
 			}
 			
-			$('#writePostForm').submit();
 			
 			if (confirm("게시글을 등록하시겠습니까? (Yes : 확인 / No : 취소)")) {
 	           	return true;
+				$('#writePostForm').submit();
 	           	
 			} else {
 	           	alert('등록이 취소되었습니다.');
