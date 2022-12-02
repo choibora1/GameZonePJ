@@ -1012,12 +1012,13 @@ Small Mobile :320px.
 /*------------------
   Board List
 ---------------------*/
+
 .board_top {
 	text-align: center;
 	margin-top: 15px;
 }
 
-.board_top img {
+.board top img {
 	width: 70%;
 }
 
@@ -1071,7 +1072,7 @@ Small Mobile :320px.
 	background-color: #000;
 }
 
-#boardtd td:nth-child(2) {
+#boardtd th:nth-child(2) {
 	text-align: left;
 	padding: 0 20px;
 }
@@ -1092,6 +1093,15 @@ Small Mobile :320px.
 
 #Criteria_left, #Criteria_num, #Criteria_right {
 	display: inline-block;
+ }
+ 
+#board_img_left,
+#board_img_right {
+	position: fixed;
+	top: 11%;
+	max-height: 75%;
+	width: 13%;
+	margin: 0 1%;
 }
 
 /*------------------
