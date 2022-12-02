@@ -1266,7 +1266,8 @@ Small Mobile :320px.
 
 .readPost_btnBox {
 	margin-bottom: 50px;
-	text-align: center;
+	display: flex;
+	justify-content: center;
 }
 
 .readPost_btn {

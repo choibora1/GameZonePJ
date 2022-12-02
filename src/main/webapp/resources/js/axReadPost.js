@@ -24,15 +24,16 @@ $(function () {
                         response.list.forEach(function (el, idx) {
 
                             var html = '';
+							html += '<div class="reply_border">'
 							html += '<div class="board_reply">'
-                            html += '<li>' + el.id + ' &nbsp;|&nbsp; ' + el.regdate + '</li>';
+                            html += '<li class="color-choi">' + el.id + ' &nbsp;|&nbsp; ' + el.regdate + '</li>';
                             html += '<li class="replyContentLi">' + el.content + '</li>';
 
                             if (loginId == el.id || loginId == 'admin') {
 								html += '<div class="reply_btns">';
                                 html += '<input type="button" value="수정" class="reply_update reply_btn" id=' + el.reply_number + '>&nbsp;';
                                 html += '<input type="button" value="삭제" class="reply_delete reply_btn" id=' + el.reply_number + '>';
-								html += '<div><br>';
+								html += '<div></div></div>';
                             }
 
                             $('#replyaddlist').append(html);
@@ -64,8 +65,8 @@ $(function () {
         );
 
         $('#abt' + replyNumber).html(
-            "<button id='btnEdit" + replyNumber + "'>완료</button> "
-            + "<button onclick=location.href='readPost?seq=" + $('#seq').val() + "' id='btnCancel'>취소</button>"
+            "<button class='reply_btn' id='btnEdit" + replyNumber + "'>완료</button> "
+            + "<button class='reply_btn' onclick=location.href='readPost?seq=" + $('#seq').val() + "' id='btnCancel'>취소</button>"
         );
     });
 
