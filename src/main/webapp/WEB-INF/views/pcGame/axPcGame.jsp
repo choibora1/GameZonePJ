@@ -62,6 +62,11 @@
       	</div>
    	</header>
    	<!-- Header section end -->
+	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
    	<main id="Game_main">
    		<div id="rank_section">
 			<span> 게임검색순위 TOP 10</span>
@@ -355,7 +360,7 @@
                		<input type="reset" value="취소" onclick="checkClear()">
             	</div>
 	         	<c:if test="${loginID == 'admin'}">
-	            	<a href="insertPcForm">새로운 PC게임 등록</a>
+	            	<a href="insertPcForm">새로운 게임 등록</a>
 	         	</c:if>
             	<br>
 			</form>

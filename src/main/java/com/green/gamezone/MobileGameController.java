@@ -121,7 +121,8 @@ public class MobileGameController {
 	public ModelAndView insertMobileGame(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, GameVO vo, RedirectAttributes rttr) throws IOException {
 		
 		// 1. 요청
-		String uri = "redirect:axMobileGame";
+		//String uri = "redirect:axMobileGame"; // 성공 시 List로 요청
+		String uri = "mobileGame/detailMoibleGame"; // 성공 시 디테일로 요청
 
 		String realPath = request.getRealPath("/"); // deprecated Method
 		System.out.println("** realPath = " + realPath);
@@ -155,7 +156,9 @@ public class MobileGameController {
 
 		// 2. Service
 		if (service.insertMobileGame(vo) > 0) {
-			mv.addObject("message", "게임이 등록되었습니다.");
+			//rttr.addFlashAttribute("message", "게임이 등록되었습니다."); // 리스트
+			mv.addObject("message", "게임이 등록되었습니다."); // 디테일
+			mv.addObject("one", vo);
 
 		} else {
 			mv.addObject("message", "게임 등록 실패, 다시 시도해주세요.");

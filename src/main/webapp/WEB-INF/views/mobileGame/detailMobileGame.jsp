@@ -155,6 +155,7 @@
             <c:if test="${loginID=='admin'}">
                 &nbsp;&nbsp;<a href="detailMobileGame?jCode=U&game_name=${one.game_name}">[게임 수정]</a>
                 &nbsp;&nbsp;<a href="deleteMobileGame?game_name=${one.game_name}" onclick="return deleteGame()">[게임 삭제]</a>
+                &nbsp;&nbsp;<a href="javascript:history.go(-1)">[목록]</a>
             </c:if>
         </div>
     </main>

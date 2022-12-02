@@ -104,6 +104,7 @@
             <c:if test="${loginID=='admin'}">
                 &nbsp;&nbsp;<a href="detailFlashGame?jCode=U&game_name=${one.game_name}">게임 수정</a>
                 &nbsp;&nbsp;<a href="deleteFlashGame?game_name=${one.game_name}" onclick="return deleteGame()" style="margin: 0px 10px 0px 15px;">게임 삭제</a>
+            	&nbsp;&nbsp;<a href="javascript:history.go(-1)">목록</a>
             </c:if>
         </div>
     </main>
