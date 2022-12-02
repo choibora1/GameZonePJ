@@ -134,7 +134,7 @@
 		        
 		        	<tr>
 		           		<th>가격</th>
-		           		<td><input type="text" name="price" id="" placeholder="가격"></td>
+		           		<td><input type="text" name="price" id="pc_price" placeholder="가격"></td>
 		        	</tr>
 		  
 		        	<tr>
