@@ -134,12 +134,25 @@ table > tr:first-child {
     color: goldenrod;
 }
 
+/* .rank_list::-webkit-scrollbar {
+    display: none;
+} */
+
 .rank_list {
     text-align: left;
     list-style-position: inside;
     padding-left: 10px;
     line-height: 45px;
     color: #ffffff;
+}
+
+.rank_list > li {
+	max-height: 45px;
+	overflow: hidden;
+}
+
+.rank_list span:hover {
+	color: #ffb320;
 }
 
 .flash_td {

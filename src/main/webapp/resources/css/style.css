@@ -944,7 +944,7 @@ Small Mobile :320px.
 /*------------------
   insert game
 ---------------------*/
-#insert_game_form, #update_game_form {
+.insert_game_form, .update_game_form {
 	width: 1200px;
 	margin: auto;
 	height: 702px;
@@ -1013,88 +1013,101 @@ Small Mobile :320px.
   Board List
 ---------------------*/
 
+
 .board_top {
 	text-align: center;
 	margin-top: 15px;
-}
+} 
 
 .board top img {
 	width: 70%;
 }
 
 #searchBar {
-	text-align: right;
-	width: 91.5%
+   text-align: right;
+   width: 91.5%
 }
 
 #searchBtn:hover {
-	color: rgb(0, 0, 0);
-	background-color: rgb(201, 201, 201);
-	border-color: rgb(201, 201, 201);
+   color: rgb(0, 0, 0);
+   background-color: rgb(201, 201, 201);
+   border-color: rgb(201, 201, 201);
 }
 
 #searchType {
-	width: 8em;
+   width: 8em;
 }
 
 #keyword {
-	width: 15em;
+   width: 15em;
 }
 
-#searchType, #keyword, #searchBtn {
-	height: 2.3em;
+#searchType,
+#keyword,
+#searchBtn {
+   height: 2.3em;
 }
 
 .writePostbtn {
-	border: 1px solid;
-	text-align: center;
-	padding: 1.5px 20px;
-	transition: color .15s ease-in-out, background-color .15s ease-in-out,
+   /* align: left; */
+   /* padding-right: 20px; */
+   /* box-sizing: border-box; */
+   border: 1px solid;
+   text-align: center;
+   padding: 1.5px 20px;
+   transition: color .15s ease-in-out, background-color .15s ease-in-out,
 		border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
+	}
 
 .writePostbtn:hover {
-	color: rgb(0, 0, 0);
-	background-color: #ffffff;
-	border-color: #000000;
+   color: rgb(0, 0, 0);
+   background-color: #ffffff;
+   border-color: #000000;
 }
 
 #boardth {
-	background-color: #fff;
-	color: #000;
-	line-height: 2em;
-	text-align: center;
+   background-color: #fff;
+   color: #000;
+   line-height: 2em;
+   text-align: center;
 }
 
-#boardtd {
-	line-height: 2em;
-	text-align: center;
-	background-color: #000;
+.boardtd {
+   line-height: 2em;
+   text-align: center;
+   background-color: #000;
 }
 
-#boardtd th:nth-child(2) {
+.boardtd td:nth-child(2) {
 	text-align: left;
 	padding: 0 20px;
 }
 
+#board_title_left {
+	text-align: center !important;
+}
+
 #Criteria_Page {
-	text-align: center;
+   text-align: center;
 }
 
 #Criteria_Page img {
-	height: 1.5rem;
-	padding-bottom: 7px;
+   height: 1.5rem;
+   padding-bottom: 7px;
 }
 
 #writePostbtn {
-	display: inline-block;
-	padding-left: 20px;
+   display:inline-block;
+   padding-left: 20px;
 }
 
-#Criteria_left, #Criteria_num, #Criteria_right {
-	display: inline-block;
+ #Criteria_left,
+ #Criteria_num,
+ #Criteria_right {
+    display: inline-block;
  }
  
+
 #board_img_left,
 #board_img_right {
 	position: fixed;
@@ -1102,6 +1115,91 @@ Small Mobile :320px.
 	max-height: 75%;
 	width: 13%;
 	margin: 0 1%;
+}
+
+#board_img_right {
+	right: 0;
+}
+
+#searchBar {
+   text-align: right;
+   width: 84.9%;
+   margin: 5px;
+   
+}
+
+#searchBtn:hover {
+   color: rgb(0, 0, 0);
+   background-color: rgb(201, 201, 201);
+   border-color: rgb(201, 201, 201);
+}
+
+#searchType {
+   width: 8em;
+}
+
+#keyword {
+   width: 15em;
+}
+
+#searchType,
+#keyword,
+#searchBtn {
+   height: 2.3em;
+}
+
+.writePostbtn {
+   border: 1px solid;
+   text-align: center;
+   padding: 1.5px 20px;
+   transition: color .15s ease-in-out, background-color .15s ease-in-out,
+		border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+	}
+
+.writePostbtn:hover {
+   color: rgb(0, 0, 0);
+   background-color: #ffffff;
+   border-color: #000000;
+}
+
+#boardtable {
+   width: 72%;
+   padding: 0 15px;
+   margin: auto;
+}
+
+#boardth {
+   background-color: #fff;
+   color: #000;
+   line-height: 2em;
+   text-align: center;
+}
+
+.boardtd {
+   line-height: 2.13em;
+   text-align: center;
+   background-color: #000;
+}
+
+#Criteria_Page {
+   text-align: center;
+   margin-top: 50px;
+}
+
+#Criteria_Page img {
+   height: 1.5rem;
+   padding-bottom: 7px;
+}
+
+#writePostbtn {
+   display: inline-block;
+   padding-left: 20px;
+}
+
+#Criteria_left,
+#Criteria_num,
+#Criteria_right {
+   display: inline-block;
 }
 
 /*------------------

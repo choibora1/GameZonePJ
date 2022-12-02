@@ -89,7 +89,7 @@
 			</tr>
 			<c:if test="${not empty list}">
 				<c:forEach var="qna" items="${list}">
-					<tr id="boardtd">
+					<tr class="boardtd">
 						<td style="text-align: center;">${qna.seq}</td>
 						<td>
 							<!-- 답글 등록 후 indent에 따른 들여쓰기 => 답글인 경우에만 적용 -->
