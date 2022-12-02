@@ -25,10 +25,9 @@
 	      		alert('내용을 입력하세요.');
 	          	return false;
 	       	}
-	  	  
-	  	  	return true;
 			
 			if (confirm("수정하시겠습니까? (Yes : 확인 / No : 취소)")) {
+				$('#modifyPostForm').submit();
 	           	return true;
 	           	
 			} else {
@@ -89,7 +88,7 @@
 		</script>		
 	</c:if>
    	<main>
-		<form action="modifyPost" method="post">
+		<form action="modifyPost" method="post" id="modifyPostForm">
 			<table>
 				<tr>
 					<td>Seq</td>
