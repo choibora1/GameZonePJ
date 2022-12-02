@@ -20,7 +20,7 @@
 </head>
 <body>
 	<div>
-		<div> 클릭 시 와플래시 게임 아카이브 페이지로 이동합니다.</div>
+		<div class="flashLink"> 클릭 시 와플래시 게임 아카이브 페이지로 이동합니다.</div>
 	</div>
 	<div class="searchresult">
 		<div> 검색결과 : ${gamePageMaker.totalRowsCount} 건</div>

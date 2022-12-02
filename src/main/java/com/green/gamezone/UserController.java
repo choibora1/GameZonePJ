@@ -229,7 +229,7 @@ public class UserController {
 		System.out.println("** realPath = " + realPath);
 
 		if (realPath.contains(".eclipse."))
-			realPath = "D:\\MTest\\myWork\\GameZone\\src\\main\\webapp\\resources\\user_uploadImg\\";
+			realPath = "C:\\Users\\leekk\\git\\GameZone\\src\\main\\webapp\\resources\\user_uploadImg";
 
 		else
 			realPath += "resources\\user_uploadImg\\";
@@ -304,7 +304,7 @@ public class UserController {
 
 	      // 1-1) 위의 값을 이용해서 실제 저장위치 확인
 	      if (realPath.contains(".eclipse."))
-	         realPath = "C:\\Users\\User\\git\\GameZone\\src\\main\\webapp\\resources\\user_uploadImg\\";
+	         realPath = "C:\\Users\\leekk\\git\\GameZone\\src\\main\\webapp\\resources\\user_uploadImg";
 
 	      else
 	         realPath += "resources\\user_uploadImg\\";

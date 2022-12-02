@@ -128,13 +128,13 @@
 									<!-- loginID가 있을 때(로그인을 한 경우) -->
 									<a class="pointer" href="readPost?seq=${board.seq}">${board.title}</a>
 									<c:if test="${board.replyCount > 0}">
-										<a class="pointer" href="readPost?seq=${board.seq}">[${board.replyCount}]</a>
+										<a class="pointer color_gamezone" href="readPost?seq=${board.seq}">[${board.replyCount}]</a>
 									</c:if>
 								</c:if> <c:if test="${empty loginID}">
 									<!-- loginID가 없을 때 -->
 									<a class="pointer" onclick="readPost()">${board.title}</a>
 									<c:if test="${board.replyCount > 0}">
-										<a class="pointer">[${board.replyCount}]</a>
+										<a class="pointer color_gamezone">[${board.replyCount}]</a>
 									</c:if>
 								</c:if>
 							</td>
