@@ -59,7 +59,11 @@
       	</div>
    	</header>
    	<!-- Header section end -->
-   	
+    <c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
 	<main>
 		<div class="readPost_outer">
 			<div class="readPost_container">

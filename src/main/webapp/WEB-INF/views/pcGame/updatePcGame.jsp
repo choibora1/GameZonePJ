@@ -13,13 +13,35 @@
 	<script src="resources/js/jquery-3.2.1.min.js"></script>
 	<script>
 		function updateGame() {
+			
+			if ($('#pc_category').val() == null || $('#pc_category').val() == '') {
+				alert('카테고리를 입력하세요.');
+				return false;
+			}
+	
+			if ($('#pc_price').val() == null || $('#pc_price').val() == '') {
+				alert('가격을 입력하세요.');
+				return false;
+			}
+	
+			if ($('#pc_grade').val() == null || $('#pc_grade').val() == '') {
+				alert('등급을 입력하세요.');
+				return false;
+			}
+			if ($('#pc_site').val() == null || $('#pc_site').val() == '') {
+				alert('사이트를 입력하세요.');
+				return false;
+			}
+			
 			if (confirm("수정하시겠습니까? (Yes : 확인 / No : 취소)")) {
+				$('#updatePcGameForm').submit();
 	           	return true;
 	           	
 			} else {
 	           	alert('수정이 취소되었습니다.');
 				return false;
 			}
+			
 		} // updateGame
 	</script>
 </head>
@@ -65,7 +87,7 @@
 	</c:if>
    	<main>
 		<h3>${param.game_name}</h3>
-		<form action="updatePcGame" id="update_game_form" method="post" enctype="multipart/form-data">
+		<form action="updatePcGame" class="update_game_form" id="updatePcGameForm" method="post" enctype="multipart/form-data">
 			<table id="update_game">
 				<thead>
 					<tr class="update_game_row">
@@ -94,47 +116,65 @@
 				<tbody>
 					<tr>
 						<th>장르</th>
-						<td><input type="text" name="category" value="${one.category}"></td>
+						<td>
+							<input type="text" name="category" id="pc_category" value="${one.category}">
+						</td>
 					</tr>
 		
 					<tr>
 						<th>게임이름</th>
-						<td><input type="text" name="game_name" value="${one.game_name}" readonly></td>
+						<td>
+							<input type="text" name="game_name" id="pc_game_name" value="${one.game_name}" readonly>
+						</td>
 					</tr>
 		
 					<tr>
 						<th>출시일</th>
-						<td><input type="text" name="launch" value="${one.launch}"></td>
+						<td>
+							<input type="text" name="launch" value="${one.launch}">
+						</td>
 					</tr>
 		
 					<tr>
 						<th>배급사</th>
-						<td><input type="text" name="publisher" value="${one.publisher}"></td>
+						<td>
+							<input type="text" name="publisher" value="${one.publisher}">
+						</td>
 					</tr>
 		
 					<tr>
 						<th>가격</th>
-						<td><input type="text" name="price" value="${one.price}"></td>
+						<td>
+							<input type="text" name="price" id="pc_price" value="${one.price}">
+						</td>
 					</tr>
 		
 					<tr>
 						<th>이용 등급</th>
-						<td><input type="text" name="grade" value="${one.grade}"></td>
+						<td>
+							<input type="text" name="grade" id="pc_grade" value="${one.grade}">
+						</td>
 					</tr>
 		
 					<tr>
 						<th>공식 사이트</th>
-						<td><input type="text" name="site" value="${one.site}"></td>
+						<td>
+							<input type="text" name="site" id="pc_site" value="${one.site}">
+						</td>
 					</tr>
 		
 					<tr>
 						<th>게임 소개</th>
-						<td><input type="text" name="intro" value="${one.intro}"></td>
+						<td>
+							<input type="text" name="intro" value="${one.intro}">
+						</td>
 					</tr>
 		
 					<tr>
 						<th>영상 링크</th>
-						<td><input type="text" name="video" value="${one.video}"></td>
+						<td>
+							<input type="text" name="video" value="${one.video}">
+						</td>
 					</tr>
 				</tbody>
 				<tfoot>
