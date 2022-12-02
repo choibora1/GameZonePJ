@@ -52,8 +52,6 @@ public class QnAController {
 		// 2. Service
 		vo = service.readPost(vo);
 
-		System.out.println(vo);
-
 		if (vo != null) {
 			
 			// 2.1) 조회수 증가
@@ -72,12 +70,14 @@ public class QnAController {
 				uri = "/qna/qnaModifyPost";
 
 			// 2.3) 비밀글
-			if (vo.getSecret().equals("true")) { // 비밀이고 login id가 작성자가 아니고 조회 -> 비밀글이니 조회못하도록 하는 uri
-
-				if (vo.getId().equals(loginID) || "admin".equals(loginID)) { // 비밀인데 login id가 작성자고 admin -> 조회하는 uri
+			if (vo.getSecret().equals("true")) {
+			
+				if (vo.getId().equals(loginID) || "admin".equals(loginID)) {
+					// 비밀인데 login id가 작성자고 admin -> 조회하는 uri
 					uri = "/qna/qnaReadPost";
 
 				} else {
+					// 비밀이고 login id가 작성자가 아니고 조회 -> 비밀글이니 조회못하도록 하는 uri
 					uri = "/qna/qnaBoardList";
 				}
 				
@@ -151,7 +151,6 @@ public class QnAController {
 		// 1. 요청
 		String uri = "/qna/qnaReadPost";
 
-		System.out.println(vo);
 		mv.addObject("one", vo);
 
 		// 2. Service

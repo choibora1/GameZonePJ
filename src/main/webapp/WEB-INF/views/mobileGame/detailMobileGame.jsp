@@ -16,7 +16,6 @@
     <script>
        function deleteGame() {
          if (confirm("삭제하시겠습니까? (Yes : 확인 / No : 취소)")) {
-            alert(`${one.game_name}가(이) 삭제되었습니다.`);
                  return true; // 삭제
                  
          } else {
@@ -54,13 +53,18 @@
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
                		<c:otherwise>
-                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
       	</div>
    	</header>
    	<!-- Header section end -->
+   	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
     <main>
         <div class="content-left" align="center">
             <!-- intro -->
@@ -151,6 +155,7 @@
             <c:if test="${loginID=='admin'}">
                 &nbsp;&nbsp;<a href="detailMobileGame?jCode=U&game_name=${one.game_name}">[게임 수정]</a>
                 &nbsp;&nbsp;<a href="deleteMobileGame?game_name=${one.game_name}" onclick="return deleteGame()">[게임 삭제]</a>
+                &nbsp;&nbsp;<a href="javascript:history.go(-1)">[목록]</a>
             </c:if>
         </div>
     </main>

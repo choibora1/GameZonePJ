@@ -63,15 +63,19 @@
 						<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
 					</c:when>
 					<c:otherwise>
-						<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+						<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
 					</c:otherwise>
             	</c:choose>
 			</div>
 		</div>
 	</header>
    	<!-- Header section end -->
-	
 	<!-- Recent game section  -->
+	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>
+	</c:if>
 	<main>
 		<div class="board_top">
 			<a href="https://lineagem.plaync.com/preorder/record/oasis2you/index?LM=19208101" target="_blank">
@@ -114,10 +118,6 @@
 					<th width=25%>작성일자</th>
 					<th width=10%>조회수</th>
 				</tr>
-
-				<!-- ======================================================= -->
-
-				<!-- jstl -->
 				<c:if test="${not empty list}">
 					<c:forEach var="board" items="${list}">
 						<tr id="boardtd">
@@ -130,7 +130,8 @@
 									<c:if test="${board.replyCount > 0}">
 										<a class="pointer color_gamezone" href="readPost?seq=${board.seq}">[${board.replyCount}]</a>
 									</c:if>
-								</c:if> <c:if test="${empty loginID}">
+								</c:if> 
+								<c:if test="${empty loginID}">
 									<!-- loginID가 없을 때 -->
 									<a class="pointer" onclick="readPost()">${board.title}</a>
 									<c:if test="${board.replyCount > 0}">
@@ -201,8 +202,6 @@
 			</div>
 		</div>
 	</main>
-	<!-- ==================================================== -->
-	
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

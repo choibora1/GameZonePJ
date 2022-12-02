@@ -52,7 +52,7 @@
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
                		<c:otherwise>
-                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
@@ -86,8 +86,7 @@
 				<c:if test="${loginID == one.id || loginID == 'admin'}">
 					&nbsp;&nbsp;&nbsp;<a href="readPost?jCode=U&seq=${one.seq}" class="readPost_btn">게시글 수정</a>
 					<!-- root 추가 : 삭제 시 원글 삭제 or 댓글 삭제 확인을 위함 -->
-					&nbsp;&nbsp;&nbsp;<a href="removePost?seq=${one.seq}&root=${one.root}" class="readPost_btn"
-						onclick="return removePost()">게시글 삭제</a>
+					&nbsp;&nbsp;&nbsp;<a href="removePost?seq=${one.seq}&root=${one.root}" class="readPost_btn" onclick="return removePost()">게시글 삭제</a>
 					&nbsp;&nbsp;&nbsp;<a href="javascript:history.go(-1)" class="readPost_btn">목록으로</a>
 				</c:if>
 				<br>

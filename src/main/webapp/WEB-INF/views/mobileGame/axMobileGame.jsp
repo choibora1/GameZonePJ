@@ -51,13 +51,18 @@
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
                		<c:otherwise>
-                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
       	</div>
    	</header>
    	<!-- Header section end -->
+   	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
    	<main id="Game_main">
    		<div id="rank_section">
 			<span> 게임검색순위 TOP 10</span>
@@ -351,7 +356,7 @@
                		<input type="reset" value="취소" onclick="checkClear()">
             	</div>
 	         	<c:if test="${loginID == 'admin'}">
-	            	<a href="insertPcForm">새로운 PC게임 등록</a>
+	            	<a href="insertPcForm">새로운 게임 등록</a>
 	         	</c:if>
             	<br>
 			</form>
@@ -384,7 +389,7 @@
              	
              	<c:if test="${empty list}">
                 	<tr height="50">
-                   		<td colspan="2">** 출력할 자료가 없습니다 **</td>
+                   		<td colspan="2">해당하는 게임이 존재하지 않습니다.</td>
                 	</tr>
              	</c:if>
 			</table>
@@ -455,6 +460,5 @@
     <script src="resources/js/owl.carousel.min.js"></script>
     <script src="resources/js/jquery.marquee.min.js"></script>
     <script src="resources/js/main.js"></script>
-
 </body>
 </html>

@@ -52,18 +52,19 @@
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
                		<c:otherwise>
-                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
       	</div>
    	</header>
    	<!-- Header section end -->
-   	
    	<main>
 		<h3>${param.game_name}</h3>
 		<c:if test="${not empty message}">
-			${message}<br>
+			<script>
+				alert(`${message}`);
+			</script>
 		</c:if>
 		<hr>
 		<form action="updateFlashGame" method="post" enctype="multipart/form-data">

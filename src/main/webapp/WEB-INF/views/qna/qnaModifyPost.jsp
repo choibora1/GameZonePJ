@@ -16,8 +16,6 @@
 		function modifyQnA() {
 			
 			if (confirm("수정하시겠습니까? (Yes : 확인 / No : 취소)")) {
-				
-				alert('문의글을 수정하겠습니다.');
 	           	return true;
 			} else {
 	           	alert('수정이 취소되었습니다.');
@@ -28,9 +26,8 @@
 		function removeQnA() {
 			
 			if (confirm("삭제하시겠습니까? (Yes : 확인 / No : 취소)")) {
-				
-				alert('문의글을 삭제하겠습니다.');
 	           	return true; // 삭제
+	           	
 			} else {
 	           	alert('삭제가 취소되었습니다.');
 				return false;
@@ -66,14 +63,18 @@
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
                		<c:otherwise>
-                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
       	</div>
    	</header>
    	<!-- Header section end -->
-   	
+   	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
    	<section>
 		<form action="qnaModifyPost" method="post">
 			<table>
@@ -111,7 +112,6 @@
 				</tr>
 			</table>
 		</form>
-		<!-- jstl -->
 		<c:if test="${not empty message}">
 			<hr><${message}<br>
 		</c:if>

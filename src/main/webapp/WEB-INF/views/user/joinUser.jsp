@@ -289,7 +289,7 @@
 					return false;
 
 				} else {
-					alert('가입해주셔서 감사합니다 :)');
+					//alert('가입해주셔서 감사합니다 :)');
 					return true; // submit 진행
 				}
 
@@ -329,14 +329,13 @@
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
                		<c:otherwise>
-                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
       	</div>
    	</header>
    	<!-- Header section end -->
-   	
    	<main>
 		<form action="joinUser" method="post" id="myForm" enctype="multipart/form-data">
 			<div class="container rounded bg-white mt-5 mb-5">
@@ -484,7 +483,7 @@
 									<select class="email-select" name="domain" id="domain">
 										<option value="1">직접 입력</option>
 										<option value="@naver.com">@naver.com</option>
-										<option value="@google.com">@gmail.com</option>
+										<option value="@gmail.com">@gmail.com</option>
 										<option value="@daum.net">@daum.net</option>
 										<option value="@nate.com">@nate.com</option>
 										<option value="@kakao.com">@kakao.com</option>

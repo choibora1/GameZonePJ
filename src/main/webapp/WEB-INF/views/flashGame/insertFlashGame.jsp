@@ -15,7 +15,6 @@
 		function insertGame() {
 
 			if (confirm("게임을 등록하시겠습니까? (Yes : 확인 / No : 취소)")) {
-				alert('게임을 등록하겠습니다.');
 				return true;
 				
 			} else {
@@ -53,13 +52,18 @@
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
                		<c:otherwise>
-                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
       	</div>
    	</header>
    	<!-- Header section end -->
+	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
    	<main>
 		<form action="insertFlashGame" method="post" enctype="multipart/form-data">
 			<table>
@@ -102,10 +106,6 @@
 			</table>
 		</form>
 		&nbsp;&nbsp;&nbsp;<a href="javascript:history.go(-1)">[이전으로]</a>
-		<hr>
-		<c:if test="${not empty message}">
-			${message}<br>
-		</c:if>
 	</main>
     <!-- Footer section -->
     <footer class="footer-section">

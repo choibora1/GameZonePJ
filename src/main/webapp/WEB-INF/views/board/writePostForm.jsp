@@ -26,10 +26,9 @@
 				return false;
 			}
 			
-			$('#writePostForm').submit();
 			
 			if (confirm("게시글을 등록하시겠습니까? (Yes : 확인 / No : 취소)")) {
-				alert('게시글을 등록하겠습니다.');
+				$('#writePostForm').submit();
 	           	return true;
 	           	
 			} else {
@@ -67,14 +66,18 @@
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
                		<c:otherwise>
-                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
       	</div>
    	</header>
    	<!-- Header section end -->
-   	
+   	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>
+	</c:if>
    	<main>
 		<form action="writePost" method="post" id="writePostForm">
 			<table>
@@ -99,15 +102,8 @@
 				</tr>
 			</table>
 		</form>
-	
-		<c:if test="${not empty message}">
-			<hr>
-			${message}<br>
-		</c:if>
-		<hr>
 		&nbsp;&nbsp;<a href="boardList">목록으로</a>
 	</main>
-	<!-- ==================================================== -->
     <!-- Footer section -->
     <footer class="footer-section">
     	<div class="container">

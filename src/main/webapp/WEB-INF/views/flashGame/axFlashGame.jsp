@@ -46,13 +46,18 @@
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
                		<c:otherwise>
-                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
       	</div>
    	</header>
    	<!-- Header section end -->
+   	<c:if test="${not empty message}">
+		<script>
+			alert(`${message}`);
+		</script>		
+	</c:if>
    	<main id="Game_main">
     	<div id="gameSearchBar">
 			<form action="axFlashGame" method="get" id="GameForm">
@@ -63,7 +68,7 @@
                		<!-- <input type="reset" value="취소" onclick="checkClear()"> -->
             	</div>
 	         	<c:if test="${loginID == 'admin'}">
-	            	<a href="insertFlashForm">새로운 PC게임 등록</a>
+	            	<a href="insertFlashForm">새로운 게임 등록</a>
 	         	</c:if>
             	<br>
 			</form>
@@ -108,7 +113,7 @@
              	
              	<c:if test="${empty list}">
                 	<tr height="50">
-                   		<td colspan="2">** 출력할 자료가 없습니다 **</td>
+                   		<td colspan="2">해당하는 게임이 존재하지 않습니다.</td>
                 	</tr>
              	</c:if>
 			</table>
@@ -119,7 +124,6 @@
 				<div id="Criteria_left">
 	            	<c:choose>
 	                	<c:when test="${gamePageMaker.prev && gamePageMaker.spageNo > 1}">
-	                  		<!-- ** New Version02_searchQuery 사용 ** -->
 	                   		<a href="flashGameList${gamePageMaker.searchQuery(1)}" class="aclick"><img src="resources/img/first.png"></a>&nbsp;
 	                   		<a href="flashGameList${gamePageMaker.searchQuery(gamePageMaker.spageNo-1)}" class="aclick"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
 	                	</c:when>
@@ -136,7 +140,6 @@
 	                	</c:if>
 	
 	                	<c:if test="${i != gamePageMaker.gameCriteria.currPage}">
-	                  		<!-- ** New Version02_searchQuery 사용 ** -->
 	                   		<a href="flashGameList${gamePageMaker.searchQuery(i)}" class="aclick">${i}</a>&nbsp;
 	                	</c:if>
 	             	</c:forEach>
@@ -144,7 +147,6 @@
 	            	<!-- Next, Last -->
 	             	<c:choose>
 	                	<c:when test="${gamePageMaker.next && gamePageMaker.epageNo > 0}">
-	                   		<!-- ** New Version02_searchQuery 사용 ** -->
 	                   		<a href="flashGameList${gamePageMaker.searchQuery(gamePageMaker.epageNo+1)}" class="aclick"><img src="resources/img/right.png"></a>
 	                   		<a href="flashGameList${gamePageMaker.searchQuery(gamePageMaker.lastPageNo)}" class="aclick">&nbsp;&nbsp;<img src="resources/img/last.png"></a>
 	                	</c:when>
@@ -182,6 +184,5 @@
     <script src="resources/js/owl.carousel.min.js"></script>
     <script src="resources/js/jquery.marquee.min.js"></script>
     <script src="resources/js/main.js"></script>
-
 </body>
 </html>
