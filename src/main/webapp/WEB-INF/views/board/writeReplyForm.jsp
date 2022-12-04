@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%-- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -135,4 +135,4 @@
 	<script src="resources/js/jquery.marquee.min.js"></script>
 	<script src="resources/js/main.js"></script>
 </body>
-</html>
+</html> --%>
