@@ -186,10 +186,10 @@ public class BoardController {
 		return mv;
 		
 	}
-*/
+
 // ----------------------------------------------------------------------------------------------------------------------
 
-	// ** 댓글 등록
+	// ** 답글 등록
 	@RequestMapping(value = "/writeReply", method = RequestMethod.POST)
 	public ModelAndView writeReply(HttpServletRequest request, HttpServletResponse response, ModelAndView mv, 
 									BoardVO vo, RedirectAttributes rttr) {
@@ -214,5 +214,5 @@ public class BoardController {
 		return mv;
 
 	} // writeReply
-
+*/
 } // class
