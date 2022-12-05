@@ -122,7 +122,7 @@
 					<c:forEach var="board" items="${list}">
 						<tr class="boardtd">
 							<td>${board.seq}</td>
-							<td id="board_title_left">
+							<td id="board_title_center">
 								<!-- 로그인을 한 경우에만 title을 클릭하면 content를 볼 수 있도록 함 => bDetail 실행 -->
 								<c:if test="${not empty loginID}">
 									<!-- loginID가 있을 때(로그인을 한 경우) -->
@@ -166,9 +166,8 @@
 				    	<a href="boardList${pageMaker.searchQuery(pageMaker.spageNo - 1)}"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
 					</c:when>
 					<c:otherwise>
-						<font size="5" color="Gray"><img src="resources/img/first.png">&nbsp;
-						<img src="resources/img/left.png">&nbsp;&nbsp;</font>
-						<%-- <font size="5" color="Gray"><img onclick = "changePage('${pageMaker.searchQuery(1)}')"  src="resources/img/first.png">&nbsp;<img onclick = "changePage('${pageMaker.searchQuery(pageMaker.spageNo-1)}')" src="resources/img/left.png">&nbsp;&nbsp;</font> --%>
+						<img src="resources/img/first.png">&nbsp;
+						<img src="resources/img/left.png">&nbsp;&nbsp;
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -177,7 +176,7 @@
 			<div id="Criteria_num">
 				<c:forEach var="i" begin="${pageMaker.spageNo}" end="${pageMaker.epageNo}">
 					<c:if test="${i == pageMaker.cri.currPage}">
-						<font size="5" color="Orange">${i}</font>&nbsp;
+						<font size="5" color="DarkOrange">${i}</font>&nbsp;
 				   	</c:if>
 					<c:if test="${i!=pageMaker.cri.currPage}">
 						<a href="boardList${pageMaker.searchQuery(i)}">${i}</a>&nbsp;
@@ -193,10 +192,8 @@
 						<a href="boardList${pageMaker.searchQuery(pageMaker.lastPageNo)}"><img src="resources/img/last.png"></a>
 					</c:when>
 					<c:otherwise>
-						<font size="5" color="Gray">&nbsp;
 							<img src="resources/img/right.png">&nbsp;&nbsp;
 							<img src="resources/img/last.png">
-						</font>
 					</c:otherwise>
 				</c:choose>
 			</div>

@@ -12,6 +12,14 @@
 		</if>
 		
 		<choose>
+			<when test="searchType == 'n'.toString()">
+				and id like #{keyVal}
+				or user_name like #{keyVal}
+				or birthday like #{keyVal}
+				or email like #{keyVal}
+				or phone like #{keyVal})
+			</when>
+			
 			<when test="searchType == 'i'.toString()">
 				and id like #{keyVal}) <!-- 컬럼명 같아야 됨 -->
 			</when>
@@ -24,9 +32,12 @@
 				and birthday like #{keyVal})
 			</when>
 			
-			<when test="searchType == 'in'.toString()">
-				and id like #{keyVal}
-				or user_name like #{keyVal})
+			<when test="searchType == 'e'.toString()">
+				and email like #{keyVal})
+			</when>
+			
+			<when test="searchType == 'p'.toString()">
+				and phone like #{keyVal})
 			</when>
 			
 			<otherwise>
