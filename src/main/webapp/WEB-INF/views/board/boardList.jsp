@@ -78,15 +78,14 @@
 	</c:if>
 	<main>
 		<div class="board_top">
-			<a href="https://lineagem.plaync.com/preorder/record/oasis2you/index?LM=19208101" target="_blank">
+			<a href="https://aion.plaync.com/update/history/2022/221108_update" target="_blank">
 				<img src="resources/img/aion.jpg">
 			</a>
 		</div>
 		<div id="board_bg_set">
-			<a href="https://rox.gnjoy.com/pre-register?af_xp=email&pid=Email&c=ApolloMKTMedia&af_adset=m11&af_ad=ruliwebpc" target="_blank">
+			<a href="https://df.nexon.com/df/pg/cutieattack?bn=ruliweb&st=backskinA&ev=221201" target="_blank">
 				<img id="board_img_left" alt="ragnarokX" src="resources/img/dungeon_left.jpg">
 			</a>
-			
 			<div class="section-title">
 				<h2>자유 게시판</h2>
 			</div>

@@ -55,7 +55,7 @@
 	<!-- Recent game section  -->
 	<section>
 		<div class="board_top">
-			<a href="https://lineagem.plaync.com/preorder/record/oasis2you/index?LM=19208101" target="_blank">
+			<a href="https://lineagem.plaync.com/update/2022/221116_update" target="_blank">
 				<img src="resources/img/lineagem.jpg">
 			</a>
 		</div>
