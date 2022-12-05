@@ -1024,90 +1024,14 @@ Small Mobile :320px.
 	width: 70%;
 }
 
-#searchBar {
-   text-align: right;
-   width: 91.5%
-}
-
-#searchBtn:hover {
-   color: rgb(0, 0, 0);
-   background-color: rgb(201, 201, 201);
-   border-color: rgb(201, 201, 201);
-}
-
-#searchType {
-   width: 8em;
-}
-
-#keyword {
-   width: 15em;
-}
-
-#searchType,
-#keyword,
-#searchBtn {
-   height: 2.3em;
-}
-
-.writePostbtn {
-   /* align: left; */
-   /* padding-right: 20px; */
-   /* box-sizing: border-box; */
-   border: 1px solid;
-   text-align: center;
-   padding: 1.5px 20px;
-   transition: color .15s ease-in-out, background-color .15s ease-in-out,
-		border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-	}
-
-.writePostbtn:hover {
-   color: rgb(0, 0, 0);
-   background-color: #ffffff;
-   border-color: #000000;
-}
-
-#boardth {
-   background-color: #fff;
-   color: #000;
-   line-height: 2em;
-   text-align: center;
-}
-
-.boardtd {
-   line-height: 2em;
-   text-align: center;
-   background-color: #000;
-}
-
 .boardtd td:nth-child(2) {
 	text-align: left;
 	padding: 0 20px;
 }
 
-#board_title_left {
+#board_title_center {
 	text-align: center !important;
 }
-
-#Criteria_Page {
-   text-align: center;
-}
-
-#Criteria_Page img {
-   height: 1.5rem;
-   padding-bottom: 7px;
-}
-
-#writePostbtn {
-   display:inline-block;
-   padding-left: 20px;
-}
-
- #Criteria_left,
- #Criteria_num,
- #Criteria_right {
-    display: inline-block;
- }
- 
 
 #board_img_left,
 #board_img_right {
