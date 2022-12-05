@@ -3,7 +3,6 @@
 <html>
 <head>
 	<title>Welcome to GameZone</title>
-	<link rel="stylesheet" type="text/css" href ="resources/css/myStyle.css">
 	<link rel="shortcut icon" href="resources/img/icon2.ico">
    	<link rel="stylesheet" href="resources/css/owl.carousel.css" />
    	<link rel="stylesheet" href="resources/css/style.css" />
@@ -67,7 +66,7 @@
                   		</p>
                    		<c:if test="${not empty loginID}">
                   			<!-- detailPcGame?game_name=연결시킬 게임이름 -->
-                     		<a href="detailPcGame?game_name=Super%20Animal%20Royale" class="site-btn" onclick="loginCheck()">더 보기</a>
+                     		<a href="detailPcGame?game_name=Euro%20Truck%20Simulator%202" class="site-btn" onclick="loginCheck()">더 보기</a>
                    		</c:if> 
                   
                   		<c:if test="${empty loginID}">
@@ -90,7 +89,7 @@
 	                  	</p>
 	                  	<c:if test="${not empty loginID}">
 	                    	<!-- detailPcGame?game_name=연결시킬 게임이름 -->
-	                     	<a href="detailPcGame?game_name=Super%20Animal%20Royale" class="site-btn">더 보기</a>
+	                     	<a href="detailPcGame?game_name=PUBG:%20배틀그라운드" class="site-btn">더 보기</a>
 	                  	</c:if>
 	                  
 	                  	<c:if test="${empty loginID}">
@@ -134,7 +133,7 @@
                   		<span class="cata new">출시예정</span>
                   		<div class="fi-content text-white">
                      		<c:if test="${not empty loginID}">
-                        		<h5><a href="detailPcGame?game_name=디아블로%204">디아블로 4</a></h5>
+                        		<h5><a href="detailPcGame?game_name=디아블로%20IV">디아블로 4</a></h5>
                         		<p>세 명의 영웅이 이 땅을 잠식하고 있는 형언 불가능한 공포와 맞서 싸울 준비를 마쳤습니다... </p>
                         		<!-- 연결시킬 게임사이트 주소 넣기 -->
                         		<a href="https://diablo4.blizzard.com/ko-kr/" class="fi-comment" target="_blank">공식사이트</a>

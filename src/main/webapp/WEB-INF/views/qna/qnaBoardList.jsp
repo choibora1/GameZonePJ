@@ -40,7 +40,7 @@
                   		<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
                		</c:when>
                		<c:otherwise>
-                  		<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+                  		<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
                		</c:otherwise>
             	</c:choose>
          	</div>
@@ -55,7 +55,7 @@
 	<!-- Recent game section  -->
 	<section>
 		<div class="board_top">
-			<a href="https://lineagem.plaync.com/preorder/record/oasis2you/index?LM=19208101" target="_blank">
+			<a href="https://lineagem.plaync.com/update/2022/221116_update" target="_blank">
 				<img src="resources/img/lineagem.jpg">
 			</a>
 		</div>
@@ -66,10 +66,12 @@
 			<div class="section-title">
 				<h2>Q&amp;A</h2>
 			</div>
+			
 			<div id="searchBar">
 				<c:if test="${not empty loginID}">
+					<span class="qnaMessage">※ 비밀글은 작성자와 관리자만 열람 가능합니다.</span>
 					&nbsp;&nbsp;&nbsp;
-					<a href="qnaWritePostForm" class="writePostbtn">[QnA 등록하기]</a>
+					<a href="qnaWritePostForm" class="writePostbtn">QnA 등록하기</a>
 					<br>
 				</c:if>
 			</div>
@@ -89,7 +91,7 @@
 			</tr>
 			<c:if test="${not empty list}">
 				<c:forEach var="qna" items="${list}">
-					<tr id="boardtd">
+					<tr class="boardtd">
 						<td style="text-align: center;">${qna.seq}</td>
 						<td>
 							<!-- 답글 등록 후 indent에 따른 들여쓰기 => 답글인 경우에만 적용 -->

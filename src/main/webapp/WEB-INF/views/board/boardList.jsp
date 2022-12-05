@@ -63,7 +63,7 @@
 						<a href="userList">회원 리스트</a> / <a href="logout">로그아웃</a>
 					</c:when>
 					<c:otherwise>
-						<a href="loginUser">로그인</a> / <a href="joinForm">회원가입</a>
+						<a href="loginForm">로그인</a> / <a href="joinForm">회원가입</a>
 					</c:otherwise>
             	</c:choose>
 			</div>
@@ -78,15 +78,14 @@
 	</c:if>
 	<main>
 		<div class="board_top">
-			<a href="https://lineagem.plaync.com/preorder/record/oasis2you/index?LM=19208101" target="_blank">
-				<img src="resources/img/lineagem.jpg">
+			<a href="https://aion.plaync.com/update/history/2022/221108_update" target="_blank">
+				<img src="resources/img/aion.jpg">
 			</a>
 		</div>
 		<div id="board_bg_set">
-			<a href="https://rox.gnjoy.com/pre-register?af_xp=email&pid=Email&c=ApolloMKTMedia&af_adset=m11&af_ad=ruliwebpc" target="_blank">
-				<img id="board_img_left" alt="ragnarokX" src="resources/img/ragnarokX_left.jpg">
+			<a href="https://df.nexon.com/df/pg/cutieattack?bn=ruliweb&st=backskinA&ev=221201" target="_blank">
+				<img id="board_img_left" alt="ragnarokX" src="resources/img/dungeon_left.jpg">
 			</a>
-			
 			<div class="section-title">
 				<h2>자유 게시판</h2>
 			</div>
@@ -120,21 +119,22 @@
 				</tr>
 				<c:if test="${not empty list}">
 					<c:forEach var="board" items="${list}">
-						<tr id="boardtd">
+						<tr class="boardtd">
 							<td>${board.seq}</td>
-							<td>
+							<td id="board_title_center">
 								<!-- 로그인을 한 경우에만 title을 클릭하면 content를 볼 수 있도록 함 => bDetail 실행 -->
 								<c:if test="${not empty loginID}">
 									<!-- loginID가 있을 때(로그인을 한 경우) -->
 									<a class="pointer" href="readPost?seq=${board.seq}">${board.title}</a>
 									<c:if test="${board.replyCount > 0}">
-										<a class="pointer" href="readPost?seq=${board.seq}">[${board.replyCount}]</a>
+										<a class="pointer color_gamezone" href="readPost?seq=${board.seq}">[${board.replyCount}]</a>
 									</c:if>
-								</c:if> <c:if test="${empty loginID}">
+								</c:if> 
+								<c:if test="${empty loginID}">
 									<!-- loginID가 없을 때 -->
 									<a class="pointer" onclick="readPost()">${board.title}</a>
 									<c:if test="${board.replyCount > 0}">
-										<a class="pointer">[${board.replyCount}]</a>
+										<a class="pointer color_gamezone">[${board.replyCount}]</a>
 									</c:if>
 								</c:if>
 							</td>
@@ -152,7 +152,7 @@
 				</c:if>
 			</table>
 			<a href="https://rox.gnjoy.com/pre-register?af_xp=email&pid=Email&c=ApolloMKTMedia&af_adset=m11&af_ad=ruliwebpc" target="_blank">
-				<img id="board_img_right" alt="ragnarokX" src="resources/img/ragnarokX_right.jpg">
+				<img id="board_img_right" alt="ragnarokX" src="resources/img/dungeon_right.jpg">
 			</a>
 		</div>
 		<!-- Criteria_Page -->
@@ -165,9 +165,8 @@
 				    	<a href="boardList${pageMaker.searchQuery(pageMaker.spageNo - 1)}"><img src="resources/img/left.png"></a>&nbsp;&nbsp;
 					</c:when>
 					<c:otherwise>
-						<font size="5" color="Gray"><img src="resources/img/first.png">&nbsp;
-						<img src="resources/img/left.png">&nbsp;&nbsp;</font>
-						<%-- <font size="5" color="Gray"><img onclick = "changePage('${pageMaker.searchQuery(1)}')"  src="resources/img/first.png">&nbsp;<img onclick = "changePage('${pageMaker.searchQuery(pageMaker.spageNo-1)}')" src="resources/img/left.png">&nbsp;&nbsp;</font> --%>
+						<img src="resources/img/first.png">&nbsp;
+						<img src="resources/img/left.png">&nbsp;&nbsp;
 					</c:otherwise>
 				</c:choose>
 			</div>
@@ -176,7 +175,7 @@
 			<div id="Criteria_num">
 				<c:forEach var="i" begin="${pageMaker.spageNo}" end="${pageMaker.epageNo}">
 					<c:if test="${i == pageMaker.cri.currPage}">
-						<font size="5" color="Orange">${i}</font>&nbsp;
+						<font size="5" color="DarkOrange">${i}</font>&nbsp;
 				   	</c:if>
 					<c:if test="${i!=pageMaker.cri.currPage}">
 						<a href="boardList${pageMaker.searchQuery(i)}">${i}</a>&nbsp;
@@ -192,10 +191,8 @@
 						<a href="boardList${pageMaker.searchQuery(pageMaker.lastPageNo)}"><img src="resources/img/last.png"></a>
 					</c:when>
 					<c:otherwise>
-						<font size="5" color="Gray">&nbsp;
 							<img src="resources/img/right.png">&nbsp;&nbsp;
 							<img src="resources/img/last.png">
-						</font>
 					</c:otherwise>
 				</c:choose>
 			</div>

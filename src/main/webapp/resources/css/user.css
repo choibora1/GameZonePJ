@@ -2404,7 +2404,9 @@ button.bg-dark:hover {
     min-width: 120px;
 }
 
-/* ======================================= joinform ================================ */
+/*---------------------
+  JoinForm
+-----------------------*/
 
 /* SECTION - BIRTH */
 .join_birth#birthday {
@@ -2592,6 +2594,7 @@ button.bg-dark:hover {
 
 .email-check {
     display: flex;
+	margin-top: 20px;
 }
 
 #enter_auth_number {
@@ -2604,7 +2607,9 @@ button.bg-dark:hover {
     width: 50%;
 }
 
-/* ====================================================== idDuplication ================================================================ */
+/*---------------------
+  idDuplication
+-----------------------*/
 
 #duplication-form {
    font-weight: normal;
@@ -2632,3 +2637,8 @@ button.bg-dark:hover {
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     text-align: left;
 }
+
+/*---------------------
+  User List
+-----------------------*/
+
