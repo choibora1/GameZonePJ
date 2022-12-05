@@ -91,7 +91,7 @@
 					<a href="readPost?jCode=U&seq=${one.seq}" class="readPost_btn">게시글 수정</a>
 					<!-- root 추가 : 삭제 시 원글 삭제 or 댓글 삭제 확인을 위함 -->
 					&nbsp;&nbsp;&nbsp;<a href="removePost?seq=${one.seq}&root=${one.root}" class="readPost_btn" onclick="return removePost()">게시글 삭제</a>
-					&nbsp;&nbsp;&nbsp;<a href="javascript:history.go(-1)" class="readPost_btn">목록으로</a>
+					&nbsp;&nbsp;&nbsp;<a href="javascript:history.go(-1)" class="readPost_btn" style="margin-left: 100px;">목록으로</a>
 				</c:if>
 				<br>
 			</div>

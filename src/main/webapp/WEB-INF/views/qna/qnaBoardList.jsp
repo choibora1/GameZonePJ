@@ -66,6 +66,9 @@
 			<div class="section-title">
 				<h2>Q&amp;A</h2>
 			</div>
+			<div>
+				<span class="qnaMessage">※ 비밀글은 작성자와 관리자만 열람 가능합니다.</span>
+			</div>			
 			<div id="searchBar">
 				<c:if test="${not empty loginID}">
 					&nbsp;&nbsp;&nbsp;
