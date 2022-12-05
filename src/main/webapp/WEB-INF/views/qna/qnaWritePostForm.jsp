@@ -88,14 +88,14 @@
 		<form action="qnaWritePost" method="post" id="qnaForm">
 			<div class="readPost_outer">
 				<div class="readPost_container">
-					<div class="qna_titleBox">
+					<div class="qna_titleBox" style="margin-bottom: 30px;">
 						<span class="qna_title">제목</span>
 						<span>
 							<input type="text" name="title" id="title" class="qnaTitle_input"
 								placeholder="제목을 반드시 입력하세요.">
 						</span>
 					</div>
-					<div class="readPost_info">
+					<div class="readPost_info" hidden>
 						<input class="color-choi qna_id" type="text" name="id" value="${loginID}" readonly>
 					</div>
 					<div class="qna_contentBox">
