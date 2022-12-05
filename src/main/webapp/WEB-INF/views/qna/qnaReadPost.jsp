@@ -63,58 +63,45 @@
 			alert(`${message}`);
 		</script>		
 	</c:if>
-   	<main>
-		<hr>
-		<h2>${one.title}</h2>
-		<c:if test="${not empty one}">
-			<table>
-				<tr height="40">
-					<th bgcolor="DarkKhaki" style="text-align: center;">Seq</th>
-					<td>${one.seq}</td>
-				</tr>
-				
-				<tr height="40">
-					<th bgcolor="DarkKhaki" style="text-align: center;">I  D</th>
-					<td>${one.id}</td>
-				</tr>
-				
-				<tr height="40">
-					<th bgcolor="DarkKhaki" style="text-align: center;">Title</th>
-					<td>${one.title}</td>
-				</tr>
-				
-				<tr height="40">
-					<th bgcolor="DarkKhaki" style="text-align: center;">Content</th>
-					<td><textarea rows="5" cols="50" readonly>${one.content}</textarea></td>
-				</tr>
-				
-				<tr height="40">
-					<th bgcolor="DarkKhaki" style="text-align: center;">RegDate</th>
-					<td>${one.regdate}</td>
-				</tr>
-				
-				<tr height="40">
-					<th bgcolor="DarkKhaki" style="text-align: center;">조회수</th>
-					<td>${one.cnt}</td>
-				</tr>
-			</table>
-		</c:if>
-	
-		<hr>
-		<c:if test="${loginID == one.id || loginID == 'admin'}">&nbsp;&nbsp;&nbsp;
-			<a href="qnaReadPost?jCode=U&seq=${one.seq}">[수정]</a>&nbsp;&nbsp;&nbsp;
-										<!-- root 추가 : 삭제 시 원글 삭제 or 댓글 삭제 확인을 위함 -->
-			<a href="qnaRemovePost?seq=${one.seq}&root=${one.root}" onclick="return removeQnA()">[삭제]</a>
-		</c:if>
-	
-		<c:if test="${not empty loginID}">&nbsp;&nbsp;&nbsp; 
-			<!-- 로그인ID가 비어있지 않고 admin이라면 -->
-			<c:if test="${loginID == 'admin'}">
-            	<a href="qnaWriteReplyForm?root=${one.root}&step=${one.step}&indent=${one.indent}&secret=${one.secret}">[답글 달기]</a>&nbsp;&nbsp;&nbsp;
-         	</c:if>
-			<a href="javascript:history.go(-1)">[목록으로]</a>
-		</c:if>
-		<hr>
+	<main>
+		<div class="readPost_outer">
+			<div class="readPost_container">
+				<div class="board_titleBox">
+					<span class="board_title">${one.title}</span>
+				</div>
+				<c:if test="${not empty one}">
+					<div class="readPost_contents" hidden>
+						<span>Seq</span>
+						<span>${one.seq}</span>
+						<input type="text" value="${one.seq}" id="seq">
+					</div>
+
+					<div class="readPost_info">
+						<div class="color-choi">${one.id} &nbsp;&nbsp; | &nbsp;&nbsp; ${one.regdate}</div>
+					</div>
+
+					<div class="board_contentBox">
+						<textarea readonly>${one.content}</textarea>
+					</div>
+				</c:if>
+			</div> <!-- readPost_container -->
+
+			<div class="readPost_btnBox">
+				<c:if test="${loginID == one.id || loginID == 'admin'}">
+					<a href="qnaModifyPost?jCode=U&seq=${one.seq}" class="readPost_btn">게시글 수정</a>
+					<!-- root 추가 : 삭제 시 원글 삭제 or 댓글 삭제 확인을 위함 -->
+					&nbsp;&nbsp;&nbsp;<a href="qnaRemovePost?seq=${one.seq}&root=${one.root}" class="readPost_btn"
+						onclick="return removeQnA()">게시글 삭제</a>
+				</c:if>
+				<c:if test="${loginID == 'admin'}">
+					&nbsp;&nbsp;&nbsp;<a
+						href="qnaWriteReplyForm?root=${one.root}&step=${one.step}&indent=${one.indent}&secret=${one.secret}"
+						class="readPost_btn">답글 달기</a>
+				</c:if>
+				&nbsp;&nbsp;&nbsp;<a href="qnaBoardList" class="readPost_btn"
+					style="margin-left: 100px;">목록으로</a>
+			</div><!-- readPost_btnBox -->
+		</div> <!-- readPost_outer -->
 	</main>
     <!-- Footer section -->
     <footer class="footer-section">
