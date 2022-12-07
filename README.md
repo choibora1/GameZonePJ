@@ -9,7 +9,7 @@
 이며,
 
 서버는
-<img src="https://img.shields.io/badge/Apache Tomcat 9.0-F8DC75?style=flat&logo=Apache Tomcat&logoColor=white"/>
+<img src="https://img.shields.io/badge/Apache Tomcat 9.0-F8DC75?style=flat&logo=Apache Tomcat&logoColor=black"/>
 사용하였고
 
 데이타베이스는
