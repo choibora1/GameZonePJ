@@ -14,7 +14,7 @@
 	<script src="resources/js/axFlashGame.js"></script>
 	<script>
         function detailContent() {
-        	alert('로그인 후 상세보기가 가능합니다 :-)')
+        	alert('로그인 후 해당 사이트로 이동 가능합니다 :-)')
         } // detailContent
 	</script>
 </head>
