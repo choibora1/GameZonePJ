@@ -99,9 +99,6 @@
 					<div class="qna_contentBox">
 						<span>내용</span>
 						<textarea name="content" id="content"></textarea>
-						<script>
-							CKEDITOR.replace('content');
-						</script>
 					</div>
 				</div>
 				<div class="readPost_btnBox">
