@@ -86,9 +86,12 @@
 	</c:if>
 	<main>
 		<form action="qnaWritePost" method="post" id="qnaForm">
+			<div class="main_title">
+				<h2>Q&amp;A | 작성</h2>
+			</div>
 			<div class="readPost_outer">
 				<div class="readPost_container">
-					<div class="qna_titleBox" style="margin-bottom: 30px;">
+					<div class="qna_titleBox">
 						<span class="qna_title">제목</span>
 						<span>
 							<input type="text" name="title" id="title" class="qnaTitle_input"
@@ -96,11 +99,14 @@
 						</span>
 					</div>
 					<div class="readPost_info" hidden>
-						<input class="color-choi qna_id" type="text" name="id" value="${loginID}" readonly>
+						<input class="color-choi qna_id" type="text" name="id" value="${loginID}" hidden>
 					</div>
 					<div class="qna_contentBox">
 						<span>내용</span>
 						<textarea name="content" id="content"></textarea>
+						<script>
+							CKEDITOR.replace('content');
+						</script>
 					</div>
 					<div class="secretBox">
 						<input type="checkbox" name="secret" id="secret" value="true">&nbsp;&nbsp;비밀글 설정
@@ -139,6 +145,7 @@
     </footer>
     <!-- Footer section end -->
    <!-- ====== Javascripts & Jquery ====== -->
+   <script src="resources/ckeditor/ckeditor.js"></script>
    <script src="resources/js/jquery-3.2.1.min.js"></script>
    <script src="resources/js/bootstrap.min.js"></script>
    <script src="resources/js/owl.carousel.min.js"></script>
