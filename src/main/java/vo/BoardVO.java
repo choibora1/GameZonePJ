@@ -17,4 +17,4 @@ public class BoardVO {
 	private int indent;
 	private int replyCount;
 
-} // class
+} // class.
